@@ -13,10 +13,10 @@ const CTASection = ({ countryName, trustedByText }: Props) => {
     { icon: Users, label: "Manage Clients" },
   ];
   return (
-    <section className="section-padding bg-gradient-to-br from-primary via-primary to-primary/90 relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden bg-primary">
       <div className="container-custom relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full text-primary-foreground/90 text-sm font-medium mb-8 border border-primary-foreground/20">
+        <div className="max-w-4xl text-left">
+          <div className="mb-8 inline-flex items-center gap-2 border border-primary-foreground/25 px-4 py-2 text-sm font-medium text-primary-foreground/90">
             <Sparkles className="w-4 h-4" />
             {trustedByText ?? "Trusted by 500+ Interior Professionals"}
           </div>
@@ -26,16 +26,16 @@ const CTASection = ({ countryName, trustedByText }: Props) => {
           <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10">
             Join hundreds of interior designers and contractors{countryName ? ` in ${countryName}` : ""} who have streamlined their business operations with Intorza.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center mb-10">
+           <div className="mb-10 flex flex-wrap gap-3">
             {actions.map((a) => (
               <a key={a.label} href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm px-6 py-3 rounded-xl text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300 border border-primary-foreground/20 hover:scale-105">
+                className="flex items-center gap-3 border border-primary-foreground/25 bg-primary-foreground/10 px-5 py-3 text-primary-foreground transition-colors hover:bg-primary-foreground/20">
                 <a.icon className="w-5 h-5" />
                 {a.label}
               </a>
             ))}
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col gap-4 sm:flex-row">
             <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
               <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">
                 Get Started Now <ArrowRight className="w-5 h-5 ml-2" />

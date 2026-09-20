@@ -14,7 +14,7 @@ const TestimonialsSection = ({ countryName }: Props) => {
   return (
     <section className="section-padding bg-secondary text-secondary-foreground overflow-hidden">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="mb-14 max-w-3xl text-left">
           <span className="inline-block text-primary-foreground/80 font-semibold text-sm uppercase tracking-wider mb-4">Testimonials</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Loved by Interior{" "}
@@ -25,9 +25,9 @@ const TestimonialsSection = ({ countryName }: Props) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid border-l border-t border-secondary-foreground/15 md:grid-cols-3">
           {baseTestimonials.map((t) => (
-            <div key={t.name} className="relative bg-secondary-foreground/5 backdrop-blur-sm rounded-2xl p-8 border border-secondary-foreground/10 hover:border-primary/50 transition-all duration-300 group">
+            <div key={t.name} className="group relative border-b border-r border-secondary-foreground/15 p-8 transition-colors hover:bg-secondary-foreground/5">
               <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/20 group-hover:text-primary/40 transition-colors duration-300" />
               <div className="flex gap-1 mb-6">
                 {Array.from({ length: 5 }).map((_, i) => (
