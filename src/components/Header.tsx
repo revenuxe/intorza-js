@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import intorzaLogo from "@/assets/intorza-logo.webp";
 
 const Header = () => {
@@ -22,38 +22,38 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
+        isScrolled ? "border-border bg-background/95 backdrop-blur-md py-3" : "border-transparent bg-background/80 py-5 backdrop-blur-sm"
       }`}
     >
-      <div className="container-custom flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={intorzaLogo} alt="Intorza" className="h-10 md:h-12 w-auto object-contain" />
+      <div className="container-custom grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:grid-cols-[auto_1fr_auto] lg:gap-10">
+        <Link to="/" className="flex min-w-0 items-center">
+          <img src={intorzaLogo} alt="Intorza" className="h-9 w-auto object-contain md:h-10" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden items-center gap-7 border-l border-border pl-8 lg:flex">
           {internal.map((link) => (
             <Link
               key={link.label}
               to={link.to}
-              className="text-foreground/80 hover:text-primary font-medium transition-colors"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden items-center gap-2 lg:flex">
           <Button variant="ghost" asChild>
             <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">Login</a>
           </Button>
-          <Button asChild>
-            <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">Create Quotation</a>
+          <Button asChild className="shadow-none">
+            <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">Create Quotation <ArrowUpRight /></a>
           </Button>
         </div>
 
         <button
-          className="lg:hidden p-2"
+          className="grid h-10 w-10 place-items-center rounded-md border border-border bg-background text-foreground lg:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -62,7 +62,7 @@ const Header = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-background shadow-lg border-t border-border z-50">
+        <div className="absolute left-0 right-0 top-full z-50 border-y border-border bg-background lg:hidden">
           <nav className="container-custom py-6 flex flex-col gap-4">
             {internal.map((link) => (
               <Link

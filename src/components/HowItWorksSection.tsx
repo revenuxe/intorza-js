@@ -11,7 +11,7 @@ const steps = [
 const HowItWorksSection = () => (
   <section id="how-it-works" className="section-padding">
     <div className="container-custom">
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="mb-14 max-w-3xl text-left">
         <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">How It Works</span>
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
           Get Started in <span className="text-gradient">4 Simple Steps</span>
@@ -20,22 +20,16 @@ const HowItWorksSection = () => (
       </div>
 
       <div className="relative">
-        <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 -translate-y-1/2" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid border-l border-t border-border md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
             <div key={step.number} className="relative group">
-              <div className="bg-card rounded-2xl p-6 border border-border/50 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 h-full">
-                <div className="relative z-10 w-16 h-16 rounded-2xl bg-gradient-cta flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl font-bold text-primary-foreground">{step.number}</span>
+              <div className="h-full border-b border-r border-border bg-card p-6 transition-colors hover:bg-muted/30">
+                <div className="relative z-10 mb-8 flex h-10 w-10 items-center justify-center border border-primary text-primary">
+                  <span className="text-sm font-bold">{step.number}</span>
                 </div>
                 <h3 className="font-display text-xl font-semibold text-foreground mb-3">{step.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
-              {i < steps.length - 1 && (
-                <div className="hidden lg:flex absolute top-1/2 -right-4 w-8 h-8 bg-background rounded-full items-center justify-center z-20 border border-border shadow-sm">
-                  <ArrowRight className="w-4 h-4 text-primary" />
-                </div>
-              )}
             </div>
           ))}
         </div>

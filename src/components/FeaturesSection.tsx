@@ -12,14 +12,14 @@ import myQuotationPreview from "@/assets/my-quotation-preview.webp";
 import siteMeasurementPreview from "@/assets/site-measurement-preview.webp";
 
 const features = [
-  { icon: LayoutDashboard, title: "Smart Dashboard", description: "Complete overview of your business with real-time metrics, revenue tracking, and project status.", color: "bg-blue-500/10 text-blue-600" },
-  { icon: Ruler, title: "Site Measurement", description: "Capture and organize site measurements digitally. Assign to team members and sync across devices.", color: "bg-primary/10 text-primary" },
-  { icon: FileText, title: "Quotation Builder", description: "Create professional quotations with customizable templates. Track status from pending to accepted.", color: "bg-intorza-green/20 text-intorza-green" },
-  { icon: Receipt, title: "Invoice Management", description: "Generate invoices instantly from accepted quotations. Track payments and outstanding balances.", color: "bg-intorza-amber/20 text-intorza-amber" },
-  { icon: Users, title: "Client Management", description: "Detailed client records with project history, billing information, and communication logs.", color: "bg-secondary/10 text-secondary" },
-  { icon: UserPlus, title: "Team Collaboration", description: "Add team members, assign roles, track attendance, and manage project assignments.", color: "bg-purple-500/10 text-purple-600" },
-  { icon: BarChart3, title: "Analytics & Reports", description: "Detailed reports on conversion rates, revenue trends, and project performance.", color: "bg-teal-500/10 text-teal-600" },
-  { icon: Shield, title: "Secure & Reliable", description: "Enterprise-grade security with encrypted data storage. Your business data is always safe.", color: "bg-rose-500/10 text-rose-600" },
+  { icon: LayoutDashboard, title: "Smart Dashboard", description: "Complete overview of your business with real-time metrics, revenue tracking, and project status." },
+  { icon: Ruler, title: "Site Measurement", description: "Capture and organize site measurements digitally. Assign to team members and sync across devices." },
+  { icon: FileText, title: "Quotation Builder", description: "Create professional quotations with customizable templates. Track status from pending to accepted." },
+  { icon: Receipt, title: "Invoice Management", description: "Generate invoices instantly from accepted quotations. Track payments and outstanding balances." },
+  { icon: Users, title: "Client Management", description: "Detailed client records with project history, billing information, and communication logs." },
+  { icon: UserPlus, title: "Team Collaboration", description: "Add team members, assign roles, track attendance, and manage project assignments." },
+  { icon: BarChart3, title: "Analytics & Reports", description: "Detailed reports on conversion rates, revenue trends, and project performance." },
+  { icon: Shield, title: "Secure & Reliable", description: "Enterprise-grade security with encrypted data storage. Your business data is always safe." },
 ];
 
 const showcases = [
@@ -36,13 +36,12 @@ const showcases = [
 const FeaturesSection = () => (
   <section id="features" className="section-padding bg-muted/30">
     <div className="container-custom">
-      <div className="space-y-24 md:space-y-32 mb-32">
+      <div className="mb-32 space-y-24 md:space-y-32">
         {showcases.map((s) => (
           <div key={s.tag} className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className={s.reverse ? "lg:order-2" : "lg:order-1"}>
-              <div className="relative group">
-                <div className={`absolute -inset-4 ${s.colorClass} rounded-3xl blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
-                <img src={s.image} alt={s.title} loading="lazy" decoding="async" className="relative rounded-2xl shadow-lg border border-border group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500 w-full h-auto object-cover object-top" />
+              <div className="group border border-border bg-card p-2">
+                <img src={s.image} alt={s.title} loading="lazy" decoding="async" className="h-auto w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]" />
               </div>
               <div className="mt-6 text-center lg:text-left">
                 <Button size="lg" asChild className="group shadow-lg hover:shadow-xl">
@@ -54,7 +53,7 @@ const FeaturesSection = () => (
               </div>
             </div>
             <div className={s.reverse ? "lg:order-1" : "lg:order-2"}>
-              <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">{s.tag}</span>
+              <span className="mb-4 inline-block text-sm font-semibold uppercase text-primary">{s.tag}</span>
               <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">{s.title}</h3>
               <p className="text-muted-foreground text-lg mb-6">{s.description}</p>
               <ul className="space-y-3">
@@ -72,7 +71,7 @@ const FeaturesSection = () => (
         ))}
       </div>
 
-      <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="mb-14 max-w-3xl text-left">
         <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Powerful Features</span>
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
           Everything You Need to Run Your <span className="text-gradient">Interior Business</span>
@@ -80,10 +79,10 @@ const FeaturesSection = () => (
         <p className="text-lg text-muted-foreground">From the first site visit to the final invoice, Intorza covers every aspect of your business workflow with intuitive tools designed for interior professionals.</p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">
         {features.map((f) => (
-          <div key={f.title} className="group bg-card rounded-2xl p-6 border border-border/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-            <div className={`w-12 h-12 rounded-xl ${f.color} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+          <div key={f.title} className="group border-b border-r border-border bg-card p-6 transition-colors hover:bg-background">
+            <div className="mb-5 grid h-10 w-10 place-items-center border border-border text-primary transition-colors group-hover:border-primary">
               <f.icon className="w-6 h-6" />
             </div>
             <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{f.title}</h3>
