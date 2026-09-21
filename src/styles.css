@@ -136,6 +136,139 @@
   backdrop-filter: blur(6px);
 }
 
+/* ===== Bold offset-frame design language (site-wide) ===== */
+
+/* Monospace metadata eyebrow label */
+@utility eyebrow-tag {
+  display: inline-block;
+  border: 1px solid var(--foreground);
+  background-color: color-mix(in oklab, var(--intorza-amber) 22%, transparent);
+  padding: 0.25rem 0.5rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--foreground);
+}
+
+@utility eyebrow-tag-invert {
+  display: inline-block;
+  border: 1px solid color-mix(in oklab, var(--primary-foreground) 45%, transparent);
+  background-color: color-mix(in oklab, var(--primary-foreground) 12%, transparent);
+  padding: 0.25rem 0.5rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--primary-foreground);
+}
+
+/* Hard architectural frame */
+@utility frame-box {
+  border: 2px solid var(--foreground);
+  background-color: var(--card);
+}
+
+@utility frame-hard {
+  border: 2px solid var(--foreground);
+  background-color: var(--card);
+  box-shadow: 8px 8px 0 0 var(--foreground);
+}
+
+@utility frame-hard-sm {
+  border: 2px solid var(--foreground);
+  background-color: var(--card);
+  box-shadow: 5px 5px 0 0 var(--foreground);
+}
+
+/* Pressable hard-shadow buttons */
+@utility btn-hard {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--foreground);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 1rem 2rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  box-shadow: 4px 4px 0 0 var(--foreground);
+  transition: all 0.15s ease;
+}
+@utility btn-hard-hover {
+  &:hover { transform: translate(4px, 4px); box-shadow: none; }
+}
+
+@utility btn-hard-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--foreground);
+  background-color: transparent;
+  color: var(--foreground);
+  padding: 1rem 2rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  box-shadow: 4px 4px 0 0 var(--foreground);
+  transition: all 0.15s ease;
+}
+
+@utility btn-hard-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--primary-foreground);
+  background-color: var(--primary-foreground);
+  color: var(--primary);
+  padding: 1rem 2rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  box-shadow: 4px 4px 0 0 color-mix(in oklab, var(--foreground) 80%, transparent);
+  transition: all 0.15s ease;
+}
+
+@utility btn-hard-light-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in oklab, var(--primary-foreground) 60%, transparent);
+  background-color: transparent;
+  color: var(--primary-foreground);
+  padding: 1rem 2rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  transition: all 0.15s ease;
+}
+
+/* Rotated square bullet marker */
+@utility bullet-diamond {
+  display: inline-block;
+  height: 0.5rem;
+  width: 0.5rem;
+  flex-shrink: 0;
+  rotate: 45deg;
+  background-color: var(--intorza-green);
+}
+
+
 @layer base {
   * {
     border-color: var(--color-border);
