@@ -140,7 +140,10 @@
   * {
     border-color: var(--color-border);
   }
-  html { scroll-behavior: smooth; }
+  /* Smooth scrolling only for explicit in-page anchor jumps, so it never
+     fights with router scroll restoration. */
+  html:focus-within { scroll-behavior: auto; }
+  html { scroll-behavior: auto; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
