@@ -1,7 +1,6 @@
 import {
   LayoutDashboard, Ruler, FileText, Receipt, Users, UserPlus, BarChart3, Shield, ArrowRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import dashboardPreview from "@/assets/dashboard-preview.webp";
 import quotationPreview from "@/assets/quotation-preview.webp";
 import invoicePreview from "@/assets/invoice-preview.webp";
@@ -37,39 +36,58 @@ const FeaturesSection = () => (
   <section id="features" className="section-padding bg-muted/30">
     <div className="container-custom">
       <div className="mb-32 space-y-24 md:space-y-32">
-        {showcases.map((s) => (
-          <div key={s.tag} className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className={s.reverse ? "lg:order-2" : "lg:order-1"}>
-              <div className="group border border-border bg-card p-2">
-                <img src={s.image} alt={s.title} loading="lazy" decoding="async" className="h-auto w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]" />
-              </div>
-              <div className="mt-6 text-center lg:text-left">
-                <Button size="lg" asChild className="group shadow-lg hover:shadow-xl">
-                  <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">
-                    {s.ctaText}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
+        {showcases.map((s, i) => (
+          <div key={s.tag} className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            <div className={`relative ${s.reverse ? "lg:order-1" : "lg:order-2"}`}>
+              <div
+                className={`pointer-events-none absolute inset-0 border-2 border-foreground bg-foreground/5 ${
+                  s.reverse ? "-translate-x-3 translate-y-3" : "translate-x-3 translate-y-3"
+                }`}
+                aria-hidden="true"
+              />
+              <div className="relative border-2 border-foreground bg-card">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full object-cover object-top"
+                />
               </div>
             </div>
-            <div className={s.reverse ? "lg:order-1" : "lg:order-2"}>
-              <span className="mb-4 inline-block text-sm font-semibold uppercase text-primary">{s.tag}</span>
-              <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">{s.title}</h3>
-              <p className="text-muted-foreground text-lg mb-6">{s.description}</p>
-              <ul className="space-y-3">
+
+            <div className={`flex flex-col items-start gap-6 ${s.reverse ? "lg:order-2" : "lg:order-1"}`}>
+              <span className="inline-block border border-foreground bg-intorza-amber/20 px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-foreground">
+                Feature {String(i + 1).padStart(2, "0")} — {s.tag}
+              </span>
+              <div className="space-y-4">
+                <h3 className="font-display text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-[2.75rem]">
+                  {s.title}
+                </h3>
+                <p className="text-lg leading-relaxed text-muted-foreground">{s.description}</p>
+              </div>
+              <ul className="grid w-full grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
                 {s.points.map((p) => (
-                  <li key={p} className="flex items-center gap-3 text-foreground">
-                    <div className="w-5 h-5 rounded-full bg-intorza-green/20 flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-intorza-green" />
-                    </div>
-                    {p}
+                  <li key={p} className="flex items-center gap-3">
+                    <span className="h-2 w-2 rotate-45 bg-intorza-green" aria-hidden="true" />
+                    <span className="text-sm font-semibold text-foreground">{p}</span>
                   </li>
                 ))}
               </ul>
+              <a
+                href="https://www.app.intorza.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 border border-foreground bg-primary px-8 py-4 font-display text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground shadow-[4px_4px_0px_0px_var(--foreground)] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+              >
+                {s.ctaText}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </a>
             </div>
           </div>
         ))}
       </div>
+
 
       <div className="mb-14 max-w-3xl text-left">
         <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">Powerful Features</span>
