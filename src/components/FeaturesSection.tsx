@@ -1,7 +1,6 @@
 import {
   LayoutDashboard, Ruler, FileText, Receipt, Users, UserPlus, BarChart3, Shield, ArrowRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import dashboardPreview from "@/assets/dashboard-preview.webp";
 import quotationPreview from "@/assets/quotation-preview.webp";
 import invoicePreview from "@/assets/invoice-preview.webp";
