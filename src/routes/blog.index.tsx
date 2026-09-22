@@ -251,7 +251,7 @@ function ClusterSection({ cluster }: { cluster: Cluster }) {
 
 function PillarCard({ post }: { post: BlogPost }) {
  return (
- <article className="relative overflow-hidden border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card p-6 md:p-10 hover: transition-all">
+ <article className="relative overflow-hidden border-2 border-foreground bg-card shadow-[8px_8px_0_0_var(--foreground)] p-6 md:p-10 transition-all">
  <div className="grid md:grid-cols-5 gap-8 items-center">
  <div className="md:col-span-3">
  <span className="inline-block bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 mb-4">
@@ -303,7 +303,7 @@ function PillarCard({ post }: { post: BlogPost }) {
 
 function PostCard({ post }: { post: BlogPost }) {
  return (
- <article className="bg-card overflow-hidden border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] hover: hover:-translate-y-2 transition-all duration-500 group flex flex-col">
+ <article className="bg-card overflow-hidden border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] hover:-translate-y-2 transition-all duration-500 group flex flex-col">
  <Link to="/blog/$slug" params={{ slug: post.slug }}>
  {post.cover_image ? (
  <img
