@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, FileText, Receipt, Users } from "lucide-react";
+import { ArrowRight, FileText, Receipt, Users } from "lucide-react";
 
 interface Props {
   countryName?: string;
@@ -13,37 +12,40 @@ const CTASection = ({ countryName, trustedByText }: Props) => {
     { icon: Users, label: "Manage Clients" },
   ];
   return (
-    <section className="section-padding relative overflow-hidden bg-primary">
+    <section className="section-padding relative overflow-hidden border-t-2 border-foreground bg-primary">
       <div className="container-custom relative z-10">
         <div className="max-w-4xl text-left">
-          <div className="mb-8 inline-flex items-center gap-2 border border-primary-foreground/25 px-4 py-2 text-sm font-medium text-primary-foreground/90">
-            <Sparkles className="w-4 h-4" />
+          <span className="eyebrow-tag-invert mb-8">
             {trustedByText ?? "Trusted by 500+ Interior Professionals"}
-          </div>
+          </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
             Start Managing Your<br />Interior Projects{countryName ? ` in ${countryName}` : " Today"}
           </h2>
-          <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-10">
+          <p className="text-lg md:text-xl text-primary-foreground/85 max-w-2xl mb-10">
             Join hundreds of interior designers and contractors{countryName ? ` in ${countryName}` : ""} who have streamlined their business operations with Intorza.
           </p>
-           <div className="mb-10 flex flex-wrap gap-3">
+          <div className="mb-10 grid gap-4 sm:grid-cols-3">
             {actions.map((a) => (
-              <a key={a.label} href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-3 border border-primary-foreground/25 bg-primary-foreground/10 px-5 py-3 text-primary-foreground transition-colors hover:bg-primary-foreground/20">
+              <a
+                key={a.label}
+                href="https://www.app.intorza.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 border-2 border-primary-foreground px-5 py-4 font-display text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground transition-transform duration-150 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none"
+                style={{ boxShadow: "4px 4px 0 0 var(--primary-foreground)" }}
+              >
                 <a.icon className="w-5 h-5" />
                 {a.label}
               </a>
             ))}
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90" asChild>
-              <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">
-                Get Started Now <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
-              <a href="mailto:intorza.com@gmail.com">Contact Us</a>
-            </Button>
+            <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard-light btn-hard-hover">
+              Get Started Now <ArrowRight className="w-4 h-4" />
+            </a>
+            <a href="mailto:intorza.com@gmail.com" className="btn-hard-light-ghost">
+              Contact Us
+            </a>
           </div>
         </div>
       </div>
