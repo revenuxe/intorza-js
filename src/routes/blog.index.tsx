@@ -303,7 +303,7 @@ function PillarCard({ post }: { post: BlogPost }) {
 
 function PostCard({ post }: { post: BlogPost }) {
  return (
- <article className="bg-card overflow-hidden border-2 border-foreground hover: hover:-translate-y-2 transition-all duration-500 group flex flex-col">
+ <article className="bg-card overflow-hidden border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] hover: hover:-translate-y-2 transition-all duration-500 group flex flex-col">
  <Link to="/blog/$slug" params={{ slug: post.slug }}>
  {post.cover_image ? (
  <img

@@ -63,7 +63,7 @@ function About() {
 
  <section className="section-padding">
  <div className="container-custom grid md:grid-cols-2 gap-12">
- <div className="bg-card p-8 border-2 border-foreground">
+ <div className="bg-card p-8 border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)]">
  <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
  <Target className="w-7 h-7 text-primary" />
  </div>
@@ -72,7 +72,7 @@ function About() {
  To provide interior professionals with powerful, easy-to-use tools that streamline their business operations.
  </p>
  </div>
- <div className="bg-card p-8 border-2 border-foreground">
+ <div className="bg-card p-8 border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)]">
  <div className="w-14 h-14 bg-secondary/10 flex items-center justify-center mb-6">
  <Eye className="w-7 h-7 text-secondary" />
  </div>
@@ -89,7 +89,7 @@ function About() {
  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">What Drives Us</h2>
  <div className="grid md:grid-cols-3 gap-8">
  {values.map((v) => (
- <div key={v.title} className="bg-card p-8 border-2 border-foreground text-center">
+ <div key={v.title} className="bg-card p-8 border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] text-center">
  <div className="w-16 h-16 bg-primary/10 flex items-center justify-center mx-auto mb-6">
  <v.icon className="w-8 h-8 text-primary" />
  </div>

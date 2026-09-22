@@ -50,7 +50,7 @@ function Careers() {
  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Why Work With Us?</h2>
  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
  {benefits.map((b) => (
- <div key={b} className="flex items-center gap-3 bg-card p-4 border-2 border-foreground">
+ <div key={b} className="flex items-center gap-3 bg-card p-4 border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)]">
  <div className="w-3 h-3 bg-intorza-green" />
  <span className="text-foreground">{b}</span>
  </div>
@@ -64,7 +64,7 @@ function Careers() {
  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Current Openings</h2>
  <div className="space-y-4">
  {positions.map((p) => (
- <div key={p.title} className="bg-card p-6 border-2 border-foreground">
+ <div key={p.title} className="bg-card p-6 border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)]">
  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
  <div>
  <h3 className="font-display text-xl font-semibold mb-2">{p.title}</h3>

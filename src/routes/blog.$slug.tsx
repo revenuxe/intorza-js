@@ -158,7 +158,7 @@ function BlogDetail() {
  <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">Related Articles</h2>
  <div className="grid md:grid-cols-3 gap-8">
  {related.map((r: typeof post) => (
- <article key={r.id} className="bg-card overflow-hidden border-2 border-foreground hover: transition-all duration-300">
+ <article key={r.id} className="bg-card overflow-hidden border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] hover: transition-all duration-300">
  <Link to="/blog/$slug" params={{ slug: r.slug }}>
  {r.cover_image ? (
  <img src={r.cover_image} alt={r.title} className="w-full h-40 object-cover" />
