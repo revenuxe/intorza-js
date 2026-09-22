@@ -82,7 +82,7 @@ export const Route = createFileRoute("/blog/")({
             router.invalidate();
             reset();
           }}
-          className="px-4 py-2 rounded-md bg-primary text-primary-foreground"
+          className="px-4 py-2 bg-primary text-primary-foreground"
         >
           Try again
         </button>
@@ -105,11 +105,7 @@ function buildClusters(posts: BlogPost[]): Cluster[] {
     byCategory.get(c)!.push(p);
   }
   // Preferred order for known pillars.
-  const order = [
-    "Quotation Software",
-    "GST & Compliance",
-    "Project Management",
-  ];
+  const order = ["Quotation Software", "GST & Compliance", "Project Management"];
   const keys = [
     ...order.filter((k) => byCategory.has(k)),
     ...Array.from(byCategory.keys()).filter((k) => !order.includes(k)),
@@ -128,10 +124,7 @@ function BlogIndex() {
   const navigate = Route.useNavigate();
 
   const clusters = useMemo(() => buildClusters(posts), [posts]);
-  const topics = useMemo(
-    () => ["All", ...clusters.map((c) => c.category)],
-    [clusters],
-  );
+  const topics = useMemo(() => ["All", ...clusters.map((c) => c.category)], [clusters]);
   const active = topic && topics.includes(topic) ? topic : "All";
   const visibleClusters =
     active === "All" ? clusters : clusters.filter((c) => c.category === active);
@@ -155,8 +148,8 @@ function BlogIndex() {
               Insights for <span className="text-gradient">Interior Professionals</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Deep, cluster-organised playbooks on quotations, GST invoicing and
-              project management — written for interior designers and contractors.
+              Deep, cluster-organised playbooks on quotations, GST invoicing and project management
+              — written for interior designers and contractors.
             </p>
           </div>
         </section>
@@ -179,10 +172,10 @@ function BlogIndex() {
                       aria-selected={selected}
                       onClick={() => setTopic(t)}
                       className={cn(
-                        "px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all border",
+                        "px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] whitespace-nowrap transition-all border-2 border-foreground",
                         selected
-                          ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                          : "bg-card text-foreground border-border hover:border-primary/40 hover:text-primary",
+                          ? "bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--foreground)]"
+                          : "bg-card text-foreground hover:bg-muted",
                       )}
                     >
                       {t}
@@ -231,8 +224,8 @@ function ClusterSection({ cluster }: { cluster: Cluster }) {
           </h2>
         </div>
         <p className="text-sm text-muted-foreground max-w-md">
-          {cluster.posts.length + (cluster.pillar ? 1 : 0)} articles — start with the
-          pillar guide, then go deep with the clusters.
+          {cluster.posts.length + (cluster.pillar ? 1 : 0)} articles — start with the pillar guide,
+          then go deep with the clusters.
         </p>
       </header>
 
@@ -251,10 +244,10 @@ function ClusterSection({ cluster }: { cluster: Cluster }) {
 
 function PillarCard({ post }: { post: BlogPost }) {
   return (
-    <article className="relative overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card p-6 md:p-10 shadow-md hover:shadow-xl transition-all">
+    <article className="relative overflow-hidden border-2 border-foreground bg-card shadow-[8px_8px_0_0_var(--foreground)] p-6 md:p-10 transition-all">
       <div className="grid md:grid-cols-5 gap-8 items-center">
         <div className="md:col-span-3">
-          <span className="inline-block bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          <span className="inline-block bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 mb-4">
             Pillar Guide
           </span>
           <Link to="/blog/$slug" params={{ slug: post.slug }}>
@@ -291,7 +284,7 @@ function PillarCard({ post }: { post: BlogPost }) {
                 alt={post.title}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-48 md:h-56 object-cover rounded-2xl"
+                className="w-full h-48 md:h-56 object-cover "
               />
             </Link>
           </div>
@@ -303,7 +296,7 @@ function PillarCard({ post }: { post: BlogPost }) {
 
 function PostCard({ post }: { post: BlogPost }) {
   return (
-    <article className="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group flex flex-col">
+    <article className="bg-card overflow-hidden border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] hover:-translate-y-2 transition-all duration-500 group flex flex-col">
       <Link to="/blog/$slug" params={{ slug: post.slug }}>
         {post.cover_image ? (
           <img

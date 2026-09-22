@@ -12,36 +12,42 @@ const baseTestimonials = [
 
 const TestimonialsSection = ({ countryName }: Props) => {
   return (
-    <section className="section-padding bg-secondary text-secondary-foreground overflow-hidden">
+    <section className="section-padding border-y-2 border-foreground bg-secondary text-secondary-foreground overflow-hidden">
       <div className="container-custom">
         <div className="mb-14 max-w-3xl text-left">
-          <span className="inline-block text-primary-foreground/80 font-semibold text-sm uppercase tracking-wider mb-4">Testimonials</span>
+          <span className="eyebrow-tag-invert mb-6">Testimonials</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Loved by Interior{" "}
-            <span className="text-primary">Professionals{countryName ? ` in ${countryName}` : ""}</span>
+            <span className="text-intorza-amber">Professionals{countryName ? ` in ${countryName}` : ""}</span>
           </h2>
           <p className="text-lg text-secondary-foreground/70">
             See what our users have to say about how Intorza has helped them grow their business.
           </p>
         </div>
 
-        <div className="grid border-l border-t border-secondary-foreground/15 md:grid-cols-3">
-          {baseTestimonials.map((t) => (
-            <div key={t.name} className="group relative border-b border-r border-secondary-foreground/15 p-8 transition-colors hover:bg-secondary-foreground/5">
-              <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/20 group-hover:text-primary/40 transition-colors duration-300" />
+        <div className="grid gap-6 md:grid-cols-3">
+          {baseTestimonials.map((t, i) => (
+            <div
+              key={t.name}
+              className="group relative border-2 border-primary-foreground bg-secondary p-8 shadow-[6px_6px_0_0_var(--primary-foreground)] transition-transform duration-150 hover:translate-x-[6px] hover:translate-y-[6px] hover:shadow-none"
+            >
+              <span className="absolute -top-3 left-6 border border-primary-foreground bg-secondary px-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <Quote className="absolute top-6 right-6 w-9 h-9 text-primary-foreground/25" />
               <div className="flex gap-1 mb-6">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                {Array.from({ length: 5 }).map((_, s) => (
+                  <Star key={s} className="w-4 h-4 fill-intorza-amber text-intorza-amber" />
                 ))}
               </div>
               <p className="text-secondary-foreground/90 leading-relaxed mb-8">"{t.content}"</p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-lg">
+              <div className="flex items-center gap-4 border-t border-primary-foreground/30 pt-5">
+                <div className="grid h-11 w-11 place-items-center border-2 border-primary-foreground font-display text-lg font-bold">
                   {t.name.charAt(0)}
                 </div>
                 <div>
                   <div className="font-semibold text-secondary-foreground">{t.name}</div>
-                  <div className="text-sm text-secondary-foreground/60">{t.role}, {t.company}</div>
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-secondary-foreground/60">{t.role}, {t.company}</div>
                 </div>
               </div>
             </div>

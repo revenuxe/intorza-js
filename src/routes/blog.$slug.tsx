@@ -48,12 +48,14 @@ export const Route = createFileRoute("/blog/$slug")({
       links: [
         { rel: "canonical", href: url },
         ...(post.cover_image
-          ? [{
-              rel: "preload" as const,
-              as: "image" as const,
-              href: image,
-              fetchpriority: "high" as const,
-            }]
+          ? [
+              {
+                rel: "preload" as const,
+                as: "image" as const,
+                href: image,
+                fetchpriority: "high" as const,
+              },
+            ]
           : []),
       ],
       scripts: [
@@ -68,7 +70,11 @@ export const Route = createFileRoute("/blog/$slug")({
             dateModified: post.updated_at,
             image: [image],
             author: { "@type": "Organization", name: "Intorza", url: SITE_URL },
-            publisher: { "@type": "Organization", name: "Intorza", logo: { "@type": "ImageObject", url: `${SITE_URL}/intorza-logo.webp` } },
+            publisher: {
+              "@type": "Organization",
+              name: "Intorza",
+              logo: { "@type": "ImageObject", url: `${SITE_URL}/intorza-logo.webp` },
+            },
             mainEntityOfPage: { "@type": "WebPage", "@id": url },
           }),
         },
@@ -89,7 +95,15 @@ export const Route = createFileRoute("/blog/$slug")({
     const router = useRouter();
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <button onClick={() => { router.invalidate(); reset(); }} className="px-4 py-2 rounded-md bg-primary text-primary-foreground">Try again</button>
+        <button
+          onClick={() => {
+            router.invalidate();
+            reset();
+          }}
+          className="px-4 py-2 bg-primary text-primary-foreground"
+        >
+          Try again
+        </button>
       </div>
     );
   },
@@ -100,7 +114,10 @@ export const Route = createFileRoute("/blog/$slug")({
         <div className="container-custom text-center">
           <h1 className="font-display text-3xl font-bold mb-4">Post Not Found</h1>
           <Button asChild>
-            <Link to="/blog"><ArrowLeft className="w-4 h-4 mr-2" />Back to Blog</Link>
+            <Link to="/blog">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Blog
+            </Link>
           </Button>
         </div>
       </main>
@@ -127,22 +144,35 @@ function BlogDetail() {
               ]}
               className="mb-6"
             />
-            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8"
+            >
               <ArrowLeft className="w-4 h-4" /> Back to Blog
             </Link>
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
               {post.title}
             </h1>
             <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
-              <span className="flex items-center gap-2"><Calendar className="w-5 h-5" />{formatDate(post.created_at)}</span>
-              <span className="flex items-center gap-2"><Clock className="w-5 h-5" />{estimateReadTime(post.content)}</span>
+              <span className="flex items-center gap-2">
+                <Calendar className="w-5 h-5" />
+                {formatDate(post.created_at)}
+              </span>
+              <span className="flex items-center gap-2">
+                <Clock className="w-5 h-5" />
+                {estimateReadTime(post.content)}
+              </span>
             </div>
           </div>
         </section>
 
         {post.cover_image && (
           <section className="container-custom -mt-8 relative z-10 max-w-4xl">
-            <img src={post.cover_image} alt={post.title} className="w-full h-auto max-h-[500px] object-cover rounded-2xl shadow-2xl" />
+            <img
+              src={post.cover_image}
+              alt={post.title}
+              className="w-full h-auto max-h-[500px] object-cover "
+            />
           </section>
         )}
 
@@ -155,18 +185,29 @@ function BlogDetail() {
         {related.length > 0 && (
           <section className="section-padding bg-muted/30">
             <div className="container-custom max-w-5xl">
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">Related Articles</h2>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+                Related Articles
+              </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {related.map((r: typeof post) => (
-                  <article key={r.id} className="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300">
+                  <article
+                    key={r.id}
+                    className="bg-card overflow-hidden border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] transition-all duration-300"
+                  >
                     <Link to="/blog/$slug" params={{ slug: r.slug }}>
                       {r.cover_image ? (
-                        <img src={r.cover_image} alt={r.title} className="w-full h-40 object-cover" />
+                        <img
+                          src={r.cover_image}
+                          alt={r.title}
+                          className="w-full h-40 object-cover"
+                        />
                       ) : (
                         <div className="h-40 bg-gradient-to-br from-primary/20 to-secondary/20" />
                       )}
                       <div className="p-5">
-                        <h3 className="font-display font-semibold text-foreground mb-2 line-clamp-2">{r.title}</h3>
+                        <h3 className="font-display font-semibold text-foreground mb-2 line-clamp-2">
+                          {r.title}
+                        </h3>
                         <p className="text-sm text-muted-foreground line-clamp-2">
                           {r.excerpt || r.content.substring(0, 100)}
                         </p>

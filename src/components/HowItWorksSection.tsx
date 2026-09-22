@@ -1,5 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const steps = [
   { number: "01", title: "Create Quotation", description: "Build professional quotations with our intuitive builder." },
@@ -9,38 +8,37 @@ const steps = [
 ];
 
 const HowItWorksSection = () => (
-  <section id="how-it-works" className="section-padding">
+  <section id="how-it-works" className="section-padding border-b-2 border-foreground">
     <div className="container-custom">
       <div className="mb-14 max-w-3xl text-left">
-        <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">How It Works</span>
+        <span className="eyebrow-tag mb-6">How It Works</span>
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-          Get Started in <span className="text-gradient">4 Simple Steps</span>
+          Get Started in <span className="text-primary">4 Simple Steps</span>
         </h2>
         <p className="text-lg text-muted-foreground">Intorza is designed to be intuitive and easy to use. Start managing your interior business in minutes.</p>
       </div>
 
-      <div className="relative">
-        <div className="grid border-l border-t border-border md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <div key={step.number} className="relative group">
-              <div className="h-full border-b border-r border-border bg-card p-6 transition-colors hover:bg-muted/30">
-                <div className="relative z-10 mb-8 flex h-10 w-10 items-center justify-center border border-primary text-primary">
-                  <span className="text-sm font-bold">{step.number}</span>
-                </div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-              </div>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step) => (
+          <div key={step.number} className="frame-hard-sm p-6 transition-transform duration-150 hover:translate-x-[5px] hover:translate-y-[5px] hover:shadow-none">
+            <div className="mb-8 inline-flex h-10 w-10 items-center justify-center border-2 border-foreground bg-[color-mix(in_oklab,var(--intorza-amber)_25%,transparent)] font-mono text-xs font-bold text-foreground">
+              {step.number}
             </div>
-          ))}
-        </div>
+            <h3 className="font-display text-xl font-semibold text-foreground mb-3">{step.title}</h3>
+            <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+          </div>
+        ))}
       </div>
 
-      <div className="text-center mt-16">
-        <Button size="lg" asChild>
-          <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">
-            Start Your Free Trial <ArrowRight className="w-5 h-5 ml-2" />
-          </a>
-        </Button>
+      <div className="mt-16">
+        <a
+          href="https://www.app.intorza.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-hard btn-hard-hover"
+        >
+          Start Your Free Trial <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
     </div>
   </section>

@@ -7,7 +7,8 @@ import { SITE_URL } from "@/lib/site";
 import { socialImageMeta } from "@/lib/seo";
 
 const TITLE = "Contact Us — Get in Touch with the Intorza Team";
-const DESCRIPTION = "Have questions about Intorza? Contact our team for support, partnerships, or general inquiries.";
+const DESCRIPTION =
+  "Have questions about Intorza? Contact our team for support, partnerships, or general inquiries.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -35,7 +36,11 @@ export const Route = createFileRoute("/contact")({
             "@type": "Organization",
             name: "Intorza",
             email: "intorza.com@gmail.com",
-            contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: "intorza.com@gmail.com" },
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer support",
+              email: "intorza.com@gmail.com",
+            },
           },
         }),
       },
@@ -46,7 +51,12 @@ export const Route = createFileRoute("/contact")({
 
 function Contact() {
   const info = [
-    { icon: Mail, title: "Email Us", detail: "intorza.com@gmail.com", href: "mailto:intorza.com@gmail.com" },
+    {
+      icon: Mail,
+      title: "Email Us",
+      detail: "intorza.com@gmail.com",
+      href: "mailto:intorza.com@gmail.com",
+    },
     { icon: MapPin, title: "Our Location", detail: "Bangalore, India" },
     { icon: Clock, title: "Business Hours", detail: "Mon - Sat: 9AM - 6PM IST" },
   ];
@@ -61,7 +71,8 @@ function Contact() {
               Get in <span className="text-primary">Touch</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground">
-              Have questions about Intorza? Our team is here to help you streamline your interior design business.
+              Have questions about Intorza? Our team is here to help you streamline your interior
+              design business.
             </p>
           </div>
         </section>
@@ -69,13 +80,18 @@ function Contact() {
         <section className="section-padding">
           <div className="container-custom grid md:grid-cols-3 gap-6 max-w-5xl">
             {info.map((item) => (
-              <div key={item.title} className="bg-card border border-border rounded-2xl p-6 text-center">
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div
+                key={item.title}
+                className="bg-card border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] p-6 text-center"
+              >
+                <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-display font-semibold text-lg mb-2">{item.title}</h3>
                 {item.href ? (
-                  <a href={item.href} className="text-primary font-medium hover:underline">{item.detail}</a>
+                  <a href={item.href} className="text-primary font-medium hover:underline">
+                    {item.detail}
+                  </a>
                 ) : (
                   <p className="text-foreground font-medium">{item.detail}</p>
                 )}
