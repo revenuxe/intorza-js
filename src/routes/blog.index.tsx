@@ -179,10 +179,11 @@ function BlogIndex() {
  aria-selected={selected}
  onClick={() => setTopic(t)}
  className={cn(
- "px-4 py-2 text-sm font-medium whitespace-nowrap transition-all border",
+ "px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.14em] whitespace-nowrap transition-all border-2 border-foreground",
  selected
- ? "bg-primary text-primary-foreground border-primary "
- : "bg-card text-foreground border-border hover:border-primary/40 hover:text-primary",
+ ? "bg-primary text-primary-foreground shadow-[3px_3px_0_0_var(--foreground)]"
+ : "bg-card text-foreground hover:bg-muted",
+
  )}
  >
  {t}
