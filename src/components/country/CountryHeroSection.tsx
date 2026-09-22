@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { ArrowRight, FolderOpen, Users } from "lucide-react";
 import dashboardPreview from "@/assets/dashboard-preview.webp";
 import type { CountryData } from "@/data/countries";
@@ -6,48 +5,53 @@ import type { CountryData } from "@/data/countries";
 const CountryHeroSection = ({ country }: { country: CountryData }) => {
   const benefits = ["No credit card required", "Setup in 2 minutes", "Instant access"];
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-hero" />
+    <section className="relative flex min-h-screen items-center overflow-hidden border-b-2 border-foreground pb-16 pt-28 md:pt-32">
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="text-center lg:text-left">
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6 animate-fade-up">
-              Best <span className="text-gradient">Interior Design Software</span> in {country.name}
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="text-left">
+            <span className="eyebrow-tag mb-6">Interior software · {country.name}</span>
+            <h1 className="font-display text-3xl font-bold leading-[1.08] text-foreground md:text-4xl lg:text-5xl mb-6">
+              Best <span className="text-primary">Interior Design Software</span> in {country.name}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 animate-fade-up-delayed">
+            <p className="mb-8 max-w-xl text-lg text-muted-foreground md:text-xl">
               {country.heroSubtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Button size="lg" asChild>
-                <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">
-                  Create Quotation <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">
-                  <FolderOpen className="w-5 h-5 mr-2" />
-                  My Projects
-                </a>
-              </Button>
+            <div className="mb-10 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="https://www.app.intorza.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-hard btn-hard-hover"
+              >
+                Create Quotation <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.app.intorza.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-hard-ghost btn-hard-hover"
+              >
+                <FolderOpen className="w-4 h-4" />
+                My Projects
+              </a>
             </div>
-            <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
+            <div className="grid gap-3 border-t-2 border-foreground pt-6 sm:grid-cols-3">
               {benefits.map((b) => (
-                <div key={b} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className="w-5 h-5 bg-intorza-green/20 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-intorza-green" />
-                  </div>
+                <div key={b} className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <span className="bullet-diamond" />
                   {b}
                 </div>
               ))}
             </div>
           </div>
-          <div className="relative animate-scale-in">
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-secondary/10 to-primary/20 blur-2xl opacity-60 animate-pulse" />
-            <div className="relative bg-card overflow-hidden border-2 border-foreground/50">
-              <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border">
-                <div className="w-3 h-3 bg-destructive/80" />
-                <div className="w-3 h-3 bg-intorza-amber" />
-                <div className="w-3 h-3 bg-intorza-green" />
+
+          <div className="relative">
+            <div className="absolute -bottom-4 -right-4 hidden h-full w-full border-2 border-foreground md:block" />
+            <div className="frame-box relative overflow-hidden">
+              <div className="flex items-center gap-2 border-b-2 border-foreground bg-muted px-4 py-3">
+                <div className="h-2 w-2 bg-destructive" />
+                <div className="h-2 w-2 bg-intorza-amber" />
+                <div className="h-2 w-2 bg-intorza-green" />
               </div>
               <img
                 src={dashboardPreview}
@@ -59,12 +63,14 @@ const CountryHeroSection = ({ country }: { country: CountryData }) => {
                 height="800"
               />
             </div>
-            <div className="absolute -top-4 -right-4 bg-card p-4 border-2 border-foreground">
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-primary" />
-                <div className="text-2xl font-bold text-primary">500+</div>
+            <div className="relative mt-8 inline-flex items-center gap-4 border-2 border-foreground bg-card px-5 py-4 shadow-[5px_5px_0_0_var(--foreground)]">
+              <Users className="h-5 w-5 text-primary" />
+              <div>
+                <div className="font-display text-2xl font-bold text-foreground">500+</div>
+                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                  Happy users
+                </div>
               </div>
-              <div className="text-sm text-muted-foreground">Happy Users</div>
             </div>
           </div>
         </div>
