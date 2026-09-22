@@ -69,7 +69,7 @@ function Contact() {
  <section className="section-padding">
  <div className="container-custom grid md:grid-cols-3 gap-6 max-w-5xl">
  {info.map((item) => (
- <div key={item.title} className="bg-card border-2 border-foreground p-6 text-center">
+ <div key={item.title} className="bg-card border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] p-6 text-center">
  <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mx-auto mb-4">
  <item.icon className="w-6 h-6 text-primary" />
  </div>
