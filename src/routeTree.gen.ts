@@ -14,6 +14,8 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RssDotxmlRouteImport } from './routes/rss[.]xml'
 import { Route as RefundRouteImport } from './routes/refund'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as InteriorQuotationFormatRouteImport } from './routes/interior-quotation-format'
+import { Route as InteriorCostCalculatorRouteImport } from './routes/interior-cost-calculator'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
@@ -58,6 +60,16 @@ const RefundRoute = RefundRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InteriorQuotationFormatRoute = InteriorQuotationFormatRouteImport.update({
+  id: '/interior-quotation-format',
+  path: '/interior-quotation-format',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InteriorCostCalculatorRoute = InteriorCostCalculatorRouteImport.update({
+  id: '/interior-cost-calculator',
+  path: '/interior-cost-calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookiesRoute = CookiesRouteImport.update({
@@ -173,6 +185,8 @@ export interface FileRoutesByFullPath {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/interior-cost-calculator': typeof InteriorCostCalculatorRoute
+  '/interior-quotation-format': typeof InteriorQuotationFormatRoute
   '/privacy': typeof PrivacyRoute
   '/refund': typeof RefundRoute
   '/rss.xml': typeof RssDotxmlRoute
@@ -197,6 +211,8 @@ export interface FileRoutesByTo {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/interior-cost-calculator': typeof InteriorCostCalculatorRoute
+  '/interior-quotation-format': typeof InteriorQuotationFormatRoute
   '/privacy': typeof PrivacyRoute
   '/refund': typeof RefundRoute
   '/rss.xml': typeof RssDotxmlRoute
@@ -224,6 +240,8 @@ export interface FileRoutesById {
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/interior-cost-calculator': typeof InteriorCostCalculatorRoute
+  '/interior-quotation-format': typeof InteriorQuotationFormatRoute
   '/privacy': typeof PrivacyRoute
   '/refund': typeof RefundRoute
   '/rss.xml': typeof RssDotxmlRoute
@@ -252,6 +270,8 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/cookies'
+    | '/interior-cost-calculator'
+    | '/interior-quotation-format'
     | '/privacy'
     | '/refund'
     | '/rss.xml'
@@ -276,6 +296,8 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/cookies'
+    | '/interior-cost-calculator'
+    | '/interior-quotation-format'
     | '/privacy'
     | '/refund'
     | '/rss.xml'
@@ -302,6 +324,8 @@ export interface FileRouteTypes {
     | '/careers'
     | '/contact'
     | '/cookies'
+    | '/interior-cost-calculator'
+    | '/interior-quotation-format'
     | '/privacy'
     | '/refund'
     | '/rss.xml'
@@ -330,6 +354,8 @@ export interface RootRouteChildren {
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
+  InteriorCostCalculatorRoute: typeof InteriorCostCalculatorRoute
+  InteriorQuotationFormatRoute: typeof InteriorQuotationFormatRoute
   PrivacyRoute: typeof PrivacyRoute
   RefundRoute: typeof RefundRoute
   RssDotxmlRoute: typeof RssDotxmlRoute
@@ -373,6 +399,20 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interior-quotation-format': {
+      id: '/interior-quotation-format'
+      path: '/interior-quotation-format'
+      fullPath: '/interior-quotation-format'
+      preLoaderRoute: typeof InteriorQuotationFormatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interior-cost-calculator': {
+      id: '/interior-cost-calculator'
+      path: '/interior-cost-calculator'
+      fullPath: '/interior-cost-calculator'
+      preLoaderRoute: typeof InteriorCostCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookies': {
@@ -582,6 +622,8 @@ const rootRouteChildren: RootRouteChildren = {
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
+  InteriorCostCalculatorRoute: InteriorCostCalculatorRoute,
+  InteriorQuotationFormatRoute: InteriorQuotationFormatRoute,
   PrivacyRoute: PrivacyRoute,
   RefundRoute: RefundRoute,
   RssDotxmlRoute: RssDotxmlRoute,

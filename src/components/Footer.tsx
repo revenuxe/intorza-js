@@ -20,6 +20,8 @@ const Footer = () => {
   const product = [
     { label: "Features", href: "/#features" },
     { label: "How It Works", href: "/#how-it-works" },
+    { label: "Interior Quotation Format", href: "/interior-quotation-format" },
+    { label: "Interior Cost Calculator", href: "/interior-cost-calculator" },
   ];
   const company = [
     { label: "About Us", to: "/about" as const },
