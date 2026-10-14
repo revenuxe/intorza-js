@@ -44,7 +44,7 @@ const Header = () => {
 
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="https://www.app.intorza.com"
+            href="https://app.intorza.com"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-primary"
@@ -52,7 +52,7 @@ const Header = () => {
             Login
           </a>
           <a
-            href="https://www.app.intorza.com"
+            href="https://app.intorza.com"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-hard btn-hard-hover px-5 py-3"
