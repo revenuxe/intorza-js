@@ -29,7 +29,7 @@ const HeroSection = ({ title, subtitle }: Props) => {
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a
-                href="https://www.app.intorza.com"
+                href="https://app.intorza.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-hard btn-hard-hover"
@@ -38,7 +38,7 @@ const HeroSection = ({ title, subtitle }: Props) => {
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="https://www.app.intorza.com"
+                href="https://app.intorza.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-hard-ghost btn-hard-hover"
