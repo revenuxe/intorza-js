@@ -28,7 +28,7 @@ const CTASection = ({ countryName, trustedByText }: Props) => {
             {actions.map((a) => (
               <a
                 key={a.label}
-                href="https://www.app.intorza.com"
+                href="https://app.intorza.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 border-2 border-primary-foreground px-5 py-4 font-display text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground transition-transform duration-150 hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none"
@@ -40,7 +40,7 @@ const CTASection = ({ countryName, trustedByText }: Props) => {
             ))}
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard-light btn-hard-hover">
+            <a href="https://app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard-light btn-hard-hover">
               Get Started Now <ArrowRight className="w-4 h-4" />
             </a>
             <a href="mailto:intorza.com@gmail.com" className="btn-hard-light-ghost">
