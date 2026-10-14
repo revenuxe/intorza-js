@@ -75,7 +75,7 @@ const FeaturesSection = () => (
                 ))}
               </ul>
               <a
-                href="https://www.app.intorza.com"
+                href="https://app.intorza.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 border border-foreground bg-primary px-8 py-4 font-display text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground shadow-[4px_4px_0px_0px_var(--foreground)] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
