@@ -32,7 +32,7 @@ const HowItWorksSection = () => (
 
       <div className="mt-16">
         <a
-          href="https://www.app.intorza.com"
+          href="https://app.intorza.com"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-hard btn-hard-hover"
