@@ -127,7 +127,7 @@ function QuotationFormatPage() {
           <p className="text-xs text-muted-foreground mb-10">Rates in this sample are illustrative only. Use your own local rates.</p>
 
           <div className="flex flex-wrap gap-4 mb-16">
-            <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard btn-hard-hover">
+            <a href="https://app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard btn-hard-hover">
               Create this quotation online <ArrowRight className="w-4 h-4" />
             </a>
             <button type="button" onClick={() => window.print()} className="btn-hard-ghost btn-hard-hover">

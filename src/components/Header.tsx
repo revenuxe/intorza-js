@@ -84,10 +84,10 @@ const Header = () => {
               </Link>
             ))}
             <div className="flex flex-col gap-4 pt-4 border-t-2 border-foreground">
-              <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard-ghost w-full">
+              <a href="https://app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard-ghost w-full">
                 Login
               </a>
-              <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard w-full">
+              <a href="https://app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard w-full">
                 Create Quotation
               </a>
             </div>

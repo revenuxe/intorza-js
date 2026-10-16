@@ -90,7 +90,7 @@ function CountryPage() {
       <Header />
       <main>
         <CountryHeroSection country={country} />
-        <ProCTA price={country.price} currency={country.currency} countryName={country.name} />
+        <ProCTA price={country.price} originalPrice={country.originalPrice} currency={country.currency} countryName={country.name} />
         <FeaturesSection />
         <HowItWorksSection />
 
