@@ -136,7 +136,7 @@ function CalculatorPage() {
                   <tr><td>GST @ 18%</td><td className="text-right">{inr(gst)}</td></tr>
                 </tbody>
               </table>
-              <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard btn-hard-hover mt-6 w-full">
+              <a href="https://app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard btn-hard-hover mt-6 w-full">
                 Turn this into a quotation <ArrowRight className="w-4 h-4" />
               </a>
             </div>

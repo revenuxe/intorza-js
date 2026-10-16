@@ -6,6 +6,7 @@ export interface CountryData {
   currencySymbol: string;
   price: string;
   priceValue: number;
+  originalPrice?: string;
   region: string;
   locale: string;
   trustedByText: string;
@@ -32,14 +33,16 @@ const make = (
   shortName?: string,
 ): CountryData => {
   const display = shortName ?? name;
+  const isIndia = code === "in";
   return {
     code,
     slug: toSlug(name),
     name,
-    currency: "USD",
-    currencySymbol: "$",
-    price: "$1",
-    priceValue: 1,
+    currency: isIndia ? "INR" : "USD",
+    currencySymbol: isIndia ? "₹" : "$",
+    price: isIndia ? "₹499" : "$12",
+    priceValue: isIndia ? 499 : 12,
+    originalPrice: isIndia ? "₹2,999" : undefined,
     region,
     locale,
     trustedByText: `Trusted by 500+ Interior Professionals in ${display}`,

@@ -3,11 +3,12 @@ import { Sparkles, Crown, Zap } from "lucide-react";
 
 interface Props {
   price?: string;
+  originalPrice?: string;
   currency?: string;
   countryName?: string;
 }
 
-const ProCTA = ({ price = "₹1", currency = "INR", countryName }: Props) => {
+const ProCTA = ({ price = "₹499", originalPrice = "₹2,999", currency = "INR", countryName }: Props) => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -22,6 +23,11 @@ const ProCTA = ({ price = "₹1", currency = "INR", countryName }: Props) => {
               <Zap className="w-3 h-3 text-intorza-amber" />
             </span>
             <div className="mb-6 flex items-end gap-3">
+              {originalPrice && (
+                <span className="pb-2 font-display text-xl font-semibold text-primary-foreground/60 line-through decoration-intorza-amber decoration-2">
+                  {originalPrice}
+                </span>
+              )}
               <span className="text-5xl md:text-7xl font-display font-bold text-primary-foreground">{price}</span>
               <span className="pb-2 font-mono text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground/80">{currency} / Month</span>
             </div>

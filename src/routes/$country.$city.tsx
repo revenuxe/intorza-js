@@ -130,7 +130,7 @@ function CityPage() {
               ))}
             </div>
             <a
-              href="https://www.app.intorza.com"
+              href="https://app.intorza.com"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-lg"
             >
               Start Free in {city.name}
@@ -141,7 +141,7 @@ function CityPage() {
         <FeaturesSection />
         <HowItWorksSection />
         <TestimonialsSection countryName={city.name} />
-        <ProCTA price={country.price} currency={country.currency} countryName={city.name} />
+        <ProCTA price={country.price} originalPrice={country.originalPrice} currency={country.currency} countryName={city.name} />
         <CTASection countryName={city.name} trustedByText={city.trustedByText} />
       </main>
       <Footer />

@@ -162,7 +162,7 @@ function About() {
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
               asChild
             >
-              <a href="https://www.app.intorza.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://app.intorza.com" target="_blank" rel="noopener noreferrer">
                 Get Started Free <ArrowRight className="w-5 h-5 ml-2" />
               </a>
             </Button>
