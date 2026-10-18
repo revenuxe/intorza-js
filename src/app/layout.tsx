@@ -41,8 +41,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        {/* Cloudflare documented opt-out: keep email anchors crawlable and avoid injected links/scripts. */}
+        <span hidden dangerouslySetInnerHTML={{ __html: "<!--email_off-->" }} />
         <JsonLd data={[organizationSchema()]} />
         {children}
+        <span hidden dangerouslySetInnerHTML={{ __html: "<!--/email_off-->" }} />
       </body>
     </html>
   );

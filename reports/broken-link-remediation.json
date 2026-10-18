@@ -1,0 +1,33 @@
+{
+  "reviewedAt": "2026-10-18T23:04:33.194Z",
+  "sources": [
+    {
+      "file": "intorza_19-oct-2026_page-has-links-to-broken_2026-10-19_04-29-57.csv",
+      "rows": 11
+    },
+    {
+      "file": "intorza_19-oct-2026_404-page_2026-10-19_04-29-45.csv",
+      "rows": 1
+    },
+    {
+      "file": "intorza_19-oct-2026_4xx-page_2026-10-19_04-29-32.csv",
+      "rows": 1
+    }
+  ],
+  "uniqueBrokenUrls": ["https://www.intorza.com/cdn-cgi/l/email-protection"],
+  "cause": "Live Cloudflare rewrites public email anchors to a broken protection endpoint; confirmed before fix with a read-only live request.",
+  "fixes": [
+    "Cloudflare email_off opt-out comments surround rendered body content; existing mailto links are preserved without inserting client-side decode dependencies.",
+    "Permanent 308 redirects to canonical homepage for 57 historical country slugs and 57 code aliases including nested city paths, plus retired blog, careers, auth and feed URLs.",
+    "Origin-side permanent homepage redirect for the reported email-protection endpoint.",
+    "Current public pages, private routes, APIs and genuinely unknown URLs retain their intended behavior."
+  ],
+  "verification": {
+    "productionChecks": "passed",
+    "publicPages": 11,
+    "legacyRedirectRequests": 240,
+    "emailBoundaries": "Every rendered public mailto anchor is inside the Cloudflare opt-out boundary; no broken email-protection anchor appears in origin HTML.",
+    "securityChecks": "passed; no catch-all homepage redirect for private files or arbitrary paths"
+  },
+  "releaseNote": "Changes require deployment and Cloudflare HTML cache invalidation. Cloudflare owns /cdn-cgi routes and may answer them before the origin; if the reported URL still returns 404 after deployment, an edge rule or Cloudflare configuration change is required. Origin redirect tests do not prove the live Cloudflare endpoint is fixed."
+}

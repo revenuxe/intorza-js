@@ -1,3 +1,4 @@
+import legacyRedirects from "./src/data/legacy-redirects.json";
 import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === "development";
 // Public pages remain prerendered. Next.js hydration and existing inline styles need
@@ -19,6 +20,12 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   async redirects() {
     return [
+      ...[
+        ...legacyRedirects.paths,
+        ...[...legacyRedirects.countries, ...legacyRedirects.countryCodes].map(
+          (country) => `/${country}/:path*`,
+        ),
+      ].map((source) => ({ source, destination: "https://www.intorza.com/", permanent: true })),
       {
         source: "/:path*",
         has: [{ type: "host", value: "intorza.com" }],

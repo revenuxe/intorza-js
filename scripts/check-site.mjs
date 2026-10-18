@@ -1,3 +1,4 @@
+import legacyRedirects from "../src/data/legacy-redirects.json" with { type: "json" };
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
@@ -74,10 +75,24 @@ try {
           );
       }
       assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+      const start = html.indexOf("<!--email_off-->");
+      const end = html.indexOf("<!--/email_off-->");
+      assert.ok(start >= 0 && end > start, "Cloudflare email opt-out markers");
+      for (const match of html.matchAll(/<a\b[^>]*href="mailto:[^"]+"/g)) {
+        assert.ok(
+          match.index > start && match.index < end,
+          "Email anchors remain inside the opt-out boundary",
+        );
+      }
+      assert.doesNotMatch(
+        html,
+        /href="[^"\s]*\/cdn-cgi\/l\/email-protection/,
+        "No broken Cloudflare links in rendered pages",
+      );
       return html;
     }),
   );
-  const removed = [
+  const redirected = [
     "/india",
     "/india/mumbai",
     "/india/delhi",
@@ -86,13 +101,25 @@ try {
     "/blog",
     "/blog/example",
     "/careers",
-    "/auth",
-    "/admin/posts",
     "/rss.xml",
     "/atom.xml",
-    "/api/public/seed-blog",
-    "/not-a-page",
+    "/cdn-cgi/l/email-protection",
+    "/auth",
+    ...[...legacyRedirects.countries, ...legacyRedirects.countryCodes].flatMap((country) => [
+      `/${country}`,
+      `/${country}/legacy-city`,
+    ]),
   ];
+  for (const path of redirected) {
+    const response = await fetch(origin + path, { redirect: "manual" });
+    assert.equal(response.status, 308, `${path}: permanent legacy redirect`);
+    assert.equal(
+      response.headers.get("location"),
+      "https://www.intorza.com/",
+      `${path}: homepage destination`,
+    );
+  }
+  const removed = ["/admin/posts", "/api/public/seed-blog", "/not-a-page"];
   await Promise.all(
     removed.map(async (path) =>
       assert.equal((await fetch(origin + path)).status, 404, `${path}: retired route`),
@@ -132,7 +159,7 @@ try {
     "Optimized hero image",
   );
   console.log(
-    `Passed: ${pages.length} rendered pages, ${removed.length} retired URLs, metadata, structured data, internal links, sitemap, robots, and hero image.`,
+    `Passed: ${pages.length} rendered pages, ${redirected.length} legacy redirects, ${removed.length} genuine 404 URLs, metadata, structured data, internal links, sitemap, robots, and hero image.`,
   );
 } catch (error) {
   console.error(logs);
