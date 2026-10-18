@@ -25,8 +25,8 @@ export default function AIQuotationBuilder() {
           video={{
             src: "/videos/ai-interior-quotation-builder.mp4",
             poster: "/videos/ai-interior-quotation-poster.webp",
-            width: 1920,
-            height: 1080,
+            width: 1280,
+            height: 720,
           }}
           secondaryLink={{ href: "#how-it-works", label: "See How It Works" }}
           compactHighlights

@@ -127,8 +127,8 @@ try {
     playback.muted && playback.autoplay && playback.loop && playback.inline && !playback.controls,
     "Silent inline autoplay without playback controls",
   );
-  assert.equal(playback.width, 1920);
-  assert.equal(playback.height, 1080);
+  assert.equal(playback.width, 1280);
+  assert.equal(playback.height, 720);
   assert.equal(
     await page
       .locator("footer")

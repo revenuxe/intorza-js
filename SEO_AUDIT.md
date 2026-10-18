@@ -148,3 +148,9 @@ Validation now covers **11 public pages** and all three hero pages at 320, 375, 
 ## Production readiness follow-up
 
 See `PRODUCTION_READINESS.md` for the later security and production audit. All three landing pages measured 100 in local Lighthouse SEO, Accessibility and Best Practices, with Performance 93-94. These lab scores do not guarantee search rankings or live Core Web Vitals. Mobile lab LCP remains 2.9-3.0 seconds. The live domain still serves the old deployment and its 109-URL sitemap; deployment and post-release Search Console/field checks remain outstanding.
+
+## Media optimization - 19 October 2026
+
+Audited all public image/video assets and their page references. All visible page images are WebP; the eight product screenshots were already only 25-49 KB and remain unchanged to avoid redundant lossy compression. Next Image provides responsive sizes, with eager/high-priority delivery for the hero and lazy loading for feature screenshots. JPEG remains for the social share preview, and ICO remains for the browser icon.
+
+Optimized the H.264 demo from 1,959,242 to 669,484 bytes (65.8% smaller), preserving its 22.5-second duration at 1280x720/24fps. Removed the unused audio track and placed the MP4 moov metadata before media data for fast-start playback. Autoplay, mute, looping, inline playback and the absence of controls remain unchanged. Optimized the WebP poster from 30,026 to 17,308 bytes (42.4% smaller) and the transparent WebP logo from 38,798 to 32,774 bytes (15.5% smaller). The tested WebM candidate was larger than the optimized MP4 and is not shipped. See `reports/media-optimization.json` for exact sizes and MP4 atom order. Earlier Lighthouse reports describe the previous assets and remain historical measurements.

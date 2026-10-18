@@ -1,0 +1,110 @@
+{
+  "auditedAt": "2026-10-18T22:58:25.568Z",
+  "changes": [
+    {
+      "file": "public/videos/ai-interior-quotation-builder.mp4",
+      "beforeBytes": 1959242,
+      "afterBytes": 669484,
+      "savedPercent": 65.8
+    },
+    {
+      "file": "public/videos/ai-interior-quotation-poster.webp",
+      "beforeBytes": 30026,
+      "afterBytes": 17308,
+      "savedPercent": 42.4
+    },
+    {
+      "file": "public/intorza-logo.webp",
+      "beforeBytes": 38798,
+      "afterBytes": 32774,
+      "savedPercent": 15.5
+    }
+  ],
+  "assets": [
+    {
+      "file": "public/clients-preview.webp",
+      "bytes": 24700
+    },
+    {
+      "file": "public/dashboard-preview.webp",
+      "bytes": 49020
+    },
+    {
+      "file": "public/favicon.ico",
+      "bytes": 15406
+    },
+    {
+      "file": "public/intorza-logo.webp",
+      "bytes": 32774
+    },
+    {
+      "file": "public/invoice-preview.webp",
+      "bytes": 32150
+    },
+    {
+      "file": "public/my-project-preview.webp",
+      "bytes": 28776
+    },
+    {
+      "file": "public/my-quotation-preview.webp",
+      "bytes": 37094
+    },
+    {
+      "file": "public/og-image.jpg",
+      "bytes": 119627
+    },
+    {
+      "file": "public/quotation-preview.webp",
+      "bytes": 43382
+    },
+    {
+      "file": "public/site-measurement-preview.webp",
+      "bytes": 30790
+    },
+    {
+      "file": "public/team-preview.webp",
+      "bytes": 36554
+    },
+    {
+      "file": "public/videos/ai-interior-quotation-poster.webp",
+      "bytes": 17308
+    },
+    {
+      "file": "public/videos/ai-interior-quotation-builder.mp4",
+      "bytes": 669484
+    }
+  ],
+  "video": {
+    "codec": "H.264",
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "durationSeconds": 22.5,
+    "audio": false,
+    "fastStart": true,
+    "atoms": [
+      {
+        "type": "ftyp",
+        "offset": 0
+      },
+      {
+        "type": "moov",
+        "offset": 32
+      },
+      {
+        "type": "free",
+        "offset": 7178
+      },
+      {
+        "type": "mdat",
+        "offset": 7186
+      }
+    ]
+  },
+  "delivery": "Next Image serves responsive WebP screenshots and logos; only the hero image is eager/high priority; feature screenshots load lazily.",
+  "exceptions": [
+    "JPEG social preview retained for social crawler compatibility; it is metadata, not a page image download.",
+    "ICO favicon retained for browser compatibility."
+  ],
+  "unchangedScreenshots": "All eight product screenshots are already WebP at 25-49 KB; avoided redundant lossy recompression."
+}

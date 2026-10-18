@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-18T18:24:58.706Z",
+  "auditedAt": "2026-10-18T22:59:26.477Z",
   "scope": "Local production build; not a live deployment or search-index audit",
   "result": "passed",
   "checks": [
@@ -25,7 +25,7 @@
       "description": "Manage interior projects, create quotations, generate invoices and organize clients with Intorza. Explore the tools, free plan and Pro pricing for your business.",
       "h1": "Best Interior Design Software for Project Management",
       "imageCount": 11,
-      "htmlBytes": 199098,
+      "htmlBytes": 199130,
       "schemaTypes": [
         "Organization",
         "WebSite",
@@ -56,7 +56,7 @@
       "description": "Create itemized interior quotations, export professional PDFs and connect accepted proposals to invoices. Explore Intorza's quotation tool and INR 499/month Pro plan.",
       "h1": "Best Interior Quotation Tool for Designers & Contractors",
       "imageCount": 11,
-      "htmlBytes": 175854,
+      "htmlBytes": 175886,
       "schemaTypes": [
         "Organization",
         "SoftwareApplication",
@@ -89,7 +89,7 @@
       "description": "Create an AI interior quotation from a floor plan or project details. Review editable drafts, refine room-wise scope and export client-ready proposals with Intorza.",
       "h1": "AI Interior Design Quotation Tool",
       "imageCount": 10,
-      "htmlBytes": 164775,
+      "htmlBytes": 165719,
       "schemaTypes": [
         "Organization",
         "SoftwareApplication",
