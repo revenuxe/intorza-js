@@ -1,0 +1,128 @@
+{
+  "auditedAt": "2026-10-18T18:25:19.565Z",
+  "browser": "msedge",
+  "results": [
+    {
+      "path": "/",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-quotation",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/ai-quotation-builder",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-quotation",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/ai-quotation-builder",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-quotation",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/ai-quotation-builder",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-quotation",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/ai-quotation-builder",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-quotation",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/ai-quotation-builder",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/about",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/contact",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-quotation-format",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-cost-calculator",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/privacy",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/terms",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/cookies",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/refund",
+      "width": 375,
+      "result": "passed"
+    }
+  ],
+  "interactions": [
+    "Calculator recomputation",
+    "Contact action under CSP (honeypot, no database write)",
+    "Mobile navigation",
+    "AI demo autoplay, controls, dimensions and byte ranges"
+  ],
+  "runtimeErrors": []
+}

@@ -1,36 +1,13 @@
-import { countries } from "@/data/countries";
-import { SITE_URL, SITE_LOGO, SITE_OG_IMAGE, SITE_DESCRIPTION } from "@/lib/site";
-
-// Build hreflang link entries for all country pages + x-default.
-export function hreflangLinks(currentPath = "/"): Array<{
-  rel: "alternate";
-  hrefLang: string;
-  href: string;
-}> {
-  const links: Array<{ rel: "alternate"; hrefLang: string; href: string }> = countries.map((c) => ({
-    rel: "alternate",
-    hrefLang: c.locale,
-    href: `${SITE_URL}/${c.slug}`,
-  }));
-  links.push({
-    rel: "alternate",
-    hrefLang: "x-default",
-    href: `${SITE_URL}${currentPath === "/" ? "" : currentPath}`,
-  });
-  return links;
-}
-
-// Shared OG/Twitter image meta — apply on leaf routes for proper share previews.
-export function socialImageMeta(image: string = SITE_OG_IMAGE, alt = "Intorza — Interior Design Project Management Software") {
-  return [
-    { property: "og:image", content: image },
-    { property: "og:image:width", content: "1200" },
-    { property: "og:image:height", content: "630" },
-    { property: "og:image:alt", content: alt },
-    { name: "twitter:image", content: image },
-    { name: "twitter:image:alt", content: alt },
-  ];
-}
+import {
+  SITE_ADDRESS,
+  SITE_DESCRIPTION,
+  SITE_EMAIL,
+  SITE_LOGO,
+  SITE_OG_IMAGE,
+  SITE_PHONE_E164,
+  SITE_URL,
+  PRO_MONTHLY_PRICE,
+} from "@/lib/site";
 
 export function organizationSchema() {
   return {
@@ -39,26 +16,25 @@ export function organizationSchema() {
     "@id": `${SITE_URL}/#organization`,
     name: "Intorza",
     url: SITE_URL,
-    logo: { "@type": "ImageObject", url: SITE_LOGO, width: 512, height: 512 },
+    logo: { "@type": "ImageObject", url: SITE_LOGO, width: 1080, height: 219 },
     image: SITE_OG_IMAGE,
     description: SITE_DESCRIPTION,
-    email: "intorza.com@gmail.com",
-    foundingDate: "2024",
-    parentOrganization: { "@type": "Organization", name: "Revenuxe", url: "https://www.revenuxe.com" },
-    address: { "@type": "PostalAddress", addressCountry: "IN", addressLocality: "Bangalore" },
+    email: SITE_EMAIL,
+    telephone: SITE_PHONE_E164,
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Revenuxe",
+      url: "https://www.revenuxe.com",
+    },
+    address: { "@type": "PostalAddress", ...SITE_ADDRESS },
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "customer support",
-        email: "intorza.com@gmail.com",
+        email: SITE_EMAIL,
+        telephone: SITE_PHONE_E164,
         availableLanguage: ["English"],
       },
-    ],
-    sameAs: [
-      "https://twitter.com/intorza",
-      "https://www.linkedin.com/company/intorza",
-      "https://www.facebook.com/intorza",
-      "https://www.instagram.com/intorza",
     ],
   };
 }
@@ -73,15 +49,10 @@ export function websiteSchema() {
     description: SITE_DESCRIPTION,
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/blog?q={search_term_string}` },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
-// FAQ schema reusable across home and country pages.
+// FAQ content and structured data share the same source.
 export const homepageFaqs = [
   {
     q: "What is Intorza?",
@@ -117,31 +88,46 @@ export function faqPageSchema(faqs: { q: string; a: string }[] = homepageFaqs) {
   };
 }
 
-export function softwareAppSchema(opts?: { url?: string; price?: string; currency?: string; name?: string }) {
+export function softwareAppSchema(opts?: {
+  url?: string;
+  price?: string;
+  currency?: string;
+  name?: string;
+  description?: string;
+}) {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": `${SITE_URL}/#software`,
     name: opts?.name ?? "Intorza",
-    operatingSystem: "Web Browser, iOS, Android",
+    operatingSystem: "Web Browser",
     applicationCategory: "BusinessApplication",
     applicationSubCategory: "Interior Design Project Management",
     url: opts?.url ?? SITE_URL,
-    description: SITE_DESCRIPTION,
+    description: opts?.description ?? SITE_DESCRIPTION,
     image: SITE_OG_IMAGE,
-    softwareVersion: "2.0",
-    offers: {
-      "@type": "Offer",
-      price: opts?.price ?? "0",
-      priceCurrency: opts?.currency ?? "USD",
-      availability: "https://schema.org/InStock",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "547",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Free plan",
+        price: opts?.price ?? "0",
+        priceCurrency: opts?.currency ?? "INR",
+        url: "https://app.intorza.com",
+      },
+      {
+        "@type": "Offer",
+        name: "Pro monthly plan",
+        price: String(PRO_MONTHLY_PRICE),
+        priceCurrency: "INR",
+        url: "https://app.intorza.com",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: String(PRO_MONTHLY_PRICE),
+          priceCurrency: "INR",
+          unitText: "month",
+        },
+      },
+    ],
     featureList: [
       "Quotation Builder",
       "Invoice Generator",
@@ -153,5 +139,21 @@ export function softwareAppSchema(opts?: { url?: string; price?: string; currenc
       "Branded PDF Exports",
     ],
     publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+}
+
+export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      ...items.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 2,
+        name: item.name,
+        item: `${SITE_URL}${item.path}`,
+      })),
+    ],
   };
 }

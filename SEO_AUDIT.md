@@ -1,0 +1,150 @@
+# Intorza SEO audit — 18 October 2026
+
+The local Next.js production build passes the SEO checks for all **10 public pages**. The new quotation landing page is ready at `/interior-quotation`. The deployed domain still serves the older website; the local changes have not been published.
+
+This review covers source code, production HTML, metadata, structured data, internal navigation, media, indexability and public production HTTP responses. It does not include authenticated Search Console data, a backlink database, measured field performance.
+
+## Quotation landing page and search intent
+
+| Page                         | Main purpose                          | Search intent                                                  |
+| ---------------------------- | ------------------------------------- | -------------------------------------------------------------- |
+| `/`                          | Interior business software            | Project management, quotations, invoicing and clients          |
+| `/interior-quotation`        | Quotation product landing page        | Interior quotation tool/software for designers and contractors |
+| `/interior-quotation-format` | Sample document and template          | Interior quotation format, example and sample                  |
+| `/interior-cost-calculator`  | Indicative budget planning            | Home interior cost estimation                                  |
+| `/contact`                   | Customer support and business contact | Contact Intorza and its Bengaluru office                       |
+
+The quotation page uses the homepage's actual hero, pricing, feature showcase and CTA components, with quotation-specific content rather than a copy of the homepage. Its single H1 is **“Best Interior Quotation Tool for Designers & Contractors.”** The title tag is **“Interior Quotation Tool for Designers & Contractors | Intorza.”** “Best” is marketing positioning; no independent comparison, award, rating or review score was invented.
+
+The page explains itemized scope, specifications, quantities, rates, terms, document differences, the quotation workflow and related tools. It links contextually to the format page, calculator and Contact page. The homepage links back through a resources section, both existing tools link back in their content, and the footer includes **Interior Quotation** throughout the public site. This keeps the tool, template and calculator useful for different tasks instead of creating interchangeable keyword pages. Crawlable links and descriptive context follow [Google's link guidance](https://developers.google.com/search/docs/crawling-indexing/links-crawlable).
+
+## Implemented fixes
+
+| Area                | Result                                                                                                                                                                     |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Titles and headings | Unique public titles, descriptions and H1s; shorter homepage/calculator titles; a dedicated quotation H1                                                                   |
+| Canonicals          | One absolute, self-referencing production canonical per public page                                                                                                        |
+| Rendering           | All ten public pages are prerendered HTML; quotation content does not depend on fetching text in the browser                                                               |
+| Internal links      | New footer menu, homepage resources and contextual tool links; internal destinations and fragment targets checked                                                          |
+| Crawl coverage      | Native sitemap includes the ten retained pages, including the quotation page; removed routes continue returning real 404s                                                  |
+| Structured data     | Organization contact details, quotation application information, shared visible FAQ content and breadcrumb markup on every non-home public page                            |
+| Contact consistency | Phone and full address centralized and reused in the footer, Contact page and structured data                                                                              |
+| Pricing             | Corrected the broken `?499`/`?2,999` currency display; Pro price is sourced from one constant; offers use INR                                                              |
+| Media               | Shared feature screenshots now use Next.js image optimization, real intrinsic dimensions, responsive sizes and lazy loading; hero stays preloaded                          |
+| Social previews     | Open Graph dimensions corrected to the existing image's actual **1536 × 1024** pixels                                                                                      |
+| Document structure  | Feature showcases now have an introductory H2; footer and Contact headings have a clearer hierarchy                                                                        |
+| Usability           | Telephone links, address-to-map links, fixed-header anchor clearance, reduced-motion support and menu expansion state                                                      |
+| Trust markup        | No invented aggregate ratings, unverified social profiles or unsupported founding date; existing testimonials remain owner-supplied content requiring factual confirmation |
+| Admin               | Existing authentication, private responses, noindex directives and exclusion from the public sitemap remain in place                                                       |
+
+Canonical consistency follows [Google's canonicalization guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls). Titles are descriptive and distinct rather than padded to a supposed fixed ranking length, in line with [Google's title-link guidance](https://developers.google.com/search/docs/appearance/title-link).
+
+## Business identity and local signals
+
+The visible business details are:
+
+- **Name:** Intorza
+- **Phone:** +91 9886579923; machine-readable `tel:+919886579923`
+- **Address:** Shop No 1, 1st Floor, 10/1, 10th Cross, LR Bande C L Ramaiah Layout, RT Nagar Post, Bengaluru, Karnataka 560032
+- **Support email:** intorza.com@gmail.com
+
+The organization markup separates street address, locality, state, postcode and country. The Contact page references the same organization identity. Map links search the supplied address; no unverified coordinates, branch locations or Google place ID were added. An Organization is appropriate for the software business without asserting additional physical branches or retail classifications. See [Google's Organization documentation](https://developers.google.com/search/docs/appearance/structured-data/organization).
+
+Business Profile ownership, public directory consistency, opening hours and customer visit arrangements were not verified through an account or edited by this task.
+
+## Important structured-data limits
+
+FAQ content remains useful to visitors and the JSON-LD matches the visible questions. It is **not** a promise of Google FAQ rich results: Google retired that search feature in May 2026. See [Google's documentation update history](https://developers.google.com/search/updates#may-2026).
+
+SoftwareApplication markup describes the product and visible plans. Google's app rich-result requirements also call for a qualifying review or aggregate rating. No verified rating dataset was provided, so none was fabricated to satisfy a validator. The current markup is not a claim of app rich-result eligibility. See [Google's software app documentation](https://developers.google.com/search/docs/appearance/structured-data/software-app).
+
+## Production observations — separate from local results
+
+Public HTTP checks of the deployed domain returned:
+
+| URL or check                      | Observed result                                                   |
+| --------------------------------- | ----------------------------------------------------------------- |
+| `https://www.intorza.com/`        | 200; old title still contains “2025”                              |
+| `https://intorza.com/`            | 308 to the www HTTPS origin                                       |
+| `http://www.intorza.com/`         | 308 to the www HTTPS origin                                       |
+| `http://intorza.com/`             | 308 to HTTPS apex, then another redirect to www                   |
+| `/robots.txt`                     | 200 text/plain; older policy is deployed                          |
+| `/sitemap.xml`                    | 200 XML; **109 entries**, compared with **10** in the local build |
+| `/contact`                        | 200; older title/contact presentation                             |
+| `/interior-quotation`             | **404 on production**; 200 in the local production build          |
+| An intentionally nonexistent path | Real 404                                                          |
+
+The deployed homepage also still exposes retired blog/country navigation. Its existing canonical points to `https://www.intorza.com`. These are deployment differences, not a failure of the new local route. The public observations can be rechecked at the [homepage](https://www.intorza.com/), [robots file](https://www.intorza.com/robots.txt) and [sitemap](https://www.intorza.com/sitemap.xml).
+
+## Prioritized remaining work
+
+| Priority | Action                                                                                                                                      | Reason / verification                                                                                                |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Highest  | Deploy this Next.js build to the production domain                                                                                          | The new page and corrected contact details cannot affect crawling while the older build remains live                 |
+| High     | After deployment, submit the current sitemap and inspect the homepage, quotation page and Contact page in Search Console                    | Verify Google's rendered HTML, canonical choice and indexing status rather than inferring them from local HTML       |
+| High     | Check impressions, queries, CTR and conversions for the quotation, template and calculator pages after indexing                             | Keyword intent is mapped; actual query demand and rankings have not been measured                                    |
+| Medium   | Review the edge rule for HTTP apex → HTTPS www                                                                                              | Current public configuration uses two redirects for that origin; a single canonical-origin redirect would be cleaner |
+| Medium   | Confirm customer counts, efficiency percentages, testimonials, crossed-out pricing, plan limits and business hours against business records | These pre-existing marketing claims are not independently validated by a code audit                                  |
+| Medium   | Measure mobile LCP, INP and CLS after deploying the new image/layout behavior                                                               | No field performance score is established by code checks alone                                                       |
+| Optional | Prepare a dedicated wide social preview                                                                                                     | Current image dimensions are correct, but the existing 3:2 image may be cropped by some sharing surfaces             |
+
+A public Google PageSpeed API request was attempted for the currently deployed homepage. It returned **HTTP 429 quota exceeded**, so no Lighthouse score or Core Web Vitals result is reported. No synthetic SEO score, traffic estimate, backlink count, domain-authority value or ranking improvement was invented.
+
+Retired pages with no direct equivalent stay 404. Blanket redirects to the homepage would not preserve their former topic intent. Public legal pages remain accessible, uniquely titled and linked; they were not padded with unrelated product keywords.
+
+## Validation and artifacts
+
+- Production build, TypeScript, ESLint and the contact-validation tests.
+- Site smoke checks: ten public pages, retired URLs, canonical metadata, structured data, admin access guards, sitemap and optimized hero image.
+- Dedicated SEO checks: unique titles/descriptions/H1s; one canonical; image alt/dimensions; business contact consistency; breadcrumb JSON-LD; internal routes and anchors; quotation pricing/content; sitemap coverage and 404 responses.
+- Machine-readable evidence: [`reports/seo-audit.json`](reports/seo-audit.json).
+- Re-run after changes with `npm run build`, `npm run check:site` and `npm run check:seo`.
+
+Search Console coverage, off-site links, server crawl logs and field performance were not available to this audit. Browser layout was checked locally as described below. These limitations do not change the recorded local test results; they define what remains to verify on the deployed site.
+
+## Page-by-page content and internal linking review
+
+The follow-up content pass removed heading/section eyebrow labels throughout public and admin pages, including the hero label shown in the supplied screenshot. Decorative feature labels and testimonial number badges were also removed. Functional labels, document headings, prices and navigation remain readable.
+
+| Page               | Editorial decision and useful content                                                                                                               | Contextual destinations in the main content                       |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Home               | Added a connected-project explanation, designer/contractor/studio use cases and a practical project-based evaluation workflow                       | Quotation tool, sample format, calculator, About, Contact         |
+| Interior quotation | Retained the existing substantial scope guidance, comparisons, feature explanations and FAQs; avoided adding repetitive keyword paragraphs          | Format, calculator, Contact, Home breadcrumb                      |
+| About              | Replaced generic values with scope clarity, connected records and practical teamwork; added concrete product workflow and Bengaluru contact context | Home, quotation tool, format, calculator, Contact                 |
+| Contact            | Clarified product support, sales, account/billing and planning inquiries; explained the information that helps the team respond                     | Quotation tool, format, calculator, About, Terms, Refund, Privacy |
+| Quotation format   | Added scope-comparison and revision-review guidance beside the existing sample and document checklist                                               | Quotation tool, calculator, Contact                               |
+| Calculator         | Explained editable inputs, fixed allocation assumptions, example tax arithmetic, limitations and the next step toward a measured proposal           | Quotation tool, format, Contact                                   |
+| Privacy            | Added verified contact-form data context and relevant policy navigation, without expanding contractual promises                                     | Cookies, Terms, Contact                                           |
+| Terms              | Kept the substantive service/account/subscription terms intact and added relevant policy navigation                                                 | Privacy, Refund, Contact                                          |
+| Cookies            | Added the observed website administrator-session behavior and relevant policy navigation                                                            | Privacy, Terms, Contact                                           |
+| Refund             | Added optional transaction context for a request; preserved the existing refund conditions and processing windows                                   | Terms, Privacy, Contact                                           |
+
+The automated SEO check now isolates each page's **main content** from the header and footer. It requires at least two distinct relevant internal destinations per page and verifies at least one incoming contextual link for every page. All ten pages pass. The report records this graph and main-content word counts as diagnostic information; no word-count threshold is treated as a ranking requirement.
+
+The calculator page now renders its explanations on the server and hydrates only the interactive calculator widget. Its original calculation was preserved; a real browser check changed the area and rate and verified the recomputed result. FAQs now accurately describe the example's fixed tax and room-allocation assumptions rather than presenting them as a definitive quotation or tax determination.
+
+Content decisions follow [Google's people-first content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and [internal-link guidance](https://developers.google.com/search/docs/crawling-indexing/links-crawlable). Page usefulness, accurate descriptions and navigable topics guide the changes; no search position or SERP feature is guaranteed.
+
+## Mobile browser evidence
+
+An installed Microsoft Edge browser verified both hero pages at **320, 375, 390, 768 and 1280 pixels**. The hero actions remain two across, all three benefit points remain in a single row, and the summary feature cards remain at least two across. Short benefit labels preserve the full description as accessible text. The remaining eight public pages were checked at 375 pixels with no horizontal document overflow. Mobile menu navigation and calculator recomputation passed with no browser runtime errors.
+
+- [Responsive results](reports/responsive-audit.json)
+- [Homepage at 390px](reports/mobile-home-390.png)
+- [Quotation page at 390px](reports/mobile-quotation-390.png)
+
+These are local production-browser checks. They do not replace field Core Web Vitals or a full accessibility audit.
+
+## AI Quotation Builder page
+
+Added `/ai-quotation-builder` with the exact H1 **AI Interior Design Quotation Tool**, the homepage hero design, Pro pricing, connected feature showcases, an AI-specific workflow, review guidance and six FAQs. Copy follows the supplied demo: floor plan analysis or a project-details starting point, followed by an editable draft. AI credit usage is distinguished from the standard quotation allowance; generation time and accuracy are not promised in editorial copy.
+
+The supplied 22.5-second, 1920-1080 MP4 is served locally from `public/videos/ai-interior-quotation-builder.mp4` (about 1.9 MB). A WebP poster was extracted from the actual demo. The hero uses muted, looping, inline autoplay with no native or custom playback controls and intrinsic dimensions to reserve space. Browser checks verified advancing playback, no controls, correct dimensions and HTTP 206 byte-range responses. Browser/device settings can still govern autoplay.
+
+Added the **AI Quotation Builder** footer link and contextual incoming links from the homepage resource cards and the interior quotation guide. The page links to the quotation tool, sample format, calculator and contact page. It has a unique title, description, canonical, social metadata, breadcrumbs, descriptive FAQ markup and a sitemap entry. Standard free-plan offer markup is omitted for the AI landing page because a free AI credit allowance has not been established. Video rich-result markup is deferred until a real public upload date is known; the page is a product landing page with a supporting demo, not a dedicated video watch page. This avoids inventing publication data or implying video rich-result eligibility. See [Google's video guidance](https://developers.google.com/search/docs/appearance/video) and [autoplay behavior](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay).
+
+Validation now covers **11 public pages** and all three hero pages at 320, 375, 390, 768 and 1280 pixels. Production build, lint, TypeScript, route checks, contextual linking and SEO checks passed; installed Edge verified the new demo playback and responsive layout. New previews: `reports/mobile-ai-quotation-builder-390.png` and `reports/desktop-ai-quotation-builder-1280.png`. This work remains local and has not been deployed.
+
+## Production readiness follow-up
+
+See `PRODUCTION_READINESS.md` for the later security and production audit. All three landing pages measured 100 in local Lighthouse SEO, Accessibility and Best Practices, with Performance 93-94. These lab scores do not guarantee search rankings or live Core Web Vitals. Mobile lab LCP remains 2.9-3.0 seconds. The live domain still serves the old deployment and its 109-URL sitemap; deployment and post-release Search Console/field checks remain outstanding.

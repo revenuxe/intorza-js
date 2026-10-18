@@ -1,0 +1,22 @@
+{
+  "auditedAt": "2026-10-18T18:23:06.631Z",
+  "scope": "Management API metadata through authenticated Supabase CLI; no function invocation",
+  "functions": [
+    {
+      "name": "generate-blog",
+      "status": "ACTIVE",
+      "verify_jwt": false,
+      "version": 6
+    },
+    {
+      "name": "process-scheduled-blogs",
+      "status": "ACTIVE",
+      "verify_jwt": false,
+      "version": 3
+    }
+  ],
+  "handlerAuthorization": "not verified",
+  "sourceDownload": "Failed: expected multipart response, got application/octet-stream",
+  "changesApplied": false,
+  "requiredAction": "Retire unused functions or inspect and secure their authorization before launch"
+}

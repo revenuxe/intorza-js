@@ -1,0 +1,4 @@
+-- Historical migration marker: the original migration installed a scheduled
+-- content publisher with a hard-coded publishable token. That feature is retired.
+-- It is intentionally not recreated for new installations. Existing installations
+-- disable the named job in migration 20261018163000.

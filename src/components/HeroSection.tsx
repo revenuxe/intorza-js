@@ -1,19 +1,39 @@
+import Image from "next/image";
 import { ArrowRight, FolderOpen } from "lucide-react";
-import dashboardPreview from "@/assets/dashboard-preview.webp";
+const dashboardPreview = "/dashboard-preview.webp";
 
 interface Props {
   title?: React.ReactNode;
   subtitle?: string;
+  video?: { src: string; poster: string; width: number; height: number };
+  primaryLabel?: string;
+  image?: { src: string; alt: string; width: number; height: number };
+  secondaryLink?: { href: string; label: string };
+  highlights?: Array<{ value: string; label: string }>;
 }
 
-const HeroSection = ({ title, subtitle }: Props) => {
-  const benefits = ["No credit card required", "Setup in 2 minutes", "Instant access"];
+const HeroSection = ({
+  title,
+  subtitle,
+  video,
+  primaryLabel = "Create Quotation",
+  image,
+  secondaryLink,
+  highlights = [
+    { value: "+45%", label: "Efficiency boost" },
+    { value: "500+", label: "Interior professionals" },
+  ],
+}: Props) => {
+  const benefits = [
+    { label: "No credit card", full: "No credit card required" },
+    { label: "2-min setup", full: "Setup in 2 minutes" },
+    { label: "Instant access", full: "Instant access" },
+  ];
   return (
     <section className="relative flex min-h-[92svh] items-center overflow-hidden border-b-2 border-foreground bg-background pb-16 pt-32 md:pb-20 md:pt-36">
       <div className="container-custom">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10 xl:gap-16">
           <div className="min-w-0 text-left lg:col-span-5">
-            <span className="eyebrow-tag mb-6">Built for interior professionals</span>
             <h1 className="font-display text-4xl font-bold leading-[1.05] text-foreground sm:text-5xl lg:text-6xl">
               {title ?? (
                 <>
@@ -27,35 +47,45 @@ const HeroSection = ({ title, subtitle }: Props) => {
                 "All-in-one interior design project management software with quotation builder, invoice generator, client management & team collaboration. Trusted by 500+ interior designers and contractors worldwide."}
             </p>
 
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+            <div className="hero-actions mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-row">
               <a
                 href="https://app.intorza.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-hard btn-hard-hover"
               >
-                Create Quotation
+                {primaryLabel}
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href="https://app.intorza.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={secondaryLink?.href ?? "https://app.intorza.com"}
+                target={secondaryLink ? undefined : "_blank"}
+                rel={secondaryLink ? undefined : "noopener noreferrer"}
                 className="btn-hard-ghost btn-hard-hover"
               >
                 <FolderOpen className="w-4 h-4" />
-                My Projects
+                {secondaryLink?.label ?? "My Projects"}
               </a>
             </div>
 
-            <div className="mt-10 grid gap-3 border-t-2 border-foreground pt-6 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+            <ul
+              aria-label="Getting started benefits"
+              className="mt-10 grid grid-cols-3 gap-2 border-t-2 border-foreground pt-6"
+            >
               {benefits.map((b) => (
-                <div key={b} className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <span className="bullet-diamond" />
-                  {b}
-                </div>
+                <li
+                  key={b.full}
+                  aria-label={b.full}
+                  className="flex min-w-0 items-center gap-1.5 whitespace-nowrap text-[10px] leading-5 text-muted-foreground md:text-xs"
+                >
+                  <span
+                    className="h-1.5 w-1.5 shrink-0 rotate-45 bg-intorza-green"
+                    aria-hidden="true"
+                  />
+                  {b.label}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           <div className="relative min-w-0 lg:col-span-7">
@@ -72,17 +102,53 @@ const HeroSection = ({ title, subtitle }: Props) => {
                 </span>
                 <span className="h-2 w-8 bg-foreground/20" />
               </div>
-              <img src={dashboardPreview} alt="Intorza dashboard preview" className="w-full h-auto" fetchPriority="high" decoding="async" width="1280" height="800" />
+              {video ? (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls={false}
+                  disablePictureInPicture
+                  disableRemotePlayback
+                  preload="auto"
+                  poster={video.poster}
+                  width={video.width}
+                  height={video.height}
+                  aria-label="Intorza AI quotation builder demo: start with a floor plan or project details, then review the quotation draft"
+                  className="block w-full h-auto"
+                >
+                  <source src={video.src} type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  src={image?.src ?? dashboardPreview}
+                  alt={image?.alt ?? "Intorza dashboard preview"}
+                  className="w-full h-auto"
+                  loading="eager"
+                  fetchPriority="high"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  width={image?.width ?? 1890}
+                  height={image?.height ?? 890}
+                />
+              )}
             </div>
             <div className="relative mt-8 grid grid-cols-2 border-2 border-foreground bg-card">
-              <div className="p-5">
-                <div className="font-display text-2xl font-bold text-intorza-green">+45%</div>
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Efficiency boost</div>
-              </div>
-              <div className="border-l-2 border-foreground p-5">
-                <div className="font-display text-2xl font-bold text-foreground">500+</div>
-                <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Interior professionals</div>
-              </div>
+              {highlights.map((highlight, index) => (
+                <div
+                  key={highlight.label}
+                  className={`p-5 ${index ? "border-l-2 border-foreground" : ""}`}
+                >
+                  <div
+                    className={`font-display text-2xl font-bold ${index ? "text-foreground" : "text-green-700"}`}
+                  >
+                    {highlight.value}
+                  </div>
+                  <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                    {highlight.label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

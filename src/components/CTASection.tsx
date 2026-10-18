@@ -1,11 +1,7 @@
 import { ArrowRight, FileText, Receipt, Users } from "lucide-react";
+import Link from "next/link";
 
-interface Props {
-  countryName?: string;
-  trustedByText?: string;
-}
-
-const CTASection = ({ countryName, trustedByText }: Props) => {
+const CTASection = ({ quotation = false }: { quotation?: boolean }) => {
   const actions = [
     { icon: FileText, label: "Create Quotation" },
     { icon: Receipt, label: "Generate Invoice" },
@@ -15,14 +11,25 @@ const CTASection = ({ countryName, trustedByText }: Props) => {
     <section className="section-padding relative overflow-hidden border-t-2 border-foreground bg-primary">
       <div className="container-custom relative z-10">
         <div className="max-w-4xl text-left">
-          <span className="eyebrow-tag-invert mb-8">
-            {trustedByText ?? "Trusted by 500+ Interior Professionals"}
-          </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-            Start Managing Your<br />Interior Projects{countryName ? ` in ${countryName}` : " Today"}
+            {quotation ? (
+              <>
+                Build Your Next
+                <br />
+                Interior Quotation in Intorza
+              </>
+            ) : (
+              <>
+                Start Managing Your
+                <br />
+                Interior Projects Today
+              </>
+            )}
           </h2>
-          <p className="text-lg md:text-xl text-primary-foreground/85 max-w-2xl mb-10">
-            Join hundreds of interior designers and contractors{countryName ? ` in ${countryName}` : ""} who have streamlined their business operations with Intorza.
+          <p className="text-lg md:text-xl text-primary-foreground max-w-2xl mb-10">
+            {quotation
+              ? "Bring your work items, pricing and client details together, then move from the proposal to the project with a clearer record of the agreed scope."
+              : "Join hundreds of interior designers and contractors who have streamlined their business operations with Intorza."}
           </p>
           <div className="mb-10 grid gap-4 sm:grid-cols-3">
             {actions.map((a) => (
@@ -40,12 +47,17 @@ const CTASection = ({ countryName, trustedByText }: Props) => {
             ))}
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <a href="https://app.intorza.com" target="_blank" rel="noopener noreferrer" className="btn-hard-light btn-hard-hover">
+            <a
+              href="https://app.intorza.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-hard-light btn-hard-hover"
+            >
               Get Started Now <ArrowRight className="w-4 h-4" />
             </a>
-            <a href="mailto:intorza.com@gmail.com" className="btn-hard-light-ghost">
+            <Link href="/contact" className="btn-hard-light-ghost">
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

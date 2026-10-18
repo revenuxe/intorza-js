@@ -1,0 +1,91 @@
+{
+  "auditedAt": "2026-10-18T18:13:56.405Z",
+  "scope": "Read-only checks against the current public deployment, independent of local fixes",
+  "results": [
+    {
+      "requested": "http://intorza.com",
+      "url": "https://www.intorza.com/",
+      "status": 200,
+      "title": "Best Interior Design Software 2025 | Free Quotation &amp; Invoice Maker | Intorza",
+      "canonical": "https://www.intorza.com",
+      "sitemapUrls": 0,
+      "headers": {
+        "hsts": true,
+        "csp": false,
+        "frameOptions": null
+      }
+    },
+    {
+      "requested": "https://intorza.com",
+      "url": "https://www.intorza.com/",
+      "status": 200,
+      "title": "Best Interior Design Software 2025 | Free Quotation &amp; Invoice Maker | Intorza",
+      "canonical": "https://www.intorza.com",
+      "sitemapUrls": 0,
+      "headers": {
+        "hsts": true,
+        "csp": false,
+        "frameOptions": null
+      }
+    },
+    {
+      "requested": "https://www.intorza.com",
+      "url": "https://www.intorza.com/",
+      "status": 200,
+      "title": "Best Interior Design Software 2025 | Free Quotation &amp; Invoice Maker | Intorza",
+      "canonical": "https://www.intorza.com",
+      "sitemapUrls": 0,
+      "headers": {
+        "hsts": true,
+        "csp": false,
+        "frameOptions": null
+      }
+    },
+    {
+      "requested": "https://www.intorza.com/ai-quotation-builder",
+      "url": "https://www.intorza.com/ai-quotation-builder",
+      "status": 404,
+      "sitemapUrls": 0,
+      "headers": {
+        "hsts": true,
+        "csp": false,
+        "frameOptions": null
+      }
+    },
+    {
+      "requested": "https://www.intorza.com/robots.txt",
+      "url": "https://www.intorza.com/robots.txt",
+      "status": 200,
+      "sitemapUrls": 0,
+      "headers": {
+        "hsts": true,
+        "csp": false,
+        "frameOptions": null
+      }
+    },
+    {
+      "requested": "https://www.intorza.com/sitemap.xml",
+      "url": "https://www.intorza.com/sitemap.xml",
+      "status": 200,
+      "sitemapUrls": 109,
+      "headers": {
+        "hsts": true,
+        "csp": false,
+        "frameOptions": null
+      }
+    },
+    {
+      "requested": "https://app.intorza.com",
+      "url": "https://app.intorza.com/",
+      "status": 200,
+      "title": "Create Quotation | INTORZA",
+      "canonical": "https://app.intorza.com",
+      "sitemapUrls": 0,
+      "headers": {
+        "hsts": false,
+        "csp": false,
+        "frameOptions": "SAMEORIGIN"
+      }
+    }
+  ]
+}

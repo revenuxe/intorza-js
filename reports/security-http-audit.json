@@ -1,0 +1,40 @@
+{
+  "auditedAt": "2026-10-18T18:25:00.272Z",
+  "scope": "Local production build",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "headers": "passed"
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "headers": "passed"
+    },
+    {
+      "path": "/ai-quotation-builder",
+      "status": 200,
+      "headers": "passed"
+    },
+    {
+      "path": "/admin/login",
+      "status": 200,
+      "headers": "passed"
+    },
+    {
+      "path": "/admin",
+      "status": 307,
+      "headers": "passed"
+    },
+    {
+      "path": "/missing-security-check",
+      "status": 404,
+      "headers": "passed"
+    }
+  ],
+  "privateFiles": "404",
+  "crossOriginAction": "rejected",
+  "strictCsp": false,
+  "cspLimitation": "Inline hydration scripts/styles remain allowed for prerendered pages"
+}
