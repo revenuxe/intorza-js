@@ -29,9 +29,18 @@ export default function AIQuotationBuilder() {
             height: 1080,
           }}
           secondaryLink={{ href: "#how-it-works", label: "See How It Works" }}
+          compactHighlights
           highlights={[
-            { value: "AI Floor Plan Analysis", label: "Upload your floor plan" },
-            { value: "AI Quotation Builder", label: "Start with project details" },
+            {
+              value: "AI Floor Plan Analysis",
+              lines: ["AI Floor Plan", "Analysis"],
+              label: "Upload your floor plan",
+            },
+            {
+              value: "AI Quotation Builder",
+              lines: ["AI Quotation", "Builder"],
+              label: "Start with project details",
+            },
           ]}
         />
         <ProCTA

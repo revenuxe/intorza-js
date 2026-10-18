@@ -9,7 +9,8 @@ interface Props {
   primaryLabel?: string;
   image?: { src: string; alt: string; width: number; height: number };
   secondaryLink?: { href: string; label: string };
-  highlights?: Array<{ value: string; label: string }>;
+  highlights?: Array<{ value: string; label: string; lines?: [string, string] }>;
+  compactHighlights?: boolean;
 }
 
 const HeroSection = ({
@@ -19,6 +20,7 @@ const HeroSection = ({
   primaryLabel = "Create Quotation",
   image,
   secondaryLink,
+  compactHighlights = false,
   highlights = [
     { value: "+45%", label: "Efficiency boost" },
     { value: "500+", label: "Interior professionals" },
@@ -137,14 +139,23 @@ const HeroSection = ({
               {highlights.map((highlight, index) => (
                 <div
                   key={highlight.label}
-                  className={`p-5 ${index ? "border-l-2 border-foreground" : ""}`}
+                  className={`min-w-0 ${compactHighlights ? "p-3.5 sm:p-5" : "p-5"} ${index ? "border-l-2 border-foreground" : ""}`}
                 >
                   <div
-                    className={`font-display text-2xl font-bold ${index ? "text-foreground" : "text-green-700"}`}
+                    className={`font-display font-bold ${compactHighlights ? "text-base leading-snug sm:text-lg md:text-xl" : "text-2xl"} ${index ? "text-foreground" : "text-green-700"}`}
                   >
-                    {highlight.value}
+                    {highlight.lines
+                      ? highlight.lines.map((line, lineIndex) => (
+                          <span key={line} className="block whitespace-nowrap">
+                            {line}
+                            {lineIndex === 0 ? " " : null}
+                          </span>
+                        ))
+                      : highlight.value}
                   </div>
-                  <div className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                  <div
+                    className={`font-mono font-bold uppercase text-muted-foreground ${compactHighlights ? "mt-2 text-[9px] leading-relaxed tracking-[0.08em] sm:text-[10px]" : "text-[10px] tracking-[0.18em]"}`}
+                  >
                     {highlight.label}
                   </div>
                 </div>
