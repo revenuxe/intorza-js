@@ -226,6 +226,55 @@ try {
       .map((source) => source.path);
     assert.ok(page.inboundContextualPages.length, `${page.path}: has an incoming contextual link`);
   }
+  const publicPaths = new Set(paths);
+  const shortestPaths = (contextualOnly) => {
+    const distances = new Map([["/", 0]]);
+    const queue = ["/"];
+    for (let index = 0; index < queue.length; index++) {
+      const source = pages.find((page) => page.path === queue[index]);
+      const targets = contextualOnly
+        ? source.contextualDestinations
+        : source.links
+            .filter((link) => link.startsWith("/"))
+            .map((link) => new URL(link, origin).pathname);
+      for (const target of targets) {
+        if (publicPaths.has(target) && !distances.has(target)) {
+          distances.set(target, distances.get(source.path) + 1);
+          queue.push(target);
+        }
+      }
+    }
+    return distances;
+  };
+  const navigationDepth = shortestPaths(false);
+  const contextualDepth = shortestPaths(true);
+  const featurePaths = paths.filter(
+    (path) => path.startsWith("/interior-") || path === "/ai-quotation-builder",
+  );
+  for (const page of pages) {
+    page.clickDepthFromHome = navigationDepth.get(page.path);
+    page.contextualClickDepthFromHome = contextualDepth.get(page.path) ?? null;
+    assert.ok(navigationDepth.has(page.path), page.path + ": reachable from homepage");
+    assert.ok(page.clickDepthFromHome <= 2, page.path + ": within two navigation clicks");
+    if (featurePaths.includes(page.path)) {
+      assert.ok(
+        contextualDepth.has(page.path) && contextualDepth.get(page.path) <= 2,
+        page.path + ": within two contextual clicks",
+      );
+      assert.ok(
+        page.inboundContextualPages.length >= 2,
+        page.path + ": linked from multiple relevant pages",
+      );
+    }
+  }
+  for (const page of pages) {
+    const footer = page.html.match(/<footer\b[^>]*>([\s\S]*?)<\/footer>/)?.[1] ?? "";
+    for (const path of featurePaths)
+      assert.ok(
+        footer.includes('href="' + path + '"'),
+        page.path + ": footer includes product guide " + path,
+      );
+  }
   for (const page of pages)
     for (const link of page.links.filter((link) => link.startsWith("/") || link.startsWith("#"))) {
       const parsed = new URL(link, origin + page.path);
@@ -268,6 +317,8 @@ try {
       "Valid JSON-LD",
       "Internal URLs and anchors",
       "Contextual body links on every page and no orphan pages",
+      "Homepage click depth and multiple contextual links to product guides",
+      "Complete product and business workflow footer navigation",
       "No eyebrow labels",
       "Intrinsic image dimensions and alt text",
       "Social image dimensions",

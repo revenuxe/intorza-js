@@ -58,7 +58,7 @@ const ProCTA = ({
               Get Pro Now
             </a>
             {
-              <p className="mt-6 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-primary-foreground/60">
+              <p className="pricing-assurance mt-6 whitespace-nowrap font-mono text-[9px] min-[375px]:text-[10px] font-bold uppercase tracking-normal sm:tracking-[0.16em] text-primary-foreground/60">
                 Cancel anytime · No hidden fees · Instant access
               </p>
             }

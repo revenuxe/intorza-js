@@ -14,14 +14,21 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const product = [
-    { label: "Business Dashboard", href: "/interior-design-dashboard" },
-    { label: "Site Measurement", href: "/interior-site-measurement" },
     { label: "Features", href: "/#features" },
     { label: "How It Works", href: "/#how-it-works" },
     { label: "AI Quotation Builder", href: "/ai-quotation-builder" },
     { label: "Interior Quotation", href: "/interior-quotation" },
     { label: "Interior Quotation Format", href: "/interior-quotation-format" },
     { label: "Interior Cost Calculator", href: "/interior-cost-calculator" },
+  ];
+  const workflow = [
+    { label: "Business Dashboard", href: "/interior-design-dashboard" },
+    { label: "Site Measurement", href: "/interior-site-measurement" },
+    { label: "Quotation Tracking", href: "/interior-quotation-management" },
+    { label: "Project Management", href: "/interior-project-management" },
+    { label: "Invoices & Payments", href: "/interior-invoice-software" },
+    { label: "Client Management", href: "/interior-design-crm" },
+    { label: "Team Management", href: "/interior-team-management" },
   ];
   const company = [
     { label: "About Us", to: "/about" as const },
@@ -37,7 +44,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-secondary text-secondary-foreground pt-20 pb-8">
       <div className="container-custom">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
           <div className="lg:col-span-2">
             <Image
               src={intorzaLogo}
@@ -96,6 +103,22 @@ const Footer = () => {
             </ul>
           </div>
 
+          <div>
+            <h2 className="font-display font-semibold text-lg mb-4">Manage Your Business</h2>
+            <ul className="space-y-3">
+              {workflow.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    prefetch={false}
+                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           <div>
             <h2 className="font-display font-semibold text-lg mb-4">Company</h2>
             <ul className="space-y-3">

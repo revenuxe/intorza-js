@@ -75,6 +75,14 @@ try {
           return { top: bounds.top, left: bounds.left, right: bounds.right, width: bounds.width };
         };
         return {
+          pricingAssurance: (() => {
+            const element = document.querySelector(".pricing-assurance");
+            if (!element) return null;
+            const range = document.createRange();
+            range.selectNodeContents(element);
+            const bounds = range.getBoundingClientRect();
+            return { lines: range.getClientRects().length, left: bounds.left, right: bounds.right };
+          })(),
           viewport: innerWidth,
           documentWidth: document.documentElement.scrollWidth,
           buttons: [...document.querySelectorAll(".hero-actions > a")].map(rect),
@@ -91,6 +99,16 @@ try {
       assert.ok(
         layout.documentWidth <= width + 1,
         `${path} at ${width}px: no horizontal overflow (${layout.documentWidth}px)`,
+      );
+      assert.ok(layout.pricingAssurance, path + ": pricing assurance exists");
+      assert.equal(
+        layout.pricingAssurance.lines,
+        1,
+        path + ": pricing assurance stays on one line",
+      );
+      assert.ok(
+        layout.pricingAssurance.left >= 0 && layout.pricingAssurance.right <= width,
+        path + ": pricing assurance fits the viewport",
       );
       assert.equal(layout.buttons.length, 2);
       assert.ok(
@@ -128,6 +146,9 @@ try {
               ? "reports/mobile-home-390.png"
               : `reports/mobile-${path.slice(1)}-390.png`,
         });
+      if (width === 390 && path === "/") {
+        await page.locator("#pricing").screenshot({ path: "reports/mobile-pricing-390.png" });
+      }
       if (
         width === 1280 &&
         ["/interior-design-dashboard", "/interior-site-measurement"].includes(path)
