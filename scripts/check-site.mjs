@@ -24,6 +24,11 @@ const pages = [
   "/contact",
   "/interior-design-dashboard",
   "/interior-site-measurement",
+  "/interior-quotation-management",
+  "/interior-project-management",
+  "/interior-invoice-software",
+  "/interior-design-crm",
+  "/interior-team-management",
   "/interior-quotation",
   "/ai-quotation-builder",
   "/interior-quotation-format",
@@ -96,10 +101,16 @@ try {
   );
   for (const [label, href] of [
     ["Complete Business Overview", "/interior-design-dashboard"],
+    ["Build Professional Quotations", "/interior-quotation"],
+    ["Track Quotation Status", "/interior-quotation-management"],
+    ["Manage Converted Projects", "/interior-project-management"],
+    ["Effortless Invoicing & Payments", "/interior-invoice-software"],
+    ["Build Lasting Client Relationships", "/interior-design-crm"],
+    ["Collaborate with Your Team", "/interior-team-management"],
     ["Organize Site Visits Efficiently", "/interior-site-measurement"],
   ]) {
     assert.ok(htmlPages[0].includes(`href="${href}"`), `Homepage feature link: ${label}`);
-    assert.ok(htmlPages[0].includes(label));
+    assert.ok(htmlPages[0].includes(label.replaceAll("&", "&amp;")));
   }
   const redirected = [
     "/india",
@@ -177,3 +188,4 @@ try {
   server.kill();
   if (server.exitCode === null) await once(server, "exit");
 }
+

@@ -61,6 +61,11 @@ try {
       "/ai-quotation-builder",
       "/interior-design-dashboard",
       "/interior-site-measurement",
+      "/interior-quotation-management",
+      "/interior-project-management",
+      "/interior-invoice-software",
+      "/interior-design-crm",
+      "/interior-team-management",
     ]) {
       await page.goto(origin + path, { waitUntil: "networkidle" });
       await page.evaluate(() => document.fonts.ready);
@@ -199,6 +204,28 @@ try {
     .click();
   await page.waitForURL(origin + "/about");
   for (const [label, path, h1] of [
+    [
+      "Build Professional Quotations",
+      "/interior-quotation",
+      "Best Interior Quotation Tool for Designers & Contractors",
+    ],
+    [
+      "Track Quotation Status",
+      "/interior-quotation-management",
+      "Interior Quotation Management Software",
+    ],
+    [
+      "Manage Converted Projects",
+      "/interior-project-management",
+      "Interior Project Management Software",
+    ],
+    ["Effortless Invoicing & Payments", "/interior-invoice-software", "Interior Invoice Software"],
+    ["Build Lasting Client Relationships", "/interior-design-crm", "CRM for Interior Designers"],
+    [
+      "Collaborate with Your Team",
+      "/interior-team-management",
+      "Team Management for Interior Designers",
+    ],
     [
       "Complete Business Overview",
       "/interior-design-dashboard",

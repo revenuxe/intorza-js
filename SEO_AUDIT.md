@@ -187,3 +187,11 @@ Each page has its own title, description, H1, self-canonical, social metadata, v
 Validation: production build, lint, TypeScript, contact validation, HTTP/security checks, secret scan and SEO checks pass across 13 public pages. Browser checks cover both new heroes at 320, 375, 390, 768 and 1280px, feature columns, homepage heading navigation, FAQ expansion and the existing calculator, mobile menu and AI video. Updated evidence is in `reports/seo-audit.json`, `reports/responsive-audit.json`, and the new mobile/desktop feature-page screenshots. Existing Lighthouse audits remain historical; these new pages were not assigned unmeasured Lighthouse or field Core Web Vitals scores.
 
 Content and links follow [Google's helpful-content guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and [crawlable-link guidance](https://developers.google.com/search/docs/crawling-indexing/links-crawlable). Publication and recrawling are required before the new content can appear in search; indexing, traffic and rankings are not guaranteed.
+
+## Feature landing pages — 19 October 2026
+
+Added dedicated, statically rendered pages for interior quotation management, interior project management, interior invoice software, CRM for interior designers, and team management for interior designers. These complement the dashboard and site measurement pages; quotation creation continues to use the existing interior quotation page.
+
+All eight homepage showcase headings now link to their relevant guides. Feature summary cards also link to the appropriate guide or privacy policy. Each new page uses the homepage hero component, an existing optimized WebP product screenshot, distinct H1/title/description/canonical metadata, breadcrumbs, workflow guidance, practical examples, FAQs, pricing, contextual related links and calls to action. Pages are included in the XML sitemap and automated site, SEO and responsive checks. Copy describes visible product records and avoids claiming unverified payment integrations or search ranking outcomes.
+
+Production build, lint, TypeScript, contact validation, rendered-page/link/sitemap, SEO, security-header and secret checks passed across 18 public pages. These checks verify implementation; search indexing and ranking require deployment and subsequent search-engine crawling.

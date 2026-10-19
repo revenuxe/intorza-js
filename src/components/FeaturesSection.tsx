@@ -14,8 +14,24 @@ import {
   Users,
 } from "lucide-react";
 const featureLinks: Record<string, string> = {
+  "/quotation-preview.webp": "/interior-quotation",
+  "/my-quotation-preview.webp": "/interior-quotation-management",
+  "/my-project-preview.webp": "/interior-project-management",
+  "/invoice-preview.webp": "/interior-invoice-software",
+  "/clients-preview.webp": "/interior-design-crm",
+  "/team-preview.webp": "/interior-team-management",
   "/dashboard-preview.webp": "/interior-design-dashboard",
   "/site-measurement-preview.webp": "/interior-site-measurement",
+};
+const featureSummaryLinks: Record<string, string> = {
+  "Smart Dashboard": "/interior-design-dashboard",
+  "Site Measurement": "/interior-site-measurement",
+  "Quotation Builder": "/interior-quotation",
+  "Invoice Management": "/interior-invoice-software",
+  "Client Management": "/interior-design-crm",
+  "Team Collaboration": "/interior-team-management",
+  "Analytics & Reports": "/interior-design-dashboard",
+  "Secure & Reliable": "/privacy",
 };
 const dashboardPreview = "/dashboard-preview.webp";
 const quotationPreview = "/quotation-preview.webp";
@@ -55,7 +71,7 @@ const features = [
     icon: Users,
     title: "Client Management",
     description:
-      "Detailed client records with project history, billing information, and communication logs.",
+      "Keep client details, project counts, billed amounts, payments and outstanding balances together.",
   },
   {
     icon: UserPlus,
@@ -66,13 +82,14 @@ const features = [
   {
     icon: BarChart3,
     title: "Analytics & Reports",
-    description: "Detailed reports on conversion rates, revenue trends, and project performance.",
+    description:
+      "Review quotation conversion, recorded revenue, payment totals and project counts in the dashboard.",
   },
   {
     icon: Shield,
     title: "Secure & Reliable",
     description:
-      "Enterprise-grade security with encrypted data storage. Your business data is always safe.",
+      "Review how Intorza handles account information and business records in our privacy policy.",
   },
 ];
 
@@ -299,7 +316,11 @@ const FeaturesSection = ({ quotation = false, title }: { quotation?: boolean; ti
 
       <div className="grid grid-cols-2 border-l border-t border-border lg:grid-cols-4">
         {features
-          .map((f) => (quotation ? { ...f, ...quotationFeatureCopy[f.title] } : f))
+          .map((f) => ({
+            ...f,
+            href: featureSummaryLinks[f.title],
+            ...(quotation ? quotationFeatureCopy[f.title] : {}),
+          }))
           .map((f) => (
             <div
               key={f.title}
@@ -309,7 +330,13 @@ const FeaturesSection = ({ quotation = false, title }: { quotation?: boolean; ti
                 <f.icon className="w-6 h-6" />
               </div>
               <h3 className="font-display text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                {f.title}
+                <Link
+                  href={f.href}
+                  prefetch={false}
+                  className="underline decoration-primary/40 underline-offset-4 focus-visible:outline-2 focus-visible:outline-primary"
+                >
+                  {f.title}
+                </Link>
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{f.description}</p>
             </div>

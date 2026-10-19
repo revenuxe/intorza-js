@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-19T07:28:07.464Z",
+  "auditedAt": "2026-10-19T07:45:13.597Z",
   "browser": "msedge",
   "results": [
     {
@@ -28,6 +28,31 @@
       "result": "passed"
     },
     {
+      "path": "/interior-quotation-management",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-project-management",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-invoice-software",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-team-management",
+      "width": 320,
+      "result": "passed"
+    },
+    {
       "path": "/",
       "width": 375,
       "result": "passed"
@@ -53,6 +78,31 @@
       "result": "passed"
     },
     {
+      "path": "/interior-quotation-management",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-project-management",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-invoice-software",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-team-management",
+      "width": 375,
+      "result": "passed"
+    },
+    {
       "path": "/",
       "width": 390,
       "result": "passed"
@@ -78,6 +128,31 @@
       "result": "passed"
     },
     {
+      "path": "/interior-quotation-management",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-project-management",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-invoice-software",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-team-management",
+      "width": 390,
+      "result": "passed"
+    },
+    {
       "path": "/",
       "width": 768,
       "result": "passed"
@@ -103,6 +178,31 @@
       "result": "passed"
     },
     {
+      "path": "/interior-quotation-management",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-project-management",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-invoice-software",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-team-management",
+      "width": 768,
+      "result": "passed"
+    },
+    {
       "path": "/",
       "width": 1280,
       "result": "passed"
@@ -124,6 +224,31 @@
     },
     {
       "path": "/interior-site-measurement",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-quotation-management",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-project-management",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-invoice-software",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-team-management",
       "width": 1280,
       "result": "passed"
     },

@@ -31,6 +31,11 @@ npm start
 - `/ai-quotation-builder` - AI quotation landing page with the supplied silent autoplay demo
 - `/interior-design-dashboard` - Business dashboard feature guide
 - `/interior-site-measurement` - Site visit and measurement workflow guide
+- `/interior-quotation-management` - Quotation status and follow-up guide
+- `/interior-project-management` - Converted project handover guide
+- `/interior-invoice-software` - Invoice and payment tracking guide
+- `/interior-design-crm` - Client and billing record guide
+- `/interior-team-management` - Project team and attendance guide
 - `/interior-quotation`
 - `/interior-cost-calculator`
 - `/interior-quotation-format`
