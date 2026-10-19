@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { quotationShowcases, quotationFeatureCopy } from "@/data/quotation-page";
 import { productImageDimensions } from "@/data/product-images";
@@ -12,6 +13,10 @@ import {
   UserPlus,
   Users,
 } from "lucide-react";
+const featureLinks: Record<string, string> = {
+  "/dashboard-preview.webp": "/interior-design-dashboard",
+  "/site-measurement-preview.webp": "/interior-site-measurement",
+};
 const dashboardPreview = "/dashboard-preview.webp";
 const quotationPreview = "/quotation-preview.webp";
 const invoicePreview = "/invoice-preview.webp";
@@ -236,7 +241,17 @@ const FeaturesSection = ({ quotation = false, title }: { quotation?: boolean; ti
             >
               <div className="space-y-4">
                 <h3 className="font-display text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-[2.75rem]">
-                  {s.title}
+                  {featureLinks[s.image] ? (
+                    <Link
+                      href={featureLinks[s.image]}
+                      prefetch={false}
+                      className="underline decoration-primary/40 underline-offset-8 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                    >
+                      {s.title}
+                    </Link>
+                  ) : (
+                    s.title
+                  )}
                 </h3>
                 <p className="text-lg leading-relaxed text-muted-foreground">{s.description}</p>
               </div>

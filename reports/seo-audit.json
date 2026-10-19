@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-18T23:03:36.610Z",
+  "auditedAt": "2026-10-19T07:26:31.128Z",
   "scope": "Local production build; not a live deployment or search-index audit",
   "result": "passed",
   "checks": [
@@ -25,7 +25,7 @@
       "description": "Manage interior projects, create quotations, generate invoices and organize clients with Intorza. Explore the tools, free plan and Pro pricing for your business.",
       "h1": "Best Interior Design Software for Project Management",
       "imageCount": 11,
-      "htmlBytes": 199434,
+      "htmlBytes": 201150,
       "schemaTypes": [
         "Organization",
         "WebSite",
@@ -33,6 +33,8 @@
         "FAQPage"
       ],
       "contextualDestinations": [
+        "/interior-design-dashboard",
+        "/interior-site-measurement",
         "/ai-quotation-builder",
         "/interior-quotation",
         "/interior-quotation-format",
@@ -42,13 +44,78 @@
       ],
       "mainContentWords": 1067,
       "inboundContextualPages": [
+        "/interior-design-dashboard",
+        "/interior-site-measurement",
         "/interior-quotation",
         "/ai-quotation-builder",
         "/about"
       ],
       "titleCharacters": 53,
       "descriptionCharacters": 161,
-      "internalLinkCount": 26
+      "internalLinkCount": 30
+    },
+    {
+      "path": "/interior-design-dashboard",
+      "title": "Interior Design Business Dashboard | Intorza",
+      "description": "Track interior quotations, converted projects, clients and recorded payments in one business dashboard. Explore Intorza's workflow for designers and contractors.",
+      "h1": "Interior Design Business Dashboard",
+      "imageCount": 3,
+      "htmlBytes": 101552,
+      "schemaTypes": [
+        "Organization",
+        "SoftwareApplication",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/interior-quotation",
+        "/contact",
+        "/interior-site-measurement"
+      ],
+      "mainContentWords": 1294,
+      "inboundContextualPages": [
+        "/",
+        "/interior-site-measurement",
+        "/interior-quotation",
+        "/ai-quotation-builder"
+      ],
+      "titleCharacters": 44,
+      "descriptionCharacters": 161,
+      "internalLinkCount": 29
+    },
+    {
+      "path": "/interior-site-measurement",
+      "title": "Interior Site Measurement Software & Site Visits | Intorza",
+      "description": "Organize interior site measurement projects, locations and team assignments with Intorza. Follow a practical site visit checklist and prepare a clearer quotation.",
+      "h1": "Interior Site Measurement Software",
+      "imageCount": 3,
+      "htmlBytes": 104517,
+      "schemaTypes": [
+        "Organization",
+        "SoftwareApplication",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/interior-quotation",
+        "/contact",
+        "/ai-quotation-builder",
+        "/interior-quotation-format",
+        "/interior-design-dashboard",
+        "/interior-cost-calculator"
+      ],
+      "mainContentWords": 1369,
+      "inboundContextualPages": [
+        "/",
+        "/interior-design-dashboard",
+        "/interior-quotation",
+        "/ai-quotation-builder"
+      ],
+      "titleCharacters": 58,
+      "descriptionCharacters": 162,
+      "internalLinkCount": 30
     },
     {
       "path": "/interior-quotation",
@@ -56,7 +123,7 @@
       "description": "Create itemized interior quotations, export professional PDFs and connect accepted proposals to invoices. Explore Intorza's quotation tool and INR 499/month Pro plan.",
       "h1": "Best Interior Quotation Tool for Designers & Contractors",
       "imageCount": 11,
-      "htmlBytes": 176190,
+      "htmlBytes": 177906,
       "schemaTypes": [
         "Organization",
         "SoftwareApplication",
@@ -68,11 +135,15 @@
         "/",
         "/ai-quotation-builder",
         "/interior-cost-calculator",
+        "/interior-site-measurement",
+        "/interior-design-dashboard",
         "/contact"
       ],
       "mainContentWords": 1290,
       "inboundContextualPages": [
         "/",
+        "/interior-design-dashboard",
+        "/interior-site-measurement",
         "/ai-quotation-builder",
         "/about",
         "/contact",
@@ -81,7 +152,7 @@
       ],
       "titleCharacters": 61,
       "descriptionCharacters": 166,
-      "internalLinkCount": 27
+      "internalLinkCount": 31
     },
     {
       "path": "/ai-quotation-builder",
@@ -89,7 +160,7 @@
       "description": "Create an AI interior quotation from a floor plan or project details. Review editable drafts, refine room-wise scope and export client-ready proposals with Intorza.",
       "h1": "AI Interior Design Quotation Tool",
       "imageCount": 10,
-      "htmlBytes": 166023,
+      "htmlBytes": 167739,
       "schemaTypes": [
         "Organization",
         "SoftwareApplication",
@@ -101,16 +172,19 @@
         "/interior-quotation",
         "/interior-cost-calculator",
         "/contact",
-        "/interior-quotation-format"
+        "/interior-quotation-format",
+        "/interior-site-measurement",
+        "/interior-design-dashboard"
       ],
       "mainContentWords": 1371,
       "inboundContextualPages": [
         "/",
+        "/interior-site-measurement",
         "/interior-quotation"
       ],
       "titleCharacters": 43,
       "descriptionCharacters": 164,
-      "internalLinkCount": 22
+      "internalLinkCount": 26
     },
     {
       "path": "/about",
@@ -118,7 +192,7 @@
       "description": "Learn how Intorza connects quotations, invoices, clients and project coordination for interior designers and contractors. Meet the product and contact our Bengaluru team.",
       "h1": "About Intorza: Software for Interior Businesses",
       "imageCount": 2,
-      "htmlBytes": 58944,
+      "htmlBytes": 59716,
       "schemaTypes": [
         "Organization",
         "AboutPage",
@@ -138,7 +212,7 @@
       ],
       "titleCharacters": 48,
       "descriptionCharacters": 170,
-      "internalLinkCount": 21
+      "internalLinkCount": 23
     },
     {
       "path": "/contact",
@@ -146,7 +220,7 @@
       "description": "Call Intorza on +91 9886579923 for interior quotation software support. Find our RT Nagar, Bengaluru address or send a message to our team.",
       "h1": "Contact Intorza for Support and Sales",
       "imageCount": 2,
-      "htmlBytes": 51960,
+      "htmlBytes": 52732,
       "schemaTypes": [
         "Organization",
         "ContactPage",
@@ -164,6 +238,8 @@
       "mainContentWords": 229,
       "inboundContextualPages": [
         "/",
+        "/interior-design-dashboard",
+        "/interior-site-measurement",
         "/interior-quotation",
         "/ai-quotation-builder",
         "/about",
@@ -176,7 +252,7 @@
       ],
       "titleCharacters": 56,
       "descriptionCharacters": 139,
-      "internalLinkCount": 22
+      "internalLinkCount": 24
     },
     {
       "path": "/interior-quotation-format",
@@ -184,7 +260,7 @@
       "description": "Use this free interior quotation format and sample to itemise rooms, materials, quantities, rates, GST and payment terms. Review the example or print it.",
       "h1": "Interior Quotation Format: Free Sample for Home Projects",
       "imageCount": 2,
-      "htmlBytes": 67798,
+      "htmlBytes": 68570,
       "schemaTypes": [
         "Organization",
         "FAQPage",
@@ -198,6 +274,7 @@
       "mainContentWords": 711,
       "inboundContextualPages": [
         "/",
+        "/interior-site-measurement",
         "/interior-quotation",
         "/ai-quotation-builder",
         "/about",
@@ -206,7 +283,7 @@
       ],
       "titleCharacters": 59,
       "descriptionCharacters": 153,
-      "internalLinkCount": 20
+      "internalLinkCount": 22
     },
     {
       "path": "/interior-cost-calculator",
@@ -214,7 +291,7 @@
       "description": "Free interior cost calculator: pick your home size and finish level to estimate home interior design cost room by room, with GST. Then turn it into a quotation.",
       "h1": "Interior Design Cost Calculator",
       "imageCount": 2,
-      "htmlBytes": 53067,
+      "htmlBytes": 53839,
       "schemaTypes": [
         "Organization",
         "WebApplication",
@@ -229,6 +306,7 @@
       "mainContentWords": 531,
       "inboundContextualPages": [
         "/",
+        "/interior-site-measurement",
         "/interior-quotation",
         "/ai-quotation-builder",
         "/about",
@@ -237,7 +315,7 @@
       ],
       "titleCharacters": 53,
       "descriptionCharacters": 160,
-      "internalLinkCount": 20
+      "internalLinkCount": 22
     },
     {
       "path": "/privacy",
@@ -245,7 +323,7 @@
       "description": "Learn how Intorza collects, uses, and protects your personal and business data.",
       "h1": "Privacy Policy",
       "imageCount": 2,
-      "htmlBytes": 39788,
+      "htmlBytes": 40560,
       "schemaTypes": [
         "Organization",
         "BreadcrumbList"
@@ -264,7 +342,7 @@
       ],
       "titleCharacters": 47,
       "descriptionCharacters": 79,
-      "internalLinkCount": 20
+      "internalLinkCount": 22
     },
     {
       "path": "/terms",
@@ -272,7 +350,7 @@
       "description": "Read Intorza's Terms and Conditions and understand your rights and responsibilities when using our software.",
       "h1": "Terms & Conditions",
       "imageCount": 2,
-      "htmlBytes": 38200,
+      "htmlBytes": 38972,
       "schemaTypes": [
         "Organization",
         "BreadcrumbList"
@@ -291,7 +369,7 @@
       ],
       "titleCharacters": 46,
       "descriptionCharacters": 108,
-      "internalLinkCount": 19
+      "internalLinkCount": 21
     },
     {
       "path": "/cookies",
@@ -299,7 +377,7 @@
       "description": "Understand how Intorza uses cookies and tracking technologies and how to manage them.",
       "h1": "Cookie Policy",
       "imageCount": 2,
-      "htmlBytes": 37944,
+      "htmlBytes": 38716,
       "schemaTypes": [
         "Organization",
         "BreadcrumbList"
@@ -315,7 +393,7 @@
       ],
       "titleCharacters": 40,
       "descriptionCharacters": 85,
-      "internalLinkCount": 20
+      "internalLinkCount": 22
     },
     {
       "path": "/refund",
@@ -323,7 +401,7 @@
       "description": "Read Intorza's refund policy for subscription plans, eligibility, and the refund process.",
       "h1": "Refund Policy",
       "imageCount": 2,
-      "htmlBytes": 37990,
+      "htmlBytes": 38762,
       "schemaTypes": [
         "Organization",
         "BreadcrumbList"
@@ -340,7 +418,7 @@
       ],
       "titleCharacters": 44,
       "descriptionCharacters": 89,
-      "internalLinkCount": 20
+      "internalLinkCount": 22
     }
   ]
 }

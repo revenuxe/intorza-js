@@ -29,6 +29,8 @@ npm start
 - `/about`
 - `/contact`
 - `/ai-quotation-builder` - AI quotation landing page with the supplied silent autoplay demo
+- `/interior-design-dashboard` - Business dashboard feature guide
+- `/interior-site-measurement` - Site visit and measurement workflow guide
 - `/interior-quotation`
 - `/interior-cost-calculator`
 - `/interior-quotation-format`

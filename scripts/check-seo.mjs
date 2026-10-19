@@ -8,6 +8,8 @@ const origin = "http://127.0.0.1:3199";
 const canonicalOrigin = "https://www.intorza.com";
 const paths = [
   "/",
+  "/interior-design-dashboard",
+  "/interior-site-measurement",
   "/interior-quotation",
   "/ai-quotation-builder",
   "/about",

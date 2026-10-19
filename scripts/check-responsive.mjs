@@ -55,7 +55,13 @@ try {
   fs.mkdirSync("reports", { recursive: true });
   for (const width of [320, 375, 390, 768, 1280]) {
     await page.setViewportSize({ width, height: 844 });
-    for (const path of ["/", "/interior-quotation", "/ai-quotation-builder"]) {
+    for (const path of [
+      "/",
+      "/interior-quotation",
+      "/ai-quotation-builder",
+      "/interior-design-dashboard",
+      "/interior-site-measurement",
+    ]) {
       await page.goto(origin + path, { waitUntil: "networkidle" });
       await page.evaluate(() => document.fonts.ready);
       const layout = await page.evaluate(() => {
@@ -70,7 +76,7 @@ try {
           benefits: [
             ...document.querySelectorAll('[aria-label="Getting started benefits"] > li'),
           ].map(rect),
-          featureCards: [...document.querySelectorAll("#features .grid-cols-2 > div")]
+          featureCards: [...document.querySelectorAll("#features .grid-cols-2 > *")]
             .slice(0, 2)
             .map(rect),
         };
@@ -101,6 +107,12 @@ try {
               ? "reports/mobile-home-390.png"
               : `reports/mobile-${path.slice(1)}-390.png`,
         });
+      if (
+        width === 1280 &&
+        ["/interior-design-dashboard", "/interior-site-measurement"].includes(path)
+      ) {
+        await page.screenshot({ path: `reports/desktop-${path.slice(1)}-1280.png` });
+      }
       results.push({ path, width, result: "passed" });
     }
   }
@@ -186,6 +198,26 @@ try {
     .getByRole("link", { name: "About", exact: true })
     .click();
   await page.waitForURL(origin + "/about");
+  for (const [label, path, h1] of [
+    [
+      "Complete Business Overview",
+      "/interior-design-dashboard",
+      "Interior Design Business Dashboard",
+    ],
+    [
+      "Organize Site Visits Efficiently",
+      "/interior-site-measurement",
+      "Interior Site Measurement Software",
+    ],
+  ]) {
+    await page.goto(origin + "/", { waitUntil: "networkidle" });
+    await page.getByRole("link", { name: label, exact: true }).click();
+    await page.waitForURL(origin + path);
+    assert.equal(await page.locator("h1").innerText(), h1);
+    const firstFaq = page.locator("details").first();
+    await firstFaq.locator("summary").click();
+    assert.equal(await firstFaq.getAttribute("open"), "");
+  }
   assert.equal(cspViolations.length, 0, `CSP violations: ${cspViolations.join("; ")}`);
   assert.equal(runtimeErrors.length, 0, `Browser errors: ${runtimeErrors.join("; ")}`);
   fs.writeFileSync(
@@ -199,6 +231,7 @@ try {
           "Calculator recomputation",
           "Contact action under CSP (honeypot, no database write)",
           "Mobile navigation",
+          "Homepage feature heading navigation and landing-page FAQs",
           "AI demo autoplay, controls, dimensions and byte ranges",
         ],
         runtimeErrors,

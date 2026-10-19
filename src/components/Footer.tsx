@@ -14,6 +14,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const product = [
+    { label: "Business Dashboard", href: "/interior-design-dashboard" },
+    { label: "Site Measurement", href: "/interior-site-measurement" },
     { label: "Features", href: "/#features" },
     { label: "How It Works", href: "/#how-it-works" },
     { label: "AI Quotation Builder", href: "/ai-quotation-builder" },

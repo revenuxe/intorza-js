@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-18T23:04:13.675Z",
+  "auditedAt": "2026-10-19T07:28:07.464Z",
   "browser": "msedge",
   "results": [
     {
@@ -18,6 +18,16 @@
       "result": "passed"
     },
     {
+      "path": "/interior-design-dashboard",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-site-measurement",
+      "width": 320,
+      "result": "passed"
+    },
+    {
       "path": "/",
       "width": 375,
       "result": "passed"
@@ -33,6 +43,16 @@
       "result": "passed"
     },
     {
+      "path": "/interior-design-dashboard",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-site-measurement",
+      "width": 375,
+      "result": "passed"
+    },
+    {
       "path": "/",
       "width": 390,
       "result": "passed"
@@ -44,6 +64,16 @@
     },
     {
       "path": "/ai-quotation-builder",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-dashboard",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-site-measurement",
       "width": 390,
       "result": "passed"
     },
@@ -59,6 +89,16 @@
     },
     {
       "path": "/ai-quotation-builder",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-dashboard",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-site-measurement",
       "width": 768,
       "result": "passed"
     },
@@ -74,6 +114,16 @@
     },
     {
       "path": "/ai-quotation-builder",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-dashboard",
+      "width": 1280,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-site-measurement",
       "width": 1280,
       "result": "passed"
     },
@@ -122,6 +172,7 @@
     "Calculator recomputation",
     "Contact action under CSP (honeypot, no database write)",
     "Mobile navigation",
+    "Homepage feature heading navigation and landing-page FAQs",
     "AI demo autoplay, controls, dimensions and byte ranges"
   ],
   "runtimeErrors": []

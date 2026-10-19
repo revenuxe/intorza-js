@@ -22,6 +22,8 @@ const pages = [
   "/",
   "/about",
   "/contact",
+  "/interior-design-dashboard",
+  "/interior-site-measurement",
   "/interior-quotation",
   "/ai-quotation-builder",
   "/interior-quotation-format",
@@ -92,6 +94,13 @@ try {
       return html;
     }),
   );
+  for (const [label, href] of [
+    ["Complete Business Overview", "/interior-design-dashboard"],
+    ["Organize Site Visits Efficiently", "/interior-site-measurement"],
+  ]) {
+    assert.ok(htmlPages[0].includes(`href="${href}"`), `Homepage feature link: ${label}`);
+    assert.ok(htmlPages[0].includes(label));
+  }
   const redirected = [
     "/india",
     "/india/mumbai",

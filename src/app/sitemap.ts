@@ -6,6 +6,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/contact",
+    "/interior-design-dashboard",
+    "/interior-site-measurement",
     "/interior-quotation",
     "/ai-quotation-builder",
     "/interior-quotation-format",
