@@ -14,7 +14,6 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const product = [
-    { label: "CRM & Quotation Guide", href: "/interior-design-crm-quotation-software" },
     { label: "Features", href: "/#features" },
     { label: "How It Works", href: "/#how-it-works" },
     { label: "AI Quotation Builder", href: "/ai-quotation-builder" },
@@ -134,6 +133,20 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+            <nav aria-label="Articles" className="mt-8">
+              <h2 className="font-display font-semibold text-lg mb-4">Articles</h2>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="/interior-design-crm-quotation-software"
+                    prefetch={false}
+                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
+                  >
+                    Interior Design CRM &amp; Quotation Software
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
 
           <div>
