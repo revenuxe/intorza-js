@@ -45,6 +45,7 @@ const decode = (text) =>
     .replaceAll("&#x27;", "'")
     .replaceAll("&lt;", "<")
     .replaceAll("&gt;", ">");
+const imagesInHTML = (html, src) => Boolean(src && html.includes(src));
 const plain = (text) =>
   decode(text.replace(/<[^>]*>/g, ""))
     .replace(/\s+/g, " ")
@@ -143,6 +144,45 @@ try {
           schemas.some((schema) => schema["@type"] === "BreadcrumbList"),
           `${path}: breadcrumb schema`,
         );
+      const featurePaths = [
+        "/interior-design-dashboard",
+        "/interior-site-measurement",
+        "/interior-quotation-management",
+        "/interior-project-management",
+        "/interior-invoice-software",
+        "/interior-design-crm",
+        "/interior-team-management",
+      ];
+      if (featurePaths.includes(path)) {
+        const webpage = schemas.find((schema) => schema["@type"] === "WebPage");
+        assert.equal(webpage?.url, canonicalOrigin + path, path + ": WebPage matches canonical");
+        assert.equal(webpage?.name, headings[0], path + ": WebPage matches visible H1");
+        assert.equal(
+          webpage?.description,
+          descriptions[0],
+          path + ": schema description matches metadata",
+        );
+        assert.ok(
+          imagesInHTML(html, webpage?.primaryImageOfPage?.url?.replace(canonicalOrigin, "")),
+          path + ": schema image is visible",
+        );
+        const faq = schemas.find((schema) => schema["@type"] === "FAQPage");
+        const visibleFaqs = [...main.matchAll(/<details\b[^>]*>([\s\S]*?)<\/details>/g)].map(
+          (match) => plain(match[1]),
+        );
+        assert.equal(
+          faq?.mainEntity.length,
+          visibleFaqs.length,
+          path + ": FAQ count matches visible content",
+        );
+        for (const [index, question] of faq.mainEntity.entries()) {
+          assert.ok(visibleFaqs[index].includes(question.name), path + ": FAQ question is visible");
+          assert.ok(
+            visibleFaqs[index].includes(question.acceptedAnswer.text),
+            path + ": FAQ answer is visible",
+          );
+        }
+      }
       const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
       assert.equal(ids.length, new Set(ids).size, `${path}: unique HTML IDs`);
       const images = [...html.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);

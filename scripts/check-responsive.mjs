@@ -81,7 +81,9 @@ try {
           benefits: [
             ...document.querySelectorAll('[aria-label="Getting started benefits"] > li'),
           ].map(rect),
-          featureCards: [...document.querySelectorAll("#features .grid-cols-2 > *")]
+          featureCards: [
+            ...document.querySelectorAll("#features article, #features .grid-cols-2 > *"),
+          ]
             .slice(0, 2)
             .map(rect),
         };
@@ -101,10 +103,24 @@ try {
         `${path} at ${width}px: all three benefits share a row`,
       );
       assert.equal(layout.featureCards.length, 2);
-      assert.ok(
-        Math.abs(layout.featureCards[0].top - layout.featureCards[1].top) < 2,
-        `${path} at ${width}px: feature cards are at least two across`,
+      const detailedFeaturePage = !["/", "/interior-quotation", "/ai-quotation-builder"].includes(
+        path,
       );
+      if (detailedFeaturePage && width < 768) {
+        assert.ok(
+          layout.featureCards[1].top > layout.featureCards[0].top,
+          path + ": mobile cards stack vertically",
+        );
+        assert.ok(
+          layout.featureCards[0].width > width * 0.8,
+          path + ": cards use the available mobile width",
+        );
+      } else {
+        assert.ok(
+          Math.abs(layout.featureCards[0].top - layout.featureCards[1].top) < 2,
+          path + ": desktop or compact feature columns",
+        );
+      }
       if (width === 390)
         await page.screenshot({
           path:

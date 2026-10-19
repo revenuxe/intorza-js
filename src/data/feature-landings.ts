@@ -166,6 +166,23 @@ export const dashboardLanding: FeatureLanding = {
     "Open Intorza to explore the dashboard, or talk to our team about connecting your studio's quotation, project and billing workflow.",
   related: [
     {
+      href: "/interior-project-management",
+      title: "Manage converted interior projects",
+      description:
+        "Review accepted work alongside quotations, invoices and recorded project totals.",
+    },
+    {
+      href: "/interior-invoice-software",
+      title: "Track interior invoices and payments",
+      description: "Understand invoice balances, partial payment records and outstanding amounts.",
+    },
+    {
+      href: "/interior-design-crm",
+      title: "Organize client and billing records",
+      description:
+        "Review each client's projects, billed amounts, payments and balance before follow-up.",
+    },
+    {
       href: "/interior-site-measurement",
       title: "Organize site measurements",
       description:
@@ -322,6 +339,18 @@ export const siteMeasurementLanding: FeatureLanding = {
   ctaText:
     "Open Intorza and choose Site Measurement to set up the project. If you need help connecting site visits to your quotation workflow, talk to our team.",
   related: [
+    {
+      href: "/interior-team-management",
+      title: "Coordinate your interior project team",
+      description:
+        "Connect site responsibilities with project teams, member records and attendance.",
+    },
+    {
+      href: "/interior-project-management",
+      title: "Prepare the project handover",
+      description:
+        "Connect measured scope and accepted proposals with the converted project record.",
+    },
     {
       href: "/ai-quotation-builder",
       title: "Explore AI floor plan analysis",

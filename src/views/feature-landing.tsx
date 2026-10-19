@@ -67,7 +67,7 @@ export default function FeatureLandingPage({ page }: { page: FeatureLanding }) {
             <h2 className="font-display text-3xl md:text-4xl font-bold max-w-4xl mb-10">
               {page.featureTitle}
             </h2>
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
               {page.features.map((feature, i) => (
                 <article key={feature.title} className="frame-hard-sm min-w-0 p-4 sm:p-6">
                   <span className="font-mono text-sm text-primary">0{i + 1}</span>

@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-19T07:45:27.885Z",
+  "auditedAt": "2026-10-19T07:47:54.007Z",
   "scope": "Local production build; not a live deployment or search-index audit",
   "result": "passed",
   "checks": [
@@ -71,9 +71,10 @@
       "description": "Track interior quotations, converted projects, clients and recorded payments in one business dashboard. Explore Intorza's workflow for designers and contractors.",
       "h1": "Interior Design Business Dashboard",
       "imageCount": 3,
-      "htmlBytes": 101552,
+      "htmlBytes": 106548,
       "schemaTypes": [
         "Organization",
+        "WebPage",
         "SoftwareApplication",
         "BreadcrumbList",
         "FAQPage"
@@ -82,9 +83,12 @@
         "/",
         "/interior-quotation",
         "/contact",
+        "/interior-project-management",
+        "/interior-invoice-software",
+        "/interior-design-crm",
         "/interior-site-measurement"
       ],
-      "mainContentWords": 1294,
+      "mainContentWords": 1332,
       "inboundContextualPages": [
         "/",
         "/interior-site-measurement",
@@ -93,7 +97,7 @@
       ],
       "titleCharacters": 44,
       "descriptionCharacters": 161,
-      "internalLinkCount": 29
+      "internalLinkCount": 32
     },
     {
       "path": "/interior-site-measurement",
@@ -101,9 +105,10 @@
       "description": "Organize interior site measurement projects, locations and team assignments with Intorza. Follow a practical site visit checklist and prepare a clearer quotation.",
       "h1": "Interior Site Measurement Software",
       "imageCount": 3,
-      "htmlBytes": 104517,
+      "htmlBytes": 108723,
       "schemaTypes": [
         "Organization",
+        "WebPage",
         "SoftwareApplication",
         "BreadcrumbList",
         "FAQPage"
@@ -112,12 +117,14 @@
         "/",
         "/interior-quotation",
         "/contact",
+        "/interior-team-management",
+        "/interior-project-management",
         "/ai-quotation-builder",
         "/interior-quotation-format",
         "/interior-design-dashboard",
         "/interior-cost-calculator"
       ],
-      "mainContentWords": 1369,
+      "mainContentWords": 1395,
       "inboundContextualPages": [
         "/",
         "/interior-design-dashboard",
@@ -127,7 +134,7 @@
       ],
       "titleCharacters": 58,
       "descriptionCharacters": 162,
-      "internalLinkCount": 30
+      "internalLinkCount": 32
     },
     {
       "path": "/interior-quotation-management",
@@ -135,9 +142,10 @@
       "description": "Manage interior quotations, track pending, accepted and rejected proposals, edit details and export PDFs. Explore Intorza's client follow-up workflow.",
       "h1": "Interior Quotation Management Software",
       "imageCount": 3,
-      "htmlBytes": 100694,
+      "htmlBytes": 103156,
       "schemaTypes": [
         "Organization",
+        "WebPage",
         "SoftwareApplication",
         "BreadcrumbList",
         "FAQPage"
@@ -168,9 +176,10 @@
       "description": "Manage converted interior projects with associated quotations, invoices, measurement context and recorded payment totals. Explore Intorza's project workflow.",
       "h1": "Interior Project Management Software",
       "imageCount": 3,
-      "htmlBytes": 101552,
+      "htmlBytes": 103903,
       "schemaTypes": [
         "Organization",
+        "WebPage",
         "SoftwareApplication",
         "BreadcrumbList",
         "FAQPage"
@@ -187,6 +196,8 @@
       "mainContentWords": 1227,
       "inboundContextualPages": [
         "/",
+        "/interior-design-dashboard",
+        "/interior-site-measurement",
         "/interior-quotation-management",
         "/interior-invoice-software",
         "/interior-design-crm",
@@ -204,9 +215,10 @@
       "description": "Create interior invoices, record partial payments, review outstanding balances and export PDFs with Intorza. Explore the billing workflow for designers and contractors.",
       "h1": "Interior Invoice Software",
       "imageCount": 3,
-      "htmlBytes": 100608,
+      "htmlBytes": 103006,
       "schemaTypes": [
         "Organization",
+        "WebPage",
         "SoftwareApplication",
         "BreadcrumbList",
         "FAQPage"
@@ -221,6 +233,7 @@
       "mainContentWords": 1211,
       "inboundContextualPages": [
         "/",
+        "/interior-design-dashboard",
         "/interior-quotation-management",
         "/interior-project-management",
         "/interior-design-crm",
@@ -237,9 +250,10 @@
       "description": "Organize interior clients, project history, billed totals, payments and outstanding balances with Intorza. Explore a practical client management workflow for studios.",
       "h1": "CRM for Interior Designers",
       "imageCount": 3,
-      "htmlBytes": 101300,
+      "htmlBytes": 103740,
       "schemaTypes": [
         "Organization",
+        "WebPage",
         "SoftwareApplication",
         "BreadcrumbList",
         "FAQPage"
@@ -256,6 +270,7 @@
       "mainContentWords": 1234,
       "inboundContextualPages": [
         "/",
+        "/interior-design-dashboard",
         "/interior-project-management",
         "/interior-invoice-software",
         "/interior-team-management",
@@ -272,9 +287,10 @@
       "description": "Organize interior team members, project teams, assignments and recorded attendance in Intorza. Explore a clearer coordination workflow for studios and contractors.",
       "h1": "Team Management for Interior Designers",
       "imageCount": 3,
-      "htmlBytes": 101327,
+      "htmlBytes": 103670,
       "schemaTypes": [
         "Organization",
+        "WebPage",
         "SoftwareApplication",
         "BreadcrumbList",
         "FAQPage"
@@ -290,6 +306,7 @@
       "mainContentWords": 1211,
       "inboundContextualPages": [
         "/",
+        "/interior-site-measurement",
         "/interior-project-management",
         "/interior-design-crm",
         "/interior-quotation",

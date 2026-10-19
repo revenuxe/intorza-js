@@ -195,3 +195,11 @@ Added dedicated, statically rendered pages for interior quotation management, in
 All eight homepage showcase headings now link to their relevant guides. Feature summary cards also link to the appropriate guide or privacy policy. Each new page uses the homepage hero component, an existing optimized WebP product screenshot, distinct H1/title/description/canonical metadata, breadcrumbs, workflow guidance, practical examples, FAQs, pricing, contextual related links and calls to action. Pages are included in the XML sitemap and automated site, SEO and responsive checks. Copy describes visible product records and avoids claiming unverified payment integrations or search ranking outcomes.
 
 Production build, lint, TypeScript, contact validation, rendered-page/link/sitemap, SEO, security-header and secret checks passed across 18 public pages. These checks verify implementation; search indexing and ranking require deployment and subsequent search-engine crawling.
+
+## Mobile feature cards and feature-page SEO — 19 October 2026
+
+The seven detailed feature guides now display one full-width feature card per row below 768px, two at tablet width and four on desktop. Hero buttons and compact homepage summary cards retain their existing layout. Browser assertions now check the mobile stacking and usable card width explicitly.
+
+Added WebPage structured data with the page's canonical URL, visible heading and description, actual product screenshot, publisher, WebSite and software references, and related guides. Strengthened contextual links from dashboard and site measurement guides to project, invoice, client and team guides. The SEO audit additionally checks that feature-page schema matches the visible page, and each FAQ question and answer matches rendered content. Existing checks cover unique titles/descriptions/H1s, canonicals, indexability, sitemap membership, image dimensions, internal destinations and contact information across all 18 public pages.
+
+Implementation follows Google's crawlable, descriptive link guidance: https://developers.google.com/search/docs/crawling-indexing/links-crawlable . Structured data is descriptive and does not guarantee a search appearance or rankings: https://developers.google.com/search/docs/appearance/structured-data/sd-policies . No FAQ rich-result eligibility is claimed for this commercial software site.
