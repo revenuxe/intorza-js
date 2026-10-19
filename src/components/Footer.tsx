@@ -14,6 +14,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const product = [
+    { label: "CRM & Quotation Guide", href: "/interior-design-crm-quotation-software" },
     { label: "Features", href: "/#features" },
     { label: "How It Works", href: "/#how-it-works" },
     { label: "AI Quotation Builder", href: "/ai-quotation-builder" },

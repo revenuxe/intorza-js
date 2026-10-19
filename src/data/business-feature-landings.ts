@@ -618,6 +618,12 @@ export const clientManagementLanding: FeatureLanding = {
     "Open Intorza and explore Clients, or talk to our team about organizing project and billing context for your studio's relationships.",
   related: [
     {
+      href: "/interior-design-crm-quotation-software",
+      title: "Connect CRM with quotation preparation",
+      description:
+        "Read a practical guide to the client brief, itemized proposal, project handover and billing workflow.",
+    },
+    {
       href: "/interior-project-management",
       title: "Review client projects",
       description: "Find the documents and financial summary for a particular project.",

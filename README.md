@@ -91,3 +91,5 @@ Heading and section eyebrow labels have been removed. Public pages have page-spe
 ## Production security review
 
 See `PRODUCTION_READINESS.md` for findings, fixes, final mobile Lighthouse measurements and launch blockers. Run `npm run check:production` after configuring the server environment; run `npm run check:responsive` with a supported browser. Connected backend verification uses `check:admin` and `check:rls` with authorized Supabase CLI access. `check:live` reports the current public deployment independently of local changes. Production public-form abuse protection and operational settings still need verification before launch.
+
+Article guide: `/interior-design-crm-quotation-software` explains the client-to-quotation-to-billing workflow, with a responsive contents menu, worked example, checklist, FAQs and calls to action. Content and FAQ data live in `src/data/crm-article.ts`; the statically rendered page includes Article metadata and schema.

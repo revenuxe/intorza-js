@@ -211,3 +211,15 @@ The shared pricing assurance text remains a single line on small mobile screens 
 The footer separates Product tools from Manage Your Business guides. All quotation, AI, format, calculator, dashboard, measurement, tracking, project, invoice, client and team guides are directly linked from every public page. Existing descriptive contextual links remain in the main content rather than relying on footer links alone.
 
 The SEO audit traverses the rendered link graph from the homepage, records navigation and contextual click depth, requires every public page to be reachable within two navigation clicks, and requires every product guide to be within two contextual clicks with incoming body links from at least two pages. It also verifies complete product-guide coverage in each footer, valid internal URLs/anchors, sitemap coverage and no orphan pages. The graph metrics are recorded per page in reports/seo-audit.json. These are local production checks, not claims about live indexing or rankings.
+
+## Original CRM and quotation article — 19 October 2026
+
+Added `/interior-design-crm-quotation-software` as an editorial guide with the requested H1, Interior Design CRM & Quotation Software. The supplied competitor text was reviewed for topic coverage only. The original Intorza article focuses on client context, clear quotation specifications, recorded proposal decisions, project handover, invoice/payment records, AI draft review and software evaluation. It does not repeat competitor testimonials, performance figures, customer names or claim their procurement, inventory and communication capabilities for Intorza.
+
+Meta title: Interior Design CRM & Quotation Software: A Practical Guide | Intorza
+
+Meta description: Connect client records, interior quotations, projects and payment tracking. A practical guide to choosing and using CRM and quotation software with Intorza.
+
+The article is intentionally distinct from the client-management feature page: it explains the cross-tool workflow and practical evaluation questions, while the feature page describes client records. The UI provides an anchored contents menu, readable single-column prose, actual product screenshot, organization byline, publication date, worked example, checklist, mid-article CTA, pricing and contact CTA. Article/OpenGraph metadata, breadcrumb and visible FAQ schemas accompany the content. Homepage, footer and CRM guide links make the article discoverable; contextual links lead to the relevant feature guides.
+
+Production, lint, typecheck, contact, site, SEO, security and secret checks passed across 19 public pages. Article assertions verify the headline, canonical URL, author, visible date, description, OpenGraph type and FAQ/schema agreement. Live crawling, ranking and deployment are outside these local checks.

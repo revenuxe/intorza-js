@@ -14,6 +14,7 @@ const paths = [
   "/interior-project-management",
   "/interior-invoice-software",
   "/interior-design-crm",
+  "/interior-design-crm-quotation-software",
   "/interior-team-management",
   "/interior-quotation",
   "/ai-quotation-builder",
@@ -180,6 +181,23 @@ try {
           assert.ok(
             visibleFaqs[index].includes(question.acceptedAnswer.text),
             path + ": FAQ answer is visible",
+          );
+        }
+      }
+      if (path === "/interior-design-crm-quotation-software") {
+        const article = schemas.find((schema) => schema["@type"] === "Article");
+        assert.equal(article?.headline, headings[0], "Article headline matches H1");
+        assert.equal(article?.url, canonicalOrigin + path, "Article canonical URL");
+        assert.equal(article?.description, descriptions[0], "Article description matches metadata");
+        assert.equal(article?.author?.name, "Intorza", "Article organization author");
+        assert.ok(main.includes(article.datePublished.slice(0, 10)), "Visible publication date");
+        assert.equal(getMeta("og:type")[0], "article", "Article social metadata");
+        const faq = schemas.find((schema) => schema["@type"] === "FAQPage");
+        for (const question of faq.mainEntity) {
+          assert.ok(
+            plain(main).includes(question.name) &&
+              plain(main).includes(question.acceptedAnswer.text),
+            "Article FAQ matches visible content",
           );
         }
       }

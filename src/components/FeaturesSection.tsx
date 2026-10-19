@@ -314,6 +314,16 @@ const FeaturesSection = ({ quotation = false, title }: { quotation?: boolean; ti
         </p>
       </div>
 
+      <p className="mb-8 max-w-3xl text-muted-foreground leading-relaxed">
+        Not sure how the tools fit together? Read our{" "}
+        <Link
+          href="/interior-design-crm-quotation-software"
+          className="text-primary underline underline-offset-4"
+        >
+          interior design CRM and quotation software guide
+        </Link>{" "}
+        for a practical client-to-billing workflow.
+      </p>
       <div className="grid grid-cols-2 border-l border-t border-border lg:grid-cols-4">
         {features
           .map((f) => ({

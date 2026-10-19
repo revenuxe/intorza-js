@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/interior-project-management",
     "/interior-invoice-software",
     "/interior-design-crm",
+    "/interior-design-crm-quotation-software",
     "/interior-team-management",
     "/interior-quotation",
     "/ai-quotation-builder",

@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-19T08:04:17.988Z",
+  "auditedAt": "2026-10-19T10:04:37.223Z",
   "browser": "msedge",
   "results": [
     {
@@ -290,6 +290,31 @@
     {
       "path": "/refund",
       "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm-quotation-software",
+      "width": 320,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm-quotation-software",
+      "width": 375,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm-quotation-software",
+      "width": 390,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm-quotation-software",
+      "width": 768,
+      "result": "passed"
+    },
+    {
+      "path": "/interior-design-crm-quotation-software",
+      "width": 1280,
       "result": "passed"
     }
   ],

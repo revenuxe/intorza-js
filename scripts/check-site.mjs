@@ -28,6 +28,7 @@ const pages = [
   "/interior-project-management",
   "/interior-invoice-software",
   "/interior-design-crm",
+  "/interior-design-crm-quotation-software",
   "/interior-team-management",
   "/interior-quotation",
   "/ai-quotation-builder",
@@ -188,4 +189,3 @@ try {
   server.kill();
   if (server.exitCode === null) await once(server, "exit");
 }
-

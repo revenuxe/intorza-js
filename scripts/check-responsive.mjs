@@ -211,6 +211,33 @@ try {
     assert.ok(documentWidth <= 376, `${path}: no mobile horizontal overflow (${documentWidth}px)`);
     results.push({ path, width: 375, result: "passed" });
   }
+  for (const width of [320, 375, 390, 768, 1280]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto(origin + "/interior-design-crm-quotation-software", {
+      waitUntil: "networkidle",
+    });
+    assert.equal(await page.locator("h1").innerText(), "Interior Design CRM & Quotation Software");
+    assert.ok(
+      await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
+      "Article fits viewport at " + width,
+    );
+    await page
+      .getByRole("navigation", { name: "Article contents" })
+      .getByRole("link", { name: "Your first-project checklist" })
+      .click();
+    assert.equal(new URL(page.url()).hash, "#getting-started");
+    const firstFaq = page.locator("details").first();
+    await firstFaq.locator("summary").click();
+    assert.equal(await firstFaq.getAttribute("open"), "");
+    if (width === 390 || width === 1280) {
+      await page.goto(origin + "/interior-design-crm-quotation-software", {
+        waitUntil: "networkidle",
+      });
+      await page.screenshot({ path: "reports/article-crm-quotation-" + width + ".png" });
+    }
+    results.push({ path: "/interior-design-crm-quotation-software", width, result: "passed" });
+  }
+  await page.setViewportSize({ width: 375, height: 844 });
   await page.goto(origin + "/interior-cost-calculator", { waitUntil: "networkidle" });
   const area = page.getByLabel("Carpet area (sq ft)");
   await area.fill("1000");
