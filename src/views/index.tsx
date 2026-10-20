@@ -16,7 +16,7 @@ export default function Index() {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <HeroSection />
+        <HeroSection showProductHunt />
         <ProCTA />
         <FeaturesSection />
         <HowItWorksSection />

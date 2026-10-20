@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import {
   SITE_ADDRESS_TEXT,
   SITE_EMAIL,
@@ -12,6 +12,12 @@ const intorzaLogo = "/intorza-logo.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const socialLinks = [
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/intorza/", icon: Linkedin },
+    { label: "Facebook", href: "https://www.facebook.com/people/Intorza/61595329928865/", icon: Facebook },
+    { label: "Instagram", href: "https://www.instagram.com/intorza/", icon: Instagram },
+    { label: "YouTube", href: "https://www.youtube.com/@Intorza", icon: Youtube },
+  ];
 
   const product = [
     { label: "Features", href: "/#features" },
@@ -59,6 +65,21 @@ const Footer = () => {
               Streamline your interior business operations with Intorza. From site measurements to
               invoices, manage everything in one place.
             </p>
+            <nav aria-label="Social media" className="mb-6 flex flex-wrap gap-3">
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Intorza on ${label} (opens in a new tab)`}
+                  title={label}
+                  className="inline-flex h-11 w-11 items-center justify-center border border-secondary-foreground/20 text-secondary-foreground/70 transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                >
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </a>
+              ))}
+            </nav>
             <div className="space-y-3">
               <a
                 href={`mailto:${SITE_EMAIL}`}

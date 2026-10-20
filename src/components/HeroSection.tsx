@@ -11,6 +11,7 @@ interface Props {
   secondaryLink?: { href: string; label: string };
   highlights?: Array<{ value: string; label: string; lines?: [string, string] }>;
   compactHighlights?: boolean;
+  showProductHunt?: boolean;
 }
 
 const HeroSection = ({
@@ -21,6 +22,7 @@ const HeroSection = ({
   image,
   secondaryLink,
   compactHighlights = false,
+  showProductHunt = false,
   highlights = [
     { value: "+45%", label: "Efficiency boost" },
     { value: "500+", label: "Interior professionals" },
@@ -60,13 +62,27 @@ const HeroSection = ({
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
-                href={secondaryLink?.href ?? "https://app.intorza.com"}
-                target={secondaryLink ? undefined : "_blank"}
-                rel={secondaryLink ? undefined : "noopener noreferrer"}
-                className="btn-hard-ghost btn-hard-hover"
+                href={showProductHunt ? "https://www.producthunt.com/products/intorza?utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-intorza" : secondaryLink?.href ?? "https://app.intorza.com"}
+                target={showProductHunt || !secondaryLink ? "_blank" : undefined}
+                rel={showProductHunt || !secondaryLink ? "noopener noreferrer" : undefined}
+                className={showProductHunt
+                  ? "inline-flex items-center justify-center gap-2.5 rounded-none border border-[#ff6154] bg-white px-3 py-2 text-[#ff6154] transition-colors hover:bg-[#fff8f6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ff6154] sm:gap-3 sm:px-3.5 sm:py-2.5"
+                  : "btn-hard-ghost btn-hard-hover"}
               >
-                <FolderOpen className="w-4 h-4" />
-                {secondaryLink?.label ?? "My Projects"}
+                {showProductHunt ? (
+                  <>
+                    <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff6154] text-2xl font-bold leading-none text-white sm:h-10 sm:w-10 sm:text-3xl">P</span>
+                    <span className="text-left whitespace-nowrap">
+                      <span className="block text-[8px] font-semibold uppercase leading-3 tracking-[0.04em] sm:text-[10px]">Find us on</span>
+                      <span className="block text-base font-bold leading-5 sm:text-[26px] sm:leading-7">Product Hunt</span>
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <FolderOpen className="w-4 h-4" />
+                    {secondaryLink?.label ?? "My Projects"}
+                  </>
+                )}
               </a>
             </div>
 
