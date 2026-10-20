@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, FolderOpen } from "lucide-react";
+import { ArrowRight, FolderOpen, Star } from "lucide-react";
 const dashboardPreview = "/dashboard-preview.webp";
 
 interface Props {
@@ -73,7 +73,14 @@ const HeroSection = ({
                   <>
                     <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff6154] text-2xl font-bold leading-none text-white sm:h-10 sm:w-10 sm:text-3xl">P</span>
                     <span className="text-left whitespace-nowrap">
-                      <span className="block text-[8px] font-semibold uppercase leading-3 tracking-[0.04em] sm:text-[10px]">Find us on</span>
+                      <span className="flex items-center gap-1.5 text-[8px] font-semibold uppercase leading-3 tracking-[0.04em] sm:gap-2 sm:text-[10px]">
+                        Find us on
+                        <span aria-hidden="true" className="inline-flex gap-0.5">
+                          {Array.from({ length: 5 }, (_, index) => (
+                            <Star key={index} className="h-2 w-2 fill-current sm:h-2.5 sm:w-2.5" />
+                          ))}
+                        </span>
+                      </span>
                       <span className="block text-base font-bold leading-5 sm:text-[26px] sm:leading-7">Product Hunt</span>
                     </span>
                   </>
