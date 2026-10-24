@@ -347,11 +347,8 @@ html {
   height: 0.875rem;
 }
 @media (min-width: 640px) {
-  .hero-actions {
-    flex-wrap: wrap;
-  }
   .hero-actions > a {
-    padding: 1rem 1.5rem;
+    padding: 1rem 0.625rem;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
   }

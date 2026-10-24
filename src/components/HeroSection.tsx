@@ -51,7 +51,7 @@ const HeroSection = ({
                 "All-in-one interior design project management software with quotation builder, invoice generator, client management & team collaboration. Trusted by 500+ interior designers and contractors worldwide."}
             </p>
 
-            <div className="hero-actions mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-row">
+            <div className="hero-actions mt-9 grid grid-cols-2 gap-3">
               <a
                 href="https://app.intorza.com"
                 target="_blank"
@@ -71,7 +71,7 @@ const HeroSection = ({
               >
                 {showProductHunt ? (
                   <>
-                    <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff6154] text-2xl font-bold leading-none text-white sm:h-10 sm:w-10 sm:text-3xl">P</span>
+                    <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ff6154] text-2xl font-bold leading-none text-white">P</span>
                     <span className="text-left whitespace-nowrap">
                       <span className="flex items-center gap-1.5 text-[8px] font-semibold uppercase leading-3 tracking-[0.04em] sm:gap-2 sm:text-[10px]">
                         Find us on
@@ -81,7 +81,7 @@ const HeroSection = ({
                           ))}
                         </span>
                       </span>
-                      <span className="block text-base font-bold leading-5 sm:text-[26px] sm:leading-7">Product Hunt</span>
+                      <span className="block text-base font-bold leading-5">Product Hunt</span>
                     </span>
                   </>
                 ) : (
