@@ -1,4 +1,5 @@
 import legacyRedirects from "../src/data/legacy-redirects.json" with { type: "json" };
+import { articlePath, quotationArticles } from "../src/data/quotation-articles.ts";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
@@ -20,6 +21,8 @@ server.stderr.on("data", (chunk) => {
 });
 const pages = [
   "/",
+  "/articles",
+  ...quotationArticles.map((a) => articlePath(a.slug)),
   "/about",
   "/contact",
   "/interior-design-dashboard",

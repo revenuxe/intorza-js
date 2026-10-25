@@ -14,7 +14,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const socialLinks = [
     { label: "LinkedIn", href: "https://www.linkedin.com/company/intorza/", icon: Linkedin },
-    { label: "Facebook", href: "https://www.facebook.com/people/Intorza/61595329928865/", icon: Facebook },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/people/Intorza/61595329928865/",
+      icon: Facebook,
+    },
     { label: "Instagram", href: "https://www.instagram.com/intorza/", icon: Instagram },
     { label: "YouTube", href: "https://www.youtube.com/@Intorza", icon: Youtube },
   ];
@@ -38,6 +42,7 @@ const Footer = () => {
   ];
   const company = [
     { label: "About Us", to: "/about" as const },
+    { label: "Articles", to: "/articles" as const },
     { label: "Contact", to: "/contact" as const },
   ];
   const legal = [
@@ -154,20 +159,6 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <nav aria-label="Articles" className="mt-8">
-              <h2 className="font-display font-semibold text-lg mb-4">Articles</h2>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/interior-design-crm-quotation-software"
-                    prefetch={false}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
-                  >
-                    Interior Design CRM &amp; Quotation Software
-                  </Link>
-                </li>
-              </ul>
-            </nav>
           </div>
 
           <div>

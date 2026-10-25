@@ -16,6 +16,7 @@ const Header = () => {
   }, []);
 
   const internal = [
+    { label: "Articles", to: "/articles" },
     { label: "About", to: "/about" },
     { label: "Contact", to: "/contact" },
   ] as const;

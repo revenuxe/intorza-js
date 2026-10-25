@@ -1,4 +1,10 @@
 import assert from "node:assert/strict";
+import { articlePath, quotationArticles } from "../src/data/quotation-articles.ts";
+import {
+  quotationArticleSEO,
+  quotationArticleDates,
+  articleLibrarySEO,
+} from "../src/data/quotation-article-seo.ts";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import fs from "node:fs";
@@ -8,6 +14,8 @@ const origin = "http://127.0.0.1:3199";
 const canonicalOrigin = "https://www.intorza.com";
 const paths = [
   "/",
+  "/articles",
+  ...quotationArticles.map((a) => articlePath(a.slug)),
   "/interior-design-dashboard",
   "/interior-site-measurement",
   "/interior-quotation-management",
@@ -201,6 +209,81 @@ try {
           );
         }
       }
+      if (path.startsWith("/articles/")) {
+        const slug = path.split("/").at(-1);
+        const expected = quotationArticleSEO[slug];
+        assert.equal(titles[0], expected.title, path + ": editorial search title");
+        assert.equal(
+          descriptions[0],
+          expected.description,
+          path + ": editorial search description",
+        );
+        assert.ok(titles[0].length <= 65, path + ": concise search title");
+        assert.ok(
+          descriptions[0].length >= 120 && descriptions[0].length <= 165,
+          path + ": concise search description",
+        );
+        const article = schemas.find((schema) => schema["@type"] === "Article");
+        assert.equal(article?.headline, headings[0], path + ": Article headline matches H1");
+        assert.equal(
+          article?.description,
+          descriptions[0],
+          path + ": Article description matches metadata",
+        );
+        assert.equal(article?.url, canonicalOrigin + path, path + ": Article URL");
+        assert.equal(
+          article?.publisher?.["@id"],
+          canonicalOrigin + "/#organization",
+          path + ": publisher entity",
+        );
+        assert.equal(
+          article?.datePublished,
+          quotationArticleDates.published,
+          path + ": fixed publication date",
+        );
+        assert.equal(
+          article?.dateModified,
+          quotationArticleDates.modified,
+          path + ": fixed modification date",
+        );
+        assert.ok(
+          main.toLowerCase().includes(`datetime="${article.datePublished.toLowerCase()}"`),
+          path + ": visible publication date",
+        );
+        assert.equal(getMeta("og:type")[0], "article", path + ": article social type");
+        assert.equal(
+          getMeta("article:published_time")[0],
+          article.datePublished,
+          path + ": social publication date",
+        );
+        assert.equal(
+          getMeta("article:modified_time")[0],
+          article.dateModified,
+          path + ": social modification date",
+        );
+        assert.equal(getMeta("twitter:title")[0], titles[0], path + ": Twitter title");
+        assert.equal(
+          getMeta("twitter:description")[0],
+          descriptions[0],
+          path + ": Twitter description",
+        );
+        const faq = schemas.find((schema) => schema["@type"] === "FAQPage");
+        for (const question of faq.mainEntity) {
+          assert.ok(
+            plain(main).includes(question.name) &&
+              plain(main).includes(question.acceptedAnswer.text),
+            path + ": visible FAQ matches schema",
+          );
+        }
+      }
+      if (path === "/articles") {
+        assert.equal(titles[0], articleLibrarySEO.title, "Article hub title");
+        assert.equal(
+          schemas.find((s) => s["@type"] === "CollectionPage")?.mainEntity.itemListElement.length,
+          quotationArticles.length,
+          "Article hub lists every guide in schema",
+        );
+      }
       const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
       assert.equal(ids.length, new Set(ids).size, `${path}: unique HTML IDs`);
       const images = [...html.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
@@ -287,11 +370,21 @@ try {
   }
   for (const page of pages) {
     const footer = page.html.match(/<footer\b[^>]*>([\s\S]*?)<\/footer>/)?.[1] ?? "";
-    for (const path of featurePaths)
+    for (const path of featurePaths.filter(
+      (path) => path !== "/interior-design-crm-quotation-software",
+    ))
       assert.ok(
         footer.includes('href="' + path + '"'),
         page.path + ": footer includes product guide " + path,
       );
+    assert.ok(
+      !footer.includes('href="/articles/'),
+      page.path + ": article links stay out of footer",
+    );
+    assert.ok(
+      !footer.includes('href="/interior-design-crm-quotation-software"'),
+      page.path + ": existing article stays out of footer",
+    );
   }
   for (const page of pages)
     for (const link of page.links.filter((link) => link.startsWith("/") || link.startsWith("#"))) {
@@ -315,6 +408,17 @@ try {
   assert.ok(pages[0].links.includes("/interior-quotation"), "Homepage links to the quotation page");
   const sitemap = await (await fetch(origin + "/sitemap.xml")).text();
   const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  for (const path of ["/articles", ...quotationArticles.map((a) => articlePath(a.slug))]) {
+    const entry = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].find((match) =>
+      match[1].includes(`<loc>${canonicalOrigin}${path}</loc>`),
+    )?.[1];
+    const lastModified = entry?.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+    assert.equal(
+      new Date(lastModified).getTime(),
+      new Date(quotationArticleDates.modified).getTime(),
+      path + ": sitemap uses editorial modification date",
+    );
+  }
   assert.deepEqual(
     sitemapUrls.sort(),
     paths.map((path) => canonicalOrigin + (path === "/" ? "" : path)).sort(),

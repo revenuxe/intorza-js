@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-19T10:06:42.004Z",
+  "auditedAt": "2026-10-25T10:50:46.959Z",
   "scope": "Local production build; not a live deployment or search-index audit",
   "result": "passed",
   "checks": [
@@ -27,7 +27,7 @@
       "description": "Manage interior projects, create quotations, generate invoices and organize clients with Intorza. Explore the tools, free plan and Pro pricing for your business.",
       "h1": "Best Interior Design Software for Project Management",
       "imageCount": 11,
-      "htmlBytes": 211108,
+      "htmlBytes": 228120,
       "schemaTypes": [
         "Organization",
         "WebSite",
@@ -48,11 +48,24 @@
         "/ai-quotation-builder",
         "/interior-quotation-format",
         "/interior-cost-calculator",
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-excel",
         "/about",
         "/contact"
       ],
-      "mainContentWords": 1092,
+      "mainContentWords": 1110,
       "inboundContextualPages": [
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-quotation-format-word",
+        "/articles/interior-design-quotation-template",
+        "/articles/2bhk-interior-quotation",
+        "/articles/3bhk-interior-quotation",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/wardrobe-quotation-format",
+        "/articles/interior-work-quotation-format",
+        "/articles/interior-quotation-software",
         "/interior-design-dashboard",
         "/interior-site-measurement",
         "/interior-quotation-management",
@@ -69,7 +82,441 @@
       "contextualClickDepthFromHome": 0,
       "titleCharacters": 53,
       "descriptionCharacters": 161,
-      "internalLinkCount": 51
+      "internalLinkCount": 54
+    },
+    {
+      "path": "/articles",
+      "title": "Interior Quotation Guides & Templates | Intorza Articles",
+      "description": "Learn to prepare interior quotations with PDF, Excel and Word guides, room-wise examples, kitchen and wardrobe scopes, and practical review checklists.",
+      "h1": "Interior quotation guidesfor clearer proposals.",
+      "imageCount": 3,
+      "htmlBytes": 98853,
+      "schemaTypes": [
+        "Organization",
+        "BreadcrumbList",
+        "CollectionPage"
+      ],
+      "contextualDestinations": [
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-excel",
+        "/articles/2bhk-interior-quotation",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-quotation-format-word",
+        "/articles/interior-design-quotation-template",
+        "/articles/3bhk-interior-quotation",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/wardrobe-quotation-format",
+        "/articles/interior-work-quotation-format",
+        "/articles/interior-quotation-software",
+        "/interior-quotation",
+        "/interior-design-crm-quotation-software"
+      ],
+      "mainContentWords": 607,
+      "inboundContextualPages": [
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-quotation-format-word",
+        "/articles/interior-design-quotation-template",
+        "/articles/2bhk-interior-quotation",
+        "/articles/3bhk-interior-quotation",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/wardrobe-quotation-format",
+        "/articles/interior-work-quotation-format",
+        "/articles/interior-quotation-software"
+      ],
+      "clickDepthFromHome": 1,
+      "contextualClickDepthFromHome": 2,
+      "titleCharacters": 56,
+      "descriptionCharacters": 151,
+      "internalLinkCount": 42
+    },
+    {
+      "path": "/articles/interior-quotation-format",
+      "title": "Interior Quotation Format: Room-wise Guide | Intorza",
+      "description": "Learn how to structure an interior quotation with room-wise items, quantities, material specifications, exclusions and approval terms. Includes a worked example.",
+      "h1": "Interior quotation format: a complete room-by-room guide",
+      "imageCount": 2,
+      "htmlBytes": 132308,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-design-quotation-template",
+        "/articles/interior-work-quotation-format"
+      ],
+      "mainContentWords": 1267,
+      "inboundContextualPages": [
+        "/",
+        "/articles",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-design-quotation-template",
+        "/articles/wardrobe-quotation-format",
+        "/articles/interior-work-quotation-format",
+        "/articles/interior-quotation-software"
+      ],
+      "clickDepthFromHome": 1,
+      "contextualClickDepthFromHome": 1,
+      "titleCharacters": 52,
+      "descriptionCharacters": 161,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/interior-quotation-format-pdf",
+      "title": "Interior Quotation Format PDF: Layout & Checks | Intorza",
+      "description": "Prepare a readable interior quotation PDF with a clear summary, item schedule, scope notes and acceptance section. Follow the export and revision checklist.",
+      "h1": "Interior quotation format PDF: prepare a clear client copy",
+      "imageCount": 2,
+      "htmlBytes": 130874,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-quotation-format-word"
+      ],
+      "mainContentWords": 1240,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-quotation-format-word"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 2,
+      "titleCharacters": 56,
+      "descriptionCharacters": 156,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/interior-quotation-format-excel",
+      "title": "Interior Quotation Format Excel: Formula Guide | Intorza",
+      "description": "Set up an interior quotation in Excel with quantities, units, line formulas and room totals. Use the calculation example and checks before exporting your quote.",
+      "h1": "Interior quotation format Excel: sheets, formulas and checks",
+      "imageCount": 2,
+      "htmlBytes": 131428,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-quotation-software",
+        "/articles/modular-kitchen-quotation-format"
+      ],
+      "mainContentWords": 1293,
+      "inboundContextualPages": [
+        "/",
+        "/articles",
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-quotation-format-word",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/interior-quotation-software"
+      ],
+      "clickDepthFromHome": 1,
+      "contextualClickDepthFromHome": 1,
+      "titleCharacters": 56,
+      "descriptionCharacters": 160,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/interior-quotation-format-word",
+      "title": "Interior Quotation Format Word: Proposal Guide | Intorza",
+      "description": "Build an interior quotation in Word with scope text, item tables, material specifications and approval terms. Check totals and page layout before PDF export.",
+      "h1": "Interior quotation format Word: build a polished proposal",
+      "imageCount": 2,
+      "htmlBytes": 131109,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/interior-design-quotation-template",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-quotation-format-excel"
+      ],
+      "mainContentWords": 1221,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-design-quotation-template"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 3,
+      "titleCharacters": 56,
+      "descriptionCharacters": 157,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/interior-design-quotation-template",
+      "title": "Interior Design Quotation Template Guide | Intorza",
+      "description": "Structure an interior design quotation template with deliverables, review rounds, fees and execution scope. Includes clearer wording and a preparation checklist.",
+      "h1": "Interior design quotation template: from brief to approval",
+      "imageCount": 2,
+      "htmlBytes": 131262,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-word",
+        "/articles/interior-work-quotation-format"
+      ],
+      "mainContentWords": 1149,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-word",
+        "/articles/interior-work-quotation-format"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 2,
+      "titleCharacters": 50,
+      "descriptionCharacters": 161,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/2bhk-interior-quotation",
+      "title": "2BHK Interior Quotation: Room-wise Scope Guide | Intorza",
+      "description": "Plan a 2BHK interior quotation across the kitchen, two bedrooms and living areas. Separate essentials, upgrades and services with a practical scope checklist.",
+      "h1": "2BHK interior quotation: plan a room-wise scope",
+      "imageCount": 2,
+      "htmlBytes": 131458,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/3bhk-interior-quotation",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/wardrobe-quotation-format"
+      ],
+      "mainContentWords": 1227,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/3bhk-interior-quotation",
+        "/articles/modular-kitchen-quotation-format"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 3,
+      "titleCharacters": 56,
+      "descriptionCharacters": 158,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/3bhk-interior-quotation",
+      "title": "3BHK Interior Quotation: Scope & Room Guide | Intorza",
+      "description": "Prepare a 3BHK interior quotation with separate bedroom schedules, shared spaces, material choices and execution phases. Review the example and scope checklist.",
+      "h1": "3BHK interior quotation: control scope across every room",
+      "imageCount": 2,
+      "htmlBytes": 130963,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/2bhk-interior-quotation",
+        "/articles/wardrobe-quotation-format",
+        "/articles/interior-work-quotation-format"
+      ],
+      "mainContentWords": 1196,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/2bhk-interior-quotation",
+        "/articles/wardrobe-quotation-format"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 3,
+      "titleCharacters": 53,
+      "descriptionCharacters": 160,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/modular-kitchen-quotation-format",
+      "title": "Modular Kitchen Quotation Format Guide | Intorza",
+      "description": "Break down a modular kitchen quotation into base, wall and tall units, shutters, hardware and installation. Check measurement units, inclusions and exclusions.",
+      "h1": "Modular kitchen quotation format: units, finishes and hardware",
+      "imageCount": 2,
+      "htmlBytes": 131777,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/interior-quotation-format-excel",
+        "/articles/2bhk-interior-quotation",
+        "/articles/interior-work-quotation-format"
+      ],
+      "mainContentWords": 1195,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/interior-quotation-format-excel",
+        "/articles/2bhk-interior-quotation",
+        "/articles/wardrobe-quotation-format"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 2,
+      "titleCharacters": 48,
+      "descriptionCharacters": 159,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/wardrobe-quotation-format",
+      "title": "Wardrobe Quotation Format: Size & Scope Guide | Intorza",
+      "description": "Prepare a wardrobe quotation with dimensions, carcass and shutter specifications, internal fittings, lofts and installation. Includes a clear scope example.",
+      "h1": "Wardrobe quotation format: dimensions, shutters and storage",
+      "imageCount": 2,
+      "htmlBytes": 130597,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/3bhk-interior-quotation",
+        "/articles/interior-quotation-format"
+      ],
+      "mainContentWords": 1169,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/2bhk-interior-quotation",
+        "/articles/3bhk-interior-quotation"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 3,
+      "titleCharacters": 55,
+      "descriptionCharacters": 156,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/interior-work-quotation-format",
+      "title": "Interior Work Quotation Format: Trade Guide | Intorza",
+      "description": "Organize an interior work quotation by trade and room. Define material supply, labour, handoffs, provisional quantities and variations with practical examples.",
+      "h1": "Interior work quotation format: organize every trade clearly",
+      "imageCount": 2,
+      "htmlBytes": 131171,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-software",
+        "/articles/interior-design-quotation-template"
+      ],
+      "mainContentWords": 1166,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/interior-quotation-format",
+        "/articles/interior-design-quotation-template",
+        "/articles/3bhk-interior-quotation",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/interior-quotation-software"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 2,
+      "titleCharacters": 53,
+      "descriptionCharacters": 159,
+      "internalLinkCount": 56
+    },
+    {
+      "path": "/articles/interior-quotation-software",
+      "title": "Interior Quotation Software: Evaluation Guide | Intorza",
+      "description": "Compare interior quotation software using a real project. Test mixed units, item libraries, revisions, PDF export and team handoffs before changing your workflow.",
+      "h1": "Interior quotation software: evaluate the workflow before switching",
+      "imageCount": 2,
+      "htmlBytes": 132175,
+      "schemaTypes": [
+        "Organization",
+        "Article",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "contextualDestinations": [
+        "/",
+        "/articles",
+        "/about",
+        "/interior-quotation",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-work-quotation-format",
+        "/articles/interior-quotation-format"
+      ],
+      "mainContentWords": 1246,
+      "inboundContextualPages": [
+        "/articles",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-work-quotation-format"
+      ],
+      "clickDepthFromHome": 2,
+      "contextualClickDepthFromHome": 2,
+      "titleCharacters": 55,
+      "descriptionCharacters": 162,
+      "internalLinkCount": 56
     },
     {
       "path": "/interior-design-dashboard",
@@ -77,7 +524,7 @@
       "description": "Track interior quotations, converted projects, clients and recorded payments in one business dashboard. Explore Intorza's workflow for designers and contractors.",
       "h1": "Interior Design Business Dashboard",
       "imageCount": 3,
-      "htmlBytes": 109966,
+      "htmlBytes": 117911,
       "schemaTypes": [
         "Organization",
         "WebPage",
@@ -106,7 +553,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 44,
       "descriptionCharacters": 161,
-      "internalLinkCount": 38
+      "internalLinkCount": 39
     },
     {
       "path": "/interior-site-measurement",
@@ -114,7 +561,7 @@
       "description": "Organize interior site measurement projects, locations and team assignments with Intorza. Follow a practical site visit checklist and prepare a clearer quotation.",
       "h1": "Interior Site Measurement Software",
       "imageCount": 3,
-      "htmlBytes": 112141,
+      "htmlBytes": 120073,
       "schemaTypes": [
         "Organization",
         "WebPage",
@@ -146,7 +593,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 58,
       "descriptionCharacters": 162,
-      "internalLinkCount": 38
+      "internalLinkCount": 39
     },
     {
       "path": "/interior-quotation-management",
@@ -154,7 +601,7 @@
       "description": "Manage interior quotations, track pending, accepted and rejected proposals, edit details and export PDFs. Explore Intorza's client follow-up workflow.",
       "h1": "Interior Quotation Management Software",
       "imageCount": 3,
-      "htmlBytes": 106574,
+      "htmlBytes": 114519,
       "schemaTypes": [
         "Organization",
         "WebPage",
@@ -183,7 +630,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 57,
       "descriptionCharacters": 150,
-      "internalLinkCount": 36
+      "internalLinkCount": 37
     },
     {
       "path": "/interior-project-management",
@@ -191,7 +638,7 @@
       "description": "Manage converted interior projects with associated quotations, invoices, measurement context and recorded payment totals. Explore Intorza's project workflow.",
       "h1": "Interior Project Management Software",
       "imageCount": 3,
-      "htmlBytes": 107321,
+      "htmlBytes": 115253,
       "schemaTypes": [
         "Organization",
         "WebPage",
@@ -225,7 +672,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 46,
       "descriptionCharacters": 157,
-      "internalLinkCount": 36
+      "internalLinkCount": 37
     },
     {
       "path": "/interior-invoice-software",
@@ -233,7 +680,7 @@
       "description": "Create interior invoices, record partial payments, review outstanding balances and export PDFs with Intorza. Explore the billing workflow for designers and contractors.",
       "h1": "Interior Invoice Software",
       "imageCount": 3,
-      "htmlBytes": 106424,
+      "htmlBytes": 114369,
       "schemaTypes": [
         "Organization",
         "WebPage",
@@ -263,7 +710,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 54,
       "descriptionCharacters": 168,
-      "internalLinkCount": 36
+      "internalLinkCount": 37
     },
     {
       "path": "/interior-design-crm",
@@ -271,7 +718,7 @@
       "description": "Organize interior clients, project history, billed totals, payments and outstanding balances with Intorza. Explore a practical client management workflow for studios.",
       "h1": "CRM for Interior Designers",
       "imageCount": 3,
-      "htmlBytes": 108088,
+      "htmlBytes": 116020,
       "schemaTypes": [
         "Organization",
         "WebPage",
@@ -304,7 +751,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 56,
       "descriptionCharacters": 166,
-      "internalLinkCount": 37
+      "internalLinkCount": 38
     },
     {
       "path": "/interior-design-crm-quotation-software",
@@ -312,7 +759,7 @@
       "description": "Connect client records, interior quotations, projects and payment tracking. A practical guide to choosing and using CRM and quotation software with Intorza.",
       "h1": "Interior Design CRM & Quotation Software",
       "imageCount": 3,
-      "htmlBytes": 127184,
+      "htmlBytes": 135169,
       "schemaTypes": [
         "Organization",
         "Article",
@@ -337,6 +784,7 @@
       "mainContentWords": 1865,
       "inboundContextualPages": [
         "/",
+        "/articles",
         "/interior-design-crm",
         "/interior-quotation",
         "/ai-quotation-builder"
@@ -345,7 +793,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 69,
       "descriptionCharacters": 156,
-      "internalLinkCount": 46
+      "internalLinkCount": 47
     },
     {
       "path": "/interior-team-management",
@@ -353,7 +801,7 @@
       "description": "Organize interior team members, project teams, assignments and recorded attendance in Intorza. Explore a clearer coordination workflow for studios and contractors.",
       "h1": "Team Management for Interior Designers",
       "imageCount": 3,
-      "htmlBytes": 107088,
+      "htmlBytes": 115020,
       "schemaTypes": [
         "Organization",
         "WebPage",
@@ -383,7 +831,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 48,
       "descriptionCharacters": 163,
-      "internalLinkCount": 36
+      "internalLinkCount": 37
     },
     {
       "path": "/interior-quotation",
@@ -391,7 +839,7 @@
       "description": "Create itemized interior quotations, export professional PDFs and connect accepted proposals to invoices. Explore Intorza's quotation tool and INR 499/month Pro plan.",
       "h1": "Best Interior Quotation Tool for Designers & Contractors",
       "imageCount": 11,
-      "htmlBytes": 187840,
+      "htmlBytes": 195729,
       "schemaTypes": [
         "Organization",
         "SoftwareApplication",
@@ -417,6 +865,18 @@
       "mainContentWords": 1310,
       "inboundContextualPages": [
         "/",
+        "/articles",
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-quotation-format-word",
+        "/articles/interior-design-quotation-template",
+        "/articles/2bhk-interior-quotation",
+        "/articles/3bhk-interior-quotation",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/wardrobe-quotation-format",
+        "/articles/interior-work-quotation-format",
+        "/articles/interior-quotation-software",
         "/interior-design-dashboard",
         "/interior-site-measurement",
         "/interior-quotation-management",
@@ -435,7 +895,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 61,
       "descriptionCharacters": 166,
-      "internalLinkCount": 52
+      "internalLinkCount": 53
     },
     {
       "path": "/ai-quotation-builder",
@@ -443,7 +903,7 @@
       "description": "Create an AI interior quotation from a floor plan or project details. Review editable drafts, refine room-wise scope and export client-ready proposals with Intorza.",
       "h1": "AI Interior Design Quotation Tool",
       "imageCount": 10,
-      "htmlBytes": 177630,
+      "htmlBytes": 185575,
       "schemaTypes": [
         "Organization",
         "SoftwareApplication",
@@ -477,7 +937,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 43,
       "descriptionCharacters": 164,
-      "internalLinkCount": 47
+      "internalLinkCount": 48
     },
     {
       "path": "/about",
@@ -485,7 +945,7 @@
       "description": "Learn how Intorza connects quotations, invoices, clients and project coordination for interior designers and contractors. Meet the product and contact our Bengaluru team.",
       "h1": "About Intorza: Software for Interior Businesses",
       "imageCount": 2,
-      "htmlBytes": 62978,
+      "htmlBytes": 70970,
       "schemaTypes": [
         "Organization",
         "AboutPage",
@@ -501,6 +961,17 @@
       "mainContentWords": 327,
       "inboundContextualPages": [
         "/",
+        "/articles/interior-quotation-format",
+        "/articles/interior-quotation-format-pdf",
+        "/articles/interior-quotation-format-excel",
+        "/articles/interior-quotation-format-word",
+        "/articles/interior-design-quotation-template",
+        "/articles/2bhk-interior-quotation",
+        "/articles/3bhk-interior-quotation",
+        "/articles/modular-kitchen-quotation-format",
+        "/articles/wardrobe-quotation-format",
+        "/articles/interior-work-quotation-format",
+        "/articles/interior-quotation-software",
         "/interior-design-crm-quotation-software",
         "/contact"
       ],
@@ -508,7 +979,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 48,
       "descriptionCharacters": 170,
-      "internalLinkCount": 29
+      "internalLinkCount": 30
     },
     {
       "path": "/contact",
@@ -516,7 +987,7 @@
       "description": "Call Intorza on +91 9886579923 for interior quotation software support. Find our RT Nagar, Bengaluru address or send a message to our team.",
       "h1": "Contact Intorza for Support and Sales",
       "imageCount": 2,
-      "htmlBytes": 55994,
+      "htmlBytes": 63661,
       "schemaTypes": [
         "Organization",
         "ContactPage",
@@ -556,7 +1027,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 56,
       "descriptionCharacters": 139,
-      "internalLinkCount": 30
+      "internalLinkCount": 31
     },
     {
       "path": "/interior-quotation-format",
@@ -564,7 +1035,7 @@
       "description": "Use this free interior quotation format and sample to itemise rooms, materials, quantities, rates, GST and payment terms. Review the example or print it.",
       "h1": "Interior Quotation Format: Free Sample for Home Projects",
       "imageCount": 2,
-      "htmlBytes": 71832,
+      "htmlBytes": 79542,
       "schemaTypes": [
         "Organization",
         "FAQPage",
@@ -591,7 +1062,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 59,
       "descriptionCharacters": 153,
-      "internalLinkCount": 28
+      "internalLinkCount": 29
     },
     {
       "path": "/interior-cost-calculator",
@@ -599,7 +1070,7 @@
       "description": "Free interior cost calculator: pick your home size and finish level to estimate home interior design cost room by room, with GST. Then turn it into a quotation.",
       "h1": "Interior Design Cost Calculator",
       "imageCount": 2,
-      "htmlBytes": 57101,
+      "htmlBytes": 64768,
       "schemaTypes": [
         "Organization",
         "WebApplication",
@@ -625,7 +1096,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 53,
       "descriptionCharacters": 160,
-      "internalLinkCount": 28
+      "internalLinkCount": 29
     },
     {
       "path": "/privacy",
@@ -633,7 +1104,7 @@
       "description": "Learn how Intorza collects, uses, and protects your personal and business data.",
       "h1": "Privacy Policy",
       "imageCount": 2,
-      "htmlBytes": 43822,
+      "htmlBytes": 51764,
       "schemaTypes": [
         "Organization",
         "BreadcrumbList"
@@ -657,7 +1128,7 @@
       "contextualClickDepthFromHome": 1,
       "titleCharacters": 47,
       "descriptionCharacters": 79,
-      "internalLinkCount": 28
+      "internalLinkCount": 29
     },
     {
       "path": "/terms",
@@ -665,7 +1136,7 @@
       "description": "Read Intorza's Terms and Conditions and understand your rights and responsibilities when using our software.",
       "h1": "Terms & Conditions",
       "imageCount": 2,
-      "htmlBytes": 42234,
+      "htmlBytes": 50176,
       "schemaTypes": [
         "Organization",
         "BreadcrumbList"
@@ -686,7 +1157,7 @@
       "contextualClickDepthFromHome": 2,
       "titleCharacters": 46,
       "descriptionCharacters": 108,
-      "internalLinkCount": 27
+      "internalLinkCount": 28
     },
     {
       "path": "/cookies",
@@ -694,7 +1165,7 @@
       "description": "Understand how Intorza uses cookies and tracking technologies and how to manage them.",
       "h1": "Cookie Policy",
       "imageCount": 2,
-      "htmlBytes": 41978,
+      "htmlBytes": 49920,
       "schemaTypes": [
         "Organization",
         "BreadcrumbList"
@@ -712,7 +1183,7 @@
       "contextualClickDepthFromHome": 2,
       "titleCharacters": 40,
       "descriptionCharacters": 85,
-      "internalLinkCount": 28
+      "internalLinkCount": 29
     },
     {
       "path": "/refund",
@@ -720,7 +1191,7 @@
       "description": "Read Intorza's refund policy for subscription plans, eligibility, and the refund process.",
       "h1": "Refund Policy",
       "imageCount": 2,
-      "htmlBytes": 42024,
+      "htmlBytes": 49966,
       "schemaTypes": [
         "Organization",
         "BreadcrumbList"
@@ -739,7 +1210,7 @@
       "contextualClickDepthFromHome": 2,
       "titleCharacters": 44,
       "descriptionCharacters": 89,
-      "internalLinkCount": 28
+      "internalLinkCount": 29
     }
   ]
 }

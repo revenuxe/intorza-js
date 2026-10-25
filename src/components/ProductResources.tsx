@@ -50,6 +50,23 @@ export default function ProductResources() {
             </Link>
           ))}
         </div>
+        <p className="mt-8 max-w-3xl leading-7 text-muted-foreground">
+          Need help preparing the document? Read the{" "}
+          <Link
+            href="/articles/interior-quotation-format"
+            className="font-semibold text-primary underline underline-offset-4"
+          >
+            room-wise quotation format guide
+          </Link>{" "}
+          or follow the{" "}
+          <Link
+            href="/articles/interior-quotation-format-excel"
+            className="font-semibold text-primary underline underline-offset-4"
+          >
+            Excel calculation walkthrough
+          </Link>
+          .
+        </p>
       </div>
     </section>
   );

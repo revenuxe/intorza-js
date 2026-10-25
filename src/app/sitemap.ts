@@ -1,9 +1,13 @@
 import { SITE_URL } from "@/lib/site";
+import { articlePath, quotationArticles } from "@/data/quotation-articles";
 import type { MetadataRoute } from "next";
+import { quotationArticleDates } from "@/data/quotation-article-seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     "",
+    "/articles",
+    ...quotationArticles.map((a) => articlePath(a.slug)),
     "/about",
     "/contact",
     "/interior-design-dashboard",
@@ -24,6 +28,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/refund",
   ].map((path) => ({
     url: `${SITE_URL}${path}`,
+    ...(path === "/articles" || path.startsWith("/articles/")
+      ? { lastModified: quotationArticleDates.modified }
+      : {}),
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority:
       path === ""
