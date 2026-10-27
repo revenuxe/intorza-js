@@ -42,6 +42,7 @@ const Footer = () => {
   ];
   const company = [
     { label: "About Us", to: "/about" as const },
+    { label: "Demo Videos", to: "/demo-videos" as const },
     { label: "Articles", to: "/articles" as const },
     { label: "Contact", to: "/contact" as const },
   ];

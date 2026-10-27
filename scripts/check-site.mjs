@@ -1,6 +1,7 @@
 import legacyRedirects from "../src/data/legacy-redirects.json" with { type: "json" };
 import { articlePath, quotationArticles } from "../src/data/quotation-articles.ts";
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { setTimeout as delay } from "node:timers/promises";
@@ -24,6 +25,7 @@ const pages = [
   "/articles",
   ...quotationArticles.map((a) => articlePath(a.slug)),
   "/about",
+  "/demo-videos",
   "/contact",
   "/interior-design-dashboard",
   "/interior-site-measurement",
@@ -81,7 +83,8 @@ try {
         const href = match[1];
         if (href.startsWith("/"))
           assert.ok(
-            pages.includes(href.split(/[?#]/)[0] || "/"),
+            pages.includes(href.split(/[?#]/)[0] || "/") ||
+              existsSync(new URL(`../public${href.split(/[?#]/)[0]}`, import.meta.url)),
             `${path}: broken internal link ${href}`,
           );
       }

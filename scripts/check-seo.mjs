@@ -27,6 +27,7 @@ const paths = [
   "/interior-quotation",
   "/ai-quotation-builder",
   "/about",
+  "/demo-videos",
   "/contact",
   "/interior-quotation-format",
   "/interior-cost-calculator",

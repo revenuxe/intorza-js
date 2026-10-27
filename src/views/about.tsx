@@ -40,6 +40,12 @@ export default function About() {
               manage their business operations efficiently, so they can focus on creating beautiful
               spaces.
             </p>
+            <Link
+              href="/demo-videos"
+              className="mt-6 inline-flex items-center gap-2 font-semibold text-primary underline underline-offset-4"
+            >
+              Watch Intorza demo videos <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
         </section>
 

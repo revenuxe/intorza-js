@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/articles",
     ...quotationArticles.map((a) => articlePath(a.slug)),
     "/about",
+    "/demo-videos",
     "/contact",
     "/interior-design-dashboard",
     "/interior-site-measurement",
