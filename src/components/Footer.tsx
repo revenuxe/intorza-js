@@ -40,7 +40,10 @@ const Footer = () => {
     { label: "Client Management", href: "/interior-design-crm" },
     { label: "Team Management", href: "/interior-team-management" },
   ];
-  const services = [{ label: "Website Development", href: "/services/website-development" }];
+  const services = [
+    { label: "Website Development", href: "/services/website-development" },
+    { label: "3D Interior Rendering", href: "/services/3d-interior-rendering" },
+  ];
   const company = [
     { label: "About Us", to: "/about" as const },
     { label: "Demo Videos", to: "/demo-videos" as const },
