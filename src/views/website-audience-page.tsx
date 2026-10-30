@@ -1,3 +1,4 @@
+import ServiceBreadcrumb from "@/components/ServiceBreadcrumb";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Check, Compass, Images, Palette, Workflow } from "lucide-react";
@@ -20,11 +21,7 @@ export default function WebsiteAudiencePage({ page }: { page: WebsiteDevelopment
       <main>
         <section className="overflow-hidden border-b-2 border-foreground bg-background pb-14 pt-28 md:pb-20 md:pt-36">
           <div className="container-custom">
-            <nav aria-label="Breadcrumb" className="mb-8 flex w-full items-center gap-2 overflow-x-auto whitespace-nowrap pb-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground [&>*]:shrink-0">
-              <Link href="/" className="hover:text-primary">Home</Link><span aria-hidden="true">/</span>
-              <Link href="/services/website-development" className="hover:text-primary">Website Development</Link><span aria-hidden="true">/</span>
-              <span aria-current="page" className="text-foreground">{page.label}</span>
-            </nav>
+            <ServiceBreadcrumb parentHref="/services/website-development" parentLabel="Website Development" label={page.label}/>
             <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
               <div className="lg:col-span-6">
                 <p className="mb-4 flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary"><Icon className="h-4 w-4" aria-hidden="true" />{page.eyebrow}</p>
