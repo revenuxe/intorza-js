@@ -4,7 +4,8 @@ import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceBreadcrumb from "@/components/ServiceBreadcrumb";
-import BoqPreview, { BoqTable } from "@/components/website/BoqPreview";
+import { BoqTable } from "@/components/website/BoqPreview";
+import BoqServiceVisual from "@/components/website/BoqServiceVisual";
 import WorkingDrawingVisual from "@/components/website/WorkingDrawingVisual";
 import { ServiceFAQ, ServiceProcess, ServiceTitle } from "@/components/website/ServiceSections";
 import { boqDetailPages, boqDetailPath, boqDetailFaqs } from "@/data/boq-detail-pages";
@@ -16,7 +17,7 @@ function DetailVisual({ page }: { page: BoqPage }) {
   if(page.slug==="boq-from-floor-plans"||page.slug==="boq-from-drawings"||page.slug==="quantity-takeoff")return <figure className="overflow-hidden border-2 border-foreground bg-card shadow-[5px_5px_0_0_var(--foreground)]"><WorkingDrawingVisual kind={page.slug==="boq-from-drawings"?2:0}/><div className="grid grid-cols-3 border-y border-border text-center text-xs font-semibold">{["Review drawing", "Define quantities", "Prepare BOQ"].map(label=><span key={label} className="p-3">{label}</span>)}</div><figcaption className="p-4 text-xs leading-relaxed text-muted-foreground">Illustrative drawing study, not to scale. Quantity review depends on the dimensions and specifications supplied.</figcaption></figure>;
   if(page.slug==="material-estimation")return <figure className="border-2 border-foreground bg-card shadow-[5px_5px_0_0_var(--foreground)]"><div className="bg-secondary p-5 text-secondary-foreground"><h2 className="font-display text-2xl font-semibold">Connect materials to a defined scope</h2></div><div className="grid grid-cols-2 gap-3 p-5">{[["#af9470","Board / dimensions"],["#c7cbbd","Finish / area"],["#e1d4bd","Flooring / module"],["#879781","Specification / basis"]].map(([color,label])=><div key={label} className="border border-border"><div className="h-20" style={{backgroundColor:color}}/><p className="p-3 text-xs font-semibold">{label}</p></div>)}</div><figcaption className="border-t border-border p-4 text-xs text-muted-foreground">Illustrative material categories. Final selections and allowances are project-specific.</figcaption></figure>;
   if(page.slug==="quotation-preparation")return <figure className="overflow-hidden border-2 border-foreground bg-card shadow-[5px_5px_0_0_var(--foreground)]"><div className="bg-secondary p-5 text-secondary-foreground"><h2 className="font-display text-2xl font-semibold">From reviewed items to a client proposal</h2></div><ol className="divide-y divide-border">{["Review BOQ descriptions and quantities","Confirm your rates and inclusions","Enter information in the quotation tool","Review, download and share"].map((label,i)=><li key={label} className="flex items-center gap-3 p-5 text-sm"><span className="font-mono text-primary">0{i+1}</span><span className="flex-1">{label}</span><ArrowRight className="h-4 w-4 text-primary"/></li>)}</ol><figcaption className="border-t border-border p-4 text-xs leading-relaxed text-muted-foreground">Workflow illustration; automatic BOQ import or transfer is not implied.</figcaption></figure>;
-  return <BoqPreview/>;
+  return <BoqServiceVisual slug={page.slug}/>;
 }
 
 export default function BoqDetailPage({page}:{page:BoqPage}) {
