@@ -5,14 +5,26 @@ import { breadcrumbSchema, faqPageSchema } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 import { getThreeDRenderingAudience, threeDRenderingAudiencePath, threeDRenderingAudiences } from "@/data/3d-rendering-audience-pages";
 import ThreeDRenderingAudiencePage from "@/views/3d-rendering-audience-page";
+import { renderingServices } from "@/data/3d-rendering-services";
+import RenderingServicePage, { renderingServiceFaqs } from "@/views/3d-rendering-service-page";
+
+function findPage(slug: string) {
+  const service = renderingServices.find(item => item.slug === slug);
+  return getThreeDRenderingAudience(slug) ?? (service ? {
+    ...service,
+    title: `${service.label} Services | Intorza`,
+    keyword: `${service.label} services`,
+    faqs: renderingServiceFaqs(service),
+  } : undefined);
+}
 
 export function generateStaticParams() {
-  return threeDRenderingAudiences.map(({ slug }) => ({ audience: slug }));
+  return [...threeDRenderingAudiences, ...renderingServices].map(({ slug }) => ({ audience: slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ audience: string }> }): Promise<Metadata> {
   const { audience } = await params;
-  const page = getThreeDRenderingAudience(audience);
+  const page = findPage(audience);
   if (!page) return {};
   return createMetadata({
     title: page.title,
@@ -24,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ audience:
 
 export default async function Page({ params }: { params: Promise<{ audience: string }> }) {
   const { audience } = await params;
-  const page = getThreeDRenderingAudience(audience);
+  const page = findPage(audience);
   if (!page) notFound();
 
   const path = threeDRenderingAudiencePath(page.slug);
@@ -54,7 +66,7 @@ export default async function Page({ params }: { params: Promise<{ audience: str
           description: page.description,
           url: `${SITE_URL}${path}`,
           provider: { "@id": `${SITE_URL}/#organization` },
-          audience: { "@type": "Audience", audienceType: page.label },
+          audience: { "@type": "Audience", audienceType: "Interior designers, architects, studios and interior businesses" },
           availableChannel: {
             "@type": "ServiceChannel",
             serviceUrl: `${SITE_URL}/contact?subject=${encodeURIComponent(page.keyword)}`,
@@ -66,7 +78,7 @@ export default async function Page({ params }: { params: Promise<{ audience: str
         ]),
         faqPageSchema(page.faqs),
       ]} />
-      <ThreeDRenderingAudiencePage page={page} />
+      {"visual" in page ? <ThreeDRenderingAudiencePage page={page} /> : <RenderingServicePage service={page} />}
     </>
   );
 }

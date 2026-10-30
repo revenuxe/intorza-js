@@ -1,0 +1,110 @@
+export const renderingServices = [
+  {
+    slug: "living-room-rendering", label: "Living room rendering",
+    description: "Living room 3D rendering for interior professionals. Present furniture layouts, TV units, materials and lighting in project-specific views.",
+    intro: "Living room rendering brings the main elements of a shared space into one visual conversation. Intorza helps designers and project teams present seating, TV units, ceilings, lighting and finishes from the layout and references supplied for the project.",
+    considerations: [
+      ["Seating and circulation", "Choose views that explain the relationship between sofas, occasional chairs, entrances and adjoining rooms. Furniture positions should follow the layout you provide."],
+      ["TV and feature walls", "Show joinery proportions, wall treatments, shelves and finish combinations together. Supply elevations or dimensions for elements whose proportions matter."],
+      ["Lighting and atmosphere", "Discuss daylight, ceiling treatments and decorative lighting as part of the brief. A visualization conveys intent; it does not replace a lighting calculation."],
+      ["Connected spaces", "Include the dining area, foyer or kitchen in selected angles where the relationship helps explain the design."],
+    ],
+    inputs: ["Dimensioned room layout and openings", "TV wall or joinery elevations", "Furniture references and sizes", "Ceiling and lighting direction", "Materials, colors and preferred views"],
+    question: "Can a living room render show the dining area too?", answer: "Yes, if the available layout and agreed camera views include both spaces. Confirm the connected areas and required detail when scoping the project.",
+  },
+  {
+    slug: "bedroom-visualization", label: "Bedroom visualization",
+    description: "Bedroom 3D visualization for designers and studios. Review beds, wardrobes, headboards, lighting and finishes before client presentations.",
+    intro: "Bedroom visualization helps your client understand how storage, furniture and finishes fit into a personal space. Share the room plan and design direction so the views can communicate the bed wall, wardrobes, study or dressing area as a coordinated interior.",
+    considerations: [
+      ["Bed wall composition", "Present the relationship between headboards, side tables, wall finishes and decorative lights from the intended viewpoint."],
+      ["Wardrobes and storage", "Use supplied joinery drawings to show wardrobe finishes, shutters and visible proportions. Detailed storage interiors need their own agreed scope."],
+      ["Dressing and study zones", "Explain how secondary functions sit within the room, including mirrors, worktops and circulation space."],
+      ["Color and material balance", "Bring fabric, wall color, flooring and timber references into a consistent visual direction for review."],
+    ],
+    inputs: ["Bedroom plan with dimensions", "Wardrobe and headboard elevations", "Bed and loose furniture references", "Fabric, finish and color selections", "Lighting direction and required angles"],
+    question: "Can you visualize a wardrobe interior?", answer: "A wardrobe interior can be discussed when dimensions and internal layouts are available. It should be included explicitly in the requested views and project scope.",
+  },
+  {
+    slug: "kitchen-rendering", label: "Kitchen rendering",
+    description: "Kitchen 3D rendering for interior teams. Present cabinetry, countertops, finishes and layout relationships from your drawings and references.",
+    intro: "Kitchen rendering makes cabinetry, worktops and finish choices easier to review together. Intorza works from your kitchen layout, elevations and references to prepare views that explain the proposed design during client discussions.",
+    considerations: [
+      ["Cabinet composition", "Show base, wall and tall units using the module layout supplied by your team. Mark appliance openings and important dimensions clearly."],
+      ["Countertops and splashbacks", "Review worktop, wall finish and shutter combinations in the same view. Reference images help communicate color and texture intent."],
+      ["Appliances and fittings", "Identify appliance positions, sinks, handles and visible fittings. Confirm any product-specific representation before work begins."],
+      ["Views that explain the layout", "Select angles that make an L-shaped, parallel, island or open kitchen understandable without hiding essential elements."],
+    ],
+    inputs: ["Kitchen plan and cabinet elevations", "Appliance dimensions and locations", "Shutter, countertop and splashback references", "Hardware and fitting direction", "Required views and adjoining-space details"],
+    question: "Does a kitchen render replace cabinet manufacturing drawings?", answer: "No. Rendering communicates the appearance of the supplied design. Manufacturing dimensions, installation requirements and technical checks remain part of your project documentation.",
+  },
+  {
+    slug: "dining-area-visualization", label: "Dining area visualization",
+    description: "Dining area visualization for interior professionals. Show furniture, pendant lighting, storage and connections with surrounding spaces.",
+    intro: "Dining area visualization shows how furniture, lighting and surrounding interiors work together. Use it to discuss table proportions, pendant placement, feature walls and storage within the design information supplied by your practice.",
+    considerations: [
+      ["Furniture proportions", "Present the selected table and chairs in context with the room and adjoining circulation routes."],
+      ["Lighting as a focal point", "Show the intended pendant or lighting composition relative to the table and ceiling design."],
+      ["Storage and wall treatments", "Include crockery units, consoles, mirrors or wall finishes where they form part of the brief."],
+      ["Open-plan continuity", "Help clients see how the dining area relates to living spaces, kitchens or entry zones through coordinated materials."],
+    ],
+    inputs: ["Dining layout and adjacent spaces", "Table and seating references", "Lighting and ceiling direction", "Storage or wall elevations", "Material palette and preferred viewpoints"],
+    question: "Can the dining area be included in a living room rendering scope?", answer: "Yes, connected spaces can be scoped together. Share the whole layout and clarify whether the dining area needs dedicated angles or only appears within a wider view.",
+  },
+  {
+    slug: "office-commercial-interiors", label: "Office & commercial interiors",
+    description: "3D visualization for offices and commercial interiors. Communicate layouts, finishes and design direction to clients and project teams.",
+    intro: "Commercial interior visualization helps teams explain a proposed workplace, retail environment or business space. Intorza prepares suitable views from your layouts and references so stakeholders can discuss the spatial and visual direction with clearer context.",
+    considerations: [
+      ["Zones and circulation", "Select views that explain the relationship between reception, work areas, meeting spaces or customer-facing zones relevant to the project."],
+      ["Brand and material direction", "Share approved brand references, signage intent and finish palettes for the areas shown in the visualization."],
+      ["Furniture and fittings", "Identify workstation systems, display units and visible fixtures, along with any dimensions critical to their appearance."],
+      ["Stakeholder presentations", "Define the intended audience and purpose of each image so the presentation focuses on the decisions being reviewed."],
+    ],
+    inputs: ["Commercial layout and project type", "Zoning and furniture plans", "Brand, signage and finish references", "Relevant elevations and lighting direction", "Required views and stakeholder presentation needs"],
+    question: "Can commercial renders confirm compliance or accessibility?", answer: "No. Rendered views illustrate the supplied design. Regulatory, access, engineering and construction checks need to be handled through the appropriate project documentation and professionals.",
+  },
+  {
+    slug: "full-home-visualization", label: "Full home visualization",
+    description: "Full home 3D visualization for interior studios. Coordinate room palettes, furniture and presentation views across a residential project.",
+    intro: "Full home visualization brings multiple rooms into a coordinated presentation. Share the overall layout, room list and material direction so each space can be developed with a clear relationship to the rest of the home.",
+    considerations: [
+      ["Define the room list", "Agree which rooms, connected areas and camera views are included. An explicit list makes the scope easier to understand."],
+      ["Establish shared materials", "Identify finishes, door treatments, flooring or other elements that carry across rooms, alongside deliberate changes between spaces."],
+      ["Coordinate room priorities", "Discuss which spaces need review first and how decisions in one room may affect the remaining visualization work."],
+      ["Consolidate the review", "Collect room-specific comments against clearly named views so feedback can be reviewed within the agreed revision scope."],
+    ],
+    inputs: ["Full floor plan with dimensions", "Agreed room and view list", "Room-specific layouts and elevations", "Shared material palette and room references", "Review contact and project priorities"],
+    question: "Does full home visualization include every room automatically?", answer: "The room list and views are agreed for each project. Include all required rooms, balconies or circulation spaces in the brief so they can be considered in the scope.",
+  },
+  {
+    slug: "photorealistic-interior-rendering", label: "Photorealistic rendering",
+    description: "Photorealistic interior rendering for professional presentations, with materials, lighting and detail defined around your project brief.",
+    intro: "Photorealistic interior rendering focuses on convincing material, light and spatial representation for a professional presentation. The level of detail depends on the references, design information and output requirements agreed for the project.",
+    considerations: [
+      ["Material references", "Provide clear finish samples or product references, including texture scale and surface character where they matter."],
+      ["Lighting intent", "Agree whether a view should communicate daylight, an evening atmosphere or a particular lighting direction before detailed work begins."],
+      ["Camera and composition", "Choose viewpoints that describe the design while keeping proportions and the intended presentation context in mind."],
+      ["Output expectations", "Confirm image dimensions, intended use and the required detail level. Screen appearance and real materials can differ from a visualization."],
+    ],
+    inputs: ["Dimensioned drawings and design details", "High-quality material references", "Furniture and fitting selections", "Lighting mood and camera references", "Image dimensions and intended use"],
+    question: "Will the finished interior look exactly like the render?", answer: "A render represents the supplied design intent. Actual materials, lighting, installation and display settings can affect appearance, so visualizations do not guarantee an exact match to construction.",
+  },
+  {
+    slug: "design-concept-visualization", label: "Design concept visualization",
+    description: "Interior design concept visualization that turns early layouts and references into views for discussing direction before detailed execution.",
+    intro: "Design concept visualization helps make early ideas easier to discuss. Share sketches, layouts and reference imagery so selected views can communicate an intended direction while open decisions and assumptions remain clear.",
+    considerations: [
+      ["Clarify the design question", "Explain what the views should help decide: layout, palette, furniture character or the general atmosphere of a space."],
+      ["Use references with context", "Identify which part of each reference matters, such as a material, proportion or lighting mood, rather than leaving the interpretation open."],
+      ["Label unresolved details", "Flag assumptions and elements that have not been selected. Concept views should not imply that every component is finalized."],
+      ["Agree the next review", "Define what feedback is needed to move the design forward and how any later detailing will be scoped."],
+    ],
+    inputs: ["Initial layout, sketch or available dimensions", "Annotated inspiration references", "Known design constraints", "Open decisions and assumptions", "Purpose of the concept review"],
+    question: "Can visualization start before all materials are selected?", answer: "It can be discussed as a concept-stage brief. Identify provisional selections and assumptions so the visuals are interpreted appropriately and later changes can be scoped clearly.",
+  },
+];
+
+export function renderingServicePath(slug: string) {
+  return `/services/3d-interior-rendering/${slug}`;
+}

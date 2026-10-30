@@ -4,6 +4,7 @@ import type { MetadataRoute } from "next";
 import { quotationArticleDates } from "@/data/quotation-article-seo";
 import { websiteAudiencePages, websiteAudiencePath, websiteFocusPages, websiteFocusPath } from "@/data/website-audience-pages";
 import { threeDRenderingAudiencePath, threeDRenderingAudiences } from "@/data/3d-rendering-audience-pages";
+import { renderingServices, renderingServicePath } from "@/data/3d-rendering-services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -14,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/demo-videos",
     "/contact",
     "/services/3d-interior-rendering",
+    ...renderingServices.map(({slug}) => renderingServicePath(slug)),
     ...threeDRenderingAudiences.map(({ slug }) => threeDRenderingAudiencePath(slug)),
     "/services/website-development",
     ...websiteAudiencePages.map(({ slug }) => websiteAudiencePath(slug)),
