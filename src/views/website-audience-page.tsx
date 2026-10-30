@@ -20,7 +20,7 @@ export default function WebsiteAudiencePage({ page }: { page: WebsiteDevelopment
       <main>
         <section className="overflow-hidden border-b-2 border-foreground bg-background pb-14 pt-28 md:pb-20 md:pt-36">
           <div className="container-custom">
-            <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground">
+            <nav aria-label="Breadcrumb" className="mb-8 flex w-full items-center gap-2 overflow-x-auto whitespace-nowrap pb-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground [&>*]:shrink-0">
               <Link href="/" className="hover:text-primary">Home</Link><span aria-hidden="true">/</span>
               <Link href="/services/website-development" className="hover:text-primary">Website Development</Link><span aria-hidden="true">/</span>
               <span aria-current="page" className="text-foreground">{page.label}</span>
