@@ -9,6 +9,7 @@ import { SITE_PHONE_E164 } from "@/lib/site";
 import { walkthroughServicePages, walkthroughServicePath } from "@/data/walkthrough-service-pages";
 import { walkthroughSpacePages, walkthroughSpacePath } from "@/data/walkthrough-space-pages";
 import { drawingServicePath } from "@/data/drawing-service-pages";
+import { renderingServicePath } from "@/data/3d-rendering-services";
 
 const contact = "/contact?subject=3D%20Walkthrough%20Project";
 const audience = [
@@ -35,8 +36,19 @@ const spaces = [
 
 const inputs = [
   ["Floor plans", drawingServicePath("interior-floor-plans")],
-  ["2D drawings", "/services/2d-interior-working-drawings"],
-  ...["Working drawings", "Existing 3D models", "Existing 3D renders", "Interior elevations", "Material references", "Furniture references", "Lighting references", "Design concepts", "Mood boards", "Site photos", "Client-approved designs", "Camera or presentation references"].map((label) => [label, ""] as const),
+  ["2D drawings", drawingServicePath("interior-floor-plans")],
+  ["Working drawings", drawingServicePath("interior-execution-drawings")],
+  ["Existing 3D models", walkthroughServicePath("interior-walkthrough-animation")],
+  ["Existing 3D renders", "/services/3d-interior-rendering"],
+  ["Interior elevations", drawingServicePath("interior-elevation-drawings")],
+  ["Material references", renderingServicePath("material-finish-rendering-brief")],
+  ["Furniture references", drawingServicePath("furniture-layout-plans")],
+  ["Lighting references", drawingServicePath("lighting-layout-drawings")],
+  ["Design concepts", renderingServicePath("design-concept-visualization")],
+  ["Mood boards", renderingServicePath("reference-images-for-3d-rendering")],
+  ["Site photos", renderingServicePath("site-photos-for-interior-rendering")],
+  ["Client-approved designs", renderingServicePath("interior-rendering-project-brief")],
+  ["Camera or presentation references", walkthroughServicePath("camera-path-visualization")],
 ];
 
 const benefits = [
