@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/demo-videos",
     "/contact",
     "/services/3d-interior-rendering",
+    "/services/2d-interior-working-drawings",
     ...renderingServices.map(({slug}) => renderingServicePath(slug)),
     ...threeDRenderingAudiences.map(({ slug }) => threeDRenderingAudiencePath(slug)),
     "/services/website-development",

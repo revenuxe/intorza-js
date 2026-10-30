@@ -43,6 +43,7 @@ const Footer = () => {
   const services = [
     { label: "Website Development", href: "/services/website-development" },
     { label: "3D Interior Rendering", href: "/services/3d-interior-rendering" },
+    { label: "2D Interior & Working Drawings", href: "/services/2d-interior-working-drawings" },
   ];
   const company = [
     { label: "About Us", to: "/about" as const },

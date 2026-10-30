@@ -22,6 +22,7 @@ import {
 import { renderingServices, renderingServicePath } from "@/data/3d-rendering-services";
 import { renderingInputGuides } from "@/data/3d-rendering-input-guides";
 import Header from "@/components/Header";
+import { ServiceBanner } from "@/components/website/ServiceSections";
 import Footer from "@/components/Footer";
 import { SITE_PHONE_E164 } from "@/lib/site";
 import { threeDRenderingAudiencePath } from "@/data/3d-rendering-audience-pages";
@@ -180,6 +181,7 @@ export default function ThreeDInteriorRenderingPage() {
         <section className="section-padding scroll-reveal"><div className="container-custom max-w-4xl"><SectionTitle>3D Interior Rendering Services — FAQs</SectionTitle><div className="divide-y divide-border border-y border-border">{faqs.map(({q,a})=><details key={q} className="group py-4"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-sm font-semibold marker:hidden sm:text-base">{q}<span className="text-xl font-normal text-primary transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 max-w-3xl pr-8 text-sm leading-relaxed text-muted-foreground">{a}</p></details>)}</div></div></section>
 
         <section className="scroll-reveal relative overflow-hidden border-t-2 border-foreground bg-primary py-14 md:py-20"><div className="container-custom"><div className="grid items-end gap-8 lg:grid-cols-[1fr_auto]"><div className="max-w-3xl"><h2 className="font-display text-3xl font-bold leading-tight text-primary-foreground md:text-4xl lg:text-5xl">Turn Your Interior Ideas Into 3D Visuals</h2><p className="mt-4 max-w-2xl text-sm leading-relaxed text-primary-foreground/90 sm:text-base">Share your project, floor plan and design direction with Intorza for visualization support built for interior and architecture businesses.</p><p className="mt-4 text-xs text-primary-foreground/75">For interior designers, architects, interior studios, architecture firms and interior contractors.</p></div><div className="flex flex-col items-start gap-4 sm:flex-row lg:flex-col"><Link href={projectHref} className="btn-hard-light btn-hard-hover whitespace-nowrap">Start a 3D Project <ArrowRight className="h-4 w-4"/></Link><a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="font-display text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground underline underline-offset-4">Talk to Intorza</a></div></div></div></section>
+        <ServiceBanner title="Need working drawings for your design?" copy="Share your approved design and available measurements to discuss layouts, elevations and selected interior details for project coordination." href="/services/2d-interior-working-drawings" label="Explore Working Drawings"/>
       </main>
       <Footer />
     </div>
