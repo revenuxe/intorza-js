@@ -23,10 +23,10 @@ import { SITE_PHONE_E164 } from "@/lib/site";
 type FAQ = { q: string; a: string };
 
 const audiences = [
-  ["Interior designers", "Lead with your point of view, then let your projects, services and process do the talking.", Palette],
-  ["Design studios", "Bring a team’s work together in a portfolio that feels cohesive and unmistakably yours.", Images],
-  ["Architects & practices", "Make room for project context, capabilities, collaborators and the thinking behind each space.", Compass],
-  ["Interior contractors", "Show the scope of your work clearly and give prospective clients a direct route to enquire.", Workflow],
+  ["Interior designers", "Lead with your point of view, then let your projects, services and process do the talking.", Palette, "interior-designers"],
+  ["Design studios", "Bring a team’s work together in a portfolio that feels cohesive and unmistakably yours.", Images, "design-studios"],
+  ["Architects & practices", "Make room for project context, capabilities, collaborators and the thinking behind each space.", Compass, "architects"],
+  ["Interior contractors", "Show the scope of your work clearly and give prospective clients a direct route to enquire.", Workflow, "interior-contractors"],
 ] as const;
 
 const inclusions = [
@@ -198,7 +198,7 @@ export default function WebsiteDevelopmentPage({ faqs = websiteDevelopmentFaqs }
 
         <section className="section-padding scroll-reveal bg-muted/30"><div className="container-custom">
           <SectionTitle copy="A template can hold your logo. A good studio website brings together your work, point of view and process so the right clients can picture working with you. The result is an interior designer website that reflects your own way of working. For architects and architecture firms, we give equal care to presenting your capabilities and built work.">A website that feels like your studio</SectionTitle>
-          <div className="grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">{audiences.map(([title, copy, Icon]) => <article key={title} className="group border-b border-r border-border bg-card p-4 transition-colors hover:bg-background sm:p-5"><div className="mb-3 flex items-center justify-between"><Icon className="h-4 w-4 text-primary"/><ChevronRight className="h-4 w-4 -translate-x-1 text-muted-foreground opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"/></div><h3 className="font-display text-base font-semibold">{title}</h3><p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{copy}</p></article>)}</div>
+          <div className="grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">{audiences.map(([title, copy, Icon, slug]) => <Link key={title} href={`/services/website-development/${slug}`} className="group border-b border-r border-border bg-card p-4 transition-colors hover:bg-background focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-primary sm:p-5"><article><div className="mb-3 flex items-center justify-between"><Icon className="h-4 w-4 text-primary"/><ChevronRight className="h-4 w-4 -translate-x-1 text-muted-foreground opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"/></div><h3 className="font-display text-base font-semibold">{title}</h3><p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{copy}</p><span className="mt-4 inline-flex items-center gap-1 font-mono text-[9px] font-bold uppercase tracking-wider text-primary">Explore this page<ArrowRight className="h-3 w-3" /></span></article></Link>)}</div>
         </div></section>
 
         <section className="section-padding scroll-reveal"><div className="container-custom"><div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
