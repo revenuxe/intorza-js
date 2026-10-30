@@ -4,7 +4,7 @@ import View from "@/views/contact";
 export { metadata } from "@/metadata/contact";
 export default async function Page({ searchParams }: { searchParams: Promise<{ subject?: string }> }) {
   const { subject } = await searchParams;
-  const initialSubject = subject === "Website development" ? subject : "";
+  const initialSubject = ["Website development", "3D Walkthrough Project"].includes(subject ?? "") ? subject! : "";
   return (
     <>
       <JsonLd data={structuredData} />

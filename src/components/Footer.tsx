@@ -45,6 +45,7 @@ const Footer = () => {
     { label: "3D Interior Rendering", href: "/services/3d-interior-rendering" },
     { label: "2D Interior & Working Drawings", href: "/services/2d-interior-working-drawings" },
     { label: "BOQ & Cost Estimation", href: "/services/interior-boq-cost-estimation" },
+    { label: "3D Walkthrough & 360° Visualization", href: "/services/3d-walkthrough-360-visualization" },
   ];
   const company = [
     { label: "About Us", to: "/about" as const },

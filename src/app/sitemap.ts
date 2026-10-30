@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/3d-interior-rendering",
     "/services/2d-interior-working-drawings",
     "/services/interior-boq-cost-estimation",
+    "/services/3d-walkthrough-360-visualization",
     ...boqDetailPages.map(({slug})=>boqDetailPath(slug)),
     ...boqRoomPages.map(({slug})=>boqRoomPath(slug)),
     ...drawingServicePages.map(({slug})=>drawingServicePath(slug)),
