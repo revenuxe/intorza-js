@@ -20,6 +20,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { renderingServices, renderingServicePath } from "@/data/3d-rendering-services";
+import { renderingInputGuides } from "@/data/3d-rendering-input-guides";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE_PHONE_E164 } from "@/lib/site";
@@ -88,15 +89,7 @@ const useCases = [
   ["Additional design capacity", "Use external visualization support when the in-house team is handling multiple projects."],
 ] as const;
 
-const inputs = [
-  "Floor plans or 2D layouts",
-  "AutoCAD drawings or hand sketches",
-  "Reference and inspiration images",
-  "Material and finish references",
-  "Color and furniture preferences",
-  "Existing site photographs",
-  "Design notes and client requirements",
-];
+
 
 const faqs = [
   { q: "What is 3D interior rendering?", a: "3D interior rendering creates visual representations of a space using drawings, layouts, design information and selected materials or references." },
@@ -170,7 +163,7 @@ export default function ThreeDInteriorRenderingPage() {
 
         <section className="section-padding scroll-reveal"><div className="container-custom"><SectionTitle copy="Plan the rooms and spaces that matter to the project. The right level of detail depends on the drawings, references and agreed scope.">Visualize Every Important Interior Space</SectionTitle><div className="grid grid-cols-2 border-l border-t border-border md:grid-cols-4">{rooms.map(([title, copy, color, slug], index)=><Link href={renderingServicePath(slug)} key={title} className="group border-b border-r border-border bg-card focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-primary"><div className={`relative aspect-[1.45] overflow-hidden ${color}`}><span className="absolute right-2 top-2 z-10 grid h-8 w-8 place-items-center border border-foreground/15 bg-background/95 text-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><ArrowUpRight className="h-4 w-4" aria-hidden="true"/></span><div className="absolute inset-[12%] border border-white/70"><span className="absolute inset-y-0 left-1/2 w-px bg-white/55"/><span className="absolute inset-x-0 top-1/2 h-px bg-white/55"/></div><span className="absolute bottom-2 left-2 bg-[#1c3046]/90 px-2 py-1 font-mono text-[7px] uppercase tracking-wider text-white">Space / 0{index+1}</span></div><div className="p-3 sm:p-4"><h3 className="font-display text-sm font-semibold sm:text-base">{title}</h3><p className="mt-1 text-[10px] leading-relaxed text-muted-foreground sm:text-xs">{copy}</p></div></Link>)}</div><p className="mt-4 max-w-3xl text-xs leading-relaxed text-muted-foreground">These are illustrative space categories, not examples of completed Intorza client projects.</p></div></section>
 
-        <section className="section-padding scroll-reveal border-y border-border bg-secondary text-secondary-foreground"><div className="container-custom grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-14"><div><SectionTitle copy="The more clearly design requirements are communicated, the easier it is to prepare a visualization that reflects the intended space.">Start With the Project Information You Already Have</SectionTitle><p className="max-w-lg text-sm leading-relaxed text-secondary-foreground/75">Not every project needs every item. We can determine the appropriate inputs after reviewing the project.</p></div><ul className="grid grid-cols-1 border-l border-t border-secondary-foreground/20 sm:grid-cols-2">{inputs.map((item,index)=><li key={item} className="flex items-start gap-3 border-b border-r border-secondary-foreground/20 p-4 text-sm"><span className="font-mono text-[9px] font-bold text-primary">0{index+1}</span><span>{item}</span></li>)}</ul></div></section>
+        <section className="section-padding scroll-reveal border-y border-border bg-secondary text-secondary-foreground"><div className="container-custom grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-14"><div><SectionTitle copy="The more clearly design requirements are communicated, the easier it is to prepare a visualization that reflects the intended space.">Start With the Project Information You Already Have</SectionTitle><p className="max-w-lg text-sm leading-relaxed text-secondary-foreground/75">Not every project needs every item. We can determine the appropriate inputs after reviewing the project.</p></div><ul className="grid grid-cols-1 border-l border-t border-secondary-foreground/20 sm:grid-cols-2">{renderingInputGuides.map((item,index)=><li key={item.slug} className="border-b border-r border-secondary-foreground/20"><Link href={renderingServicePath(item.slug)} className="group flex h-full items-start gap-3 p-4 text-sm transition-colors hover:bg-secondary-foreground/10 focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary"><span className="font-mono text-[9px] font-bold text-primary">0{index+1}</span><span className="flex-1">{item.cardLabel}</span><ArrowUpRight className="h-4 w-4 shrink-0 text-secondary-foreground/80 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true"/></Link></li>)}</ul></div></section>
 
         <section className="section-padding scroll-reveal"><div className="container-custom"><SectionTitle copy="Plans and drawings communicate technical information. A 3D view can help clients see the proposed design during discussion and review.">Help Clients See the Design Before Execution</SectionTitle><div className="grid grid-cols-1 border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">{benefits.map(([title,copy,Icon])=><article key={title} className="group border-b border-r border-border bg-card p-4 transition-colors hover:bg-muted/30 sm:p-5"><div className="mb-4 grid h-9 w-9 place-items-center border border-border text-primary"><Icon className="h-4 w-4" aria-hidden="true"/></div><h3 className="font-display text-base font-semibold">{title}</h3><p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">{copy}</p></article>)}</div><p className="mt-4 text-xs text-muted-foreground">Visualizations support design discussion; they do not guarantee client approval or exact construction outcomes.</p></div></section>
 

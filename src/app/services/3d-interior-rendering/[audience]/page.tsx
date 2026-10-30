@@ -12,8 +12,8 @@ function findPage(slug: string) {
   const service = renderingServices.find(item => item.slug === slug);
   return getThreeDRenderingAudience(slug) ?? (service ? {
     ...service,
-    title: `${service.label} Services | Intorza`,
-    keyword: `${service.label} services`,
+    title: `${service.label}${"cardLabel" in service ? "" : " Services"} | Intorza`,
+    keyword: `${service.label}${"cardLabel" in service ? "" : " services"}`,
     faqs: renderingServiceFaqs(service),
   } : undefined);
 }

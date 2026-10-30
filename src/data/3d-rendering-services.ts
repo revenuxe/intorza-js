@@ -1,3 +1,5 @@
+import { renderingInputGuides } from "@/data/3d-rendering-input-guides";
+
 export const renderingServices = [
   {
     slug: "living-room-rendering", label: "Living room rendering",
@@ -155,6 +157,7 @@ export const renderingServices = [
     inputs: ["Workspace layout and room dimensions", "Desk, chair and equipment references", "Storage and shelving elevations", "Lighting and material direction", "Adjacent-room information for shared spaces"],
     question: "Can a home office be visualized inside another room?", answer: "Yes. Supply the full room layout and identify the workspace area. The agreed views can show how the workstation relates to the rest of the interior.",
   },
+  ...renderingInputGuides,
 ];
 
 export function renderingServicePath(slug: string) {
