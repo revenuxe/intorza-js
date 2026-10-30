@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import {
   SITE_ADDRESS_TEXT,
@@ -7,7 +8,7 @@ import {
   SITE_PHONE,
   SITE_PHONE_E164,
 } from "@/lib/site";
-import Link from "next/link";
+
 const intorzaLogo = "/intorza-logo.webp";
 
 const Footer = () => {
@@ -60,11 +61,16 @@ const Footer = () => {
     { label: "Refund Policy", to: "/refund" as const },
   ];
 
+  const linkColumnClass = "min-w-0";
+  const headingClass = "mb-5 text-sm font-semibold text-foreground";
+  const linkClass =
+    "text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground";
+
   return (
-    <footer id="contact" className="bg-secondary text-secondary-foreground pt-16 pb-8 md:pt-20">
-      <div className="container-custom">
-        <div className="grid gap-x-10 gap-y-12 mb-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-8 xl:gap-x-12">
-          <div className="sm:col-span-2 lg:col-span-4">
+    <footer id="contact" className="bg-muted/40 px-4 py-10 text-foreground sm:px-6 md:py-16">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-border bg-background px-6 py-9 shadow-sm sm:px-10 sm:py-12 lg:px-12">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,2fr)] lg:gap-16">
+          <div className="max-w-xl">
             <Image
               src={intorzaLogo}
               sizes="240px"
@@ -72,13 +78,14 @@ const Footer = () => {
               alt="Intorza"
               width={1080}
               height={219}
-              className="h-12 w-auto mb-6 brightness-0 invert"
+              className="mb-5 h-11 w-auto brightness-0"
             />
-            <p className="text-secondary-foreground/70 mb-6 max-w-md leading-relaxed">
+            <p className="max-w-lg text-sm leading-7 text-muted-foreground sm:text-base">
               Streamline your interior business operations with Intorza. From site measurements to
               invoices, manage everything in one place.
             </p>
-            <nav aria-label="Social media" className="mb-6 flex flex-wrap gap-3">
+
+            <nav aria-label="Social media" className="mt-6 flex items-center gap-5">
               {socialLinks.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
@@ -87,123 +94,120 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={`Intorza on ${label} (opens in a new tab)`}
                   title={label}
-                  className="inline-flex h-11 w-11 items-center justify-center border border-secondary-foreground/20 text-secondary-foreground/70 transition-colors hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                  className="text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
                 >
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               ))}
             </nav>
-            <div className="grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+
+            <address className="mt-7 grid gap-3 not-italic text-sm leading-6 text-muted-foreground sm:grid-cols-2">
               <a
                 href={`mailto:${SITE_EMAIL}`}
-                className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
+                className="flex min-w-0 items-center gap-2.5 transition-colors hover:text-foreground"
               >
-                <Mail className="w-5 h-5 shrink-0" aria-hidden="true" /> {SITE_EMAIL}
+                <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span className="break-all">{SITE_EMAIL}</span>
               </a>
               <a
                 href={`tel:${SITE_PHONE_E164}`}
-                className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
+                className="flex items-center gap-2.5 transition-colors hover:text-foreground"
               >
-                <Phone className="w-5 h-5 shrink-0" aria-hidden="true" />
-                {SITE_PHONE}
+                <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>{SITE_PHONE}</span>
               </a>
-              <address className="not-italic text-secondary-foreground/70">
-                <a
-                  href={SITE_MAP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 hover:text-primary transition-colors"
-                >
-                  <MapPin className="w-5 h-5 shrink-0 mt-1" aria-hidden="true" />
-                  <span className="max-w-sm">{SITE_ADDRESS_TEXT}</span>
-                </a>
-              </address>
+              <a
+                href={SITE_MAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2.5 transition-colors hover:text-foreground sm:col-span-2"
+              >
+                <MapPin className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>{SITE_ADDRESS_TEXT}</span>
+              </a>
+            </address>
+          </div>
+
+          <nav aria-label="Footer links" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 sm:gap-x-8">
+            <div className={linkColumnClass}>
+              <h2 className={headingClass}>Product</h2>
+              <ul className="space-y-2.5">
+                {product.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className={linkClass}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
 
-          <div>
-            <h2 className="font-display font-semibold text-lg mb-4">Product</h2>
-            <ul className="space-y-3">
-              {product.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className={linkColumnClass}>
+              <h2 className={headingClass}>Business Tools</h2>
+              <ul className="space-y-2.5">
+                {workflow.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} prefetch={false} className={linkClass}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h2 className="font-display font-semibold text-lg mb-4">Business Tools</h2>
-            <ul className="space-y-3">
-              {workflow.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    prefetch={false}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-display font-semibold text-lg mb-4">Services</h2>
-            <ul className="space-y-3">
-              {services.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-display font-semibold text-lg mb-4">Company</h2>
-            <ul className="space-y-3">
-              {company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.to}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className={linkColumnClass}>
+              <h2 className={headingClass}>Services</h2>
+              <ul className="space-y-2.5">
+                {services.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={linkClass}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h2 className="font-display font-semibold text-lg mb-4">Legal</h2>
-            <ul className="space-y-3">
-              {legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.to}
-                    className="text-secondary-foreground/70 hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className={linkColumnClass}>
+              <h2 className={headingClass}>Company</h2>
+              <ul className="space-y-2.5">
+                {company.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.to} className={linkClass}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={linkColumnClass}>
+              <h2 className={headingClass}>Legal</h2>
+              <ul className="space-y-2.5">
+                {legal.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.to} className={linkClass}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
         </div>
 
-        <div className="border-t border-secondary-foreground/10 pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-secondary-foreground/60 text-sm">
-              © {currentYear} Intorza. All rights reserved.
-            </p>
-          </div>
+        <div className="mt-10 flex flex-col gap-4 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>© {currentYear} Intorza. All rights reserved.</p>
+          <nav aria-label="Legal links" className="flex flex-wrap gap-x-6 gap-y-2">
+            {legal.slice(0, 2).map((link) => (
+              <Link key={link.label} href={link.to} className={linkClass}>
+                {link.label}
+              </Link>
+            ))}
+            <Link href="/contact" className={linkClass}>
+              Contact
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>
