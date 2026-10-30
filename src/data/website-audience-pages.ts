@@ -2,6 +2,7 @@ export type WebsiteDevelopmentPageData = {
   slug: string;
   label: string;
   icon: "palette" | "images" | "compass" | "workflow";
+  visualization: "designer-editorial" | "studio-grid" | "architecture-drawing" | "contractor-sequence" | "portfolio-board" | "case-study-sequence" | "service-tree" | "enquiry-flow";
   focusKeyword: string;
   title: string;
   description: string;
@@ -27,6 +28,7 @@ export const websiteAudiencePages: WebsiteDevelopmentPageData[] = [
     slug: "interior-designers",
     label: "Interior designers",
     icon: "palette",
+    visualization: "designer-editorial",
     focusKeyword: "website design for interior designers",
     title: "Website Design for Interior Designers | Intorza",
     description: "A considered interior designer website for presenting your style, services and project stories, with a clear path for new clients to enquire.",
@@ -70,6 +72,7 @@ export const websiteAudiencePages: WebsiteDevelopmentPageData[] = [
     slug: "design-studios",
     label: "Design studios",
     icon: "images",
+    visualization: "studio-grid",
     focusKeyword: "website development for design studios",
     title: "Website Development for Design Studios | Intorza",
     description: "A design studio website that brings team expertise, project portfolios and services into one coherent story for prospective clients.",
@@ -113,6 +116,7 @@ export const websiteAudiencePages: WebsiteDevelopmentPageData[] = [
     slug: "architects",
     label: "Architects & practices",
     icon: "compass",
+    visualization: "architecture-drawing",
     focusKeyword: "website design for architects",
     title: "Website Design for Architects & Architecture Firms | Intorza",
     description: "An architecture firm website structured around practice expertise, project context, team contributions and a clear route for new briefs.",
@@ -156,6 +160,7 @@ export const websiteAudiencePages: WebsiteDevelopmentPageData[] = [
     slug: "interior-contractors",
     label: "Interior contractors",
     icon: "workflow",
+    visualization: "contractor-sequence",
     focusKeyword: "website design for interior contractors",
     title: "Website Design for Interior Contractors | Intorza",
     description: "A contractor website that explains your project scope, services and delivery approach, and helps homeowners or businesses make a useful enquiry.",
@@ -210,6 +215,7 @@ export const websiteFocusPages: WebsiteDevelopmentPageData[] = [
     slug: "interior-design-portfolio",
     label: "Interior design portfolios",
     icon: "images",
+    visualization: "portfolio-board",
     focusKeyword: "interior design portfolio website",
     title: "Interior Design Portfolio Website Planning | Intorza",
     description: "Plan an interior design portfolio website that curates projects, guides visitors through your work and makes your services easier to understand.",
@@ -253,6 +259,7 @@ export const websiteFocusPages: WebsiteDevelopmentPageData[] = [
     slug: "interior-design-project-pages",
     label: "Interior design project stories",
     icon: "compass",
+    visualization: "case-study-sequence",
     focusKeyword: "interior design project case study pages",
     title: "Interior Design Project Pages & Case Studies | Intorza",
     description: "Structure interior design project pages with the brief, scope, design decisions and imagery that help visitors understand the finished space.",
@@ -296,6 +303,7 @@ export const websiteFocusPages: WebsiteDevelopmentPageData[] = [
     slug: "interior-design-service-pages",
     label: "Interior design service pages",
     icon: "palette",
+    visualization: "service-tree",
     focusKeyword: "interior design service pages",
     title: "Interior Design Website Service Pages | Intorza",
     description: "Plan clear interior design service pages that explain your offer, the projects you take on and the next step for prospective clients.",
@@ -339,6 +347,7 @@ export const websiteFocusPages: WebsiteDevelopmentPageData[] = [
     slug: "interior-website-enquiry-flow",
     label: "Interior website enquiry journeys",
     icon: "workflow",
+    visualization: "enquiry-flow",
     focusKeyword: "interior design website enquiry form",
     title: "Interior Design Website Enquiry Forms & Contact Flow | Intorza",
     description: "Plan an interior design website enquiry flow with clear contact options and useful project questions for a better first conversation.",

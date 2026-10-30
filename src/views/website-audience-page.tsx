@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight, ArrowUpRight, Check, Compass, Images, Palette, Workflow } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WebsitePlanningVisual from "@/components/website/WebsitePlanningVisual";
 import { SITE_PHONE_E164 } from "@/lib/site";
 import type { WebsiteDevelopmentPageData } from "@/data/website-audience-pages";
 
@@ -36,21 +37,7 @@ export default function WebsiteAudiencePage({ page }: { page: WebsiteDevelopment
                 <p className="mt-5 flex items-center gap-2 text-xs font-semibold text-muted-foreground"><Check className="h-4 w-4 text-green-700" />Planned around your audience, work and real services</p>
               </div>
 
-              <div className="relative lg:col-span-6">
-                <div aria-hidden="true" className="absolute -bottom-3 -right-3 h-full w-full border-2 border-foreground" />
-                <div className="relative border-2 border-foreground bg-card shadow-[5px_5px_0_0_var(--foreground)]">
-                  <div className="flex items-center justify-between border-b-2 border-foreground bg-muted px-4 py-3"><span className="font-display text-sm font-bold">{page.label} / Website plan</span><span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Page map</span></div>
-                  <div className="bg-secondary p-5 text-secondary-foreground sm:p-7">
-                    <p className="font-mono text-[9px] font-semibold uppercase tracking-[0.18em] text-primary">A clear visitor journey</p>
-                    <h2 className="mt-3 max-w-md font-display text-2xl font-bold leading-tight sm:text-3xl">{page.structureHeading}</h2>
-                    <p className="mt-3 max-w-lg text-sm leading-relaxed text-secondary-foreground/80">{page.structureIntro}</p>
-                  </div>
-                  <ol className="divide-y divide-border">
-                    {page.structure.slice(0, 4).map((item) => <li key={item.label} className="flex items-center gap-4 px-5 py-3.5 sm:px-7"><span className="font-mono text-[10px] font-semibold text-primary">{item.label}</span><span className="min-w-0 flex-1"><span className="block font-display text-sm font-semibold">{item.title}</span><span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">{item.copy}</span></span><ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" /></li>)}
-                  </ol>
-                  <div className="flex items-center justify-between border-t-2 border-foreground bg-muted px-5 py-3 sm:px-7"><span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Designed around your work</span><span className="font-mono text-[9px] font-bold text-primary">INTORZA / WEB</span></div>
-                </div>
-              </div>
+              <div className="relative lg:col-span-6"><div aria-hidden="true" className="absolute -bottom-3 -right-3 h-full w-full border-2 border-foreground" /><div className="relative"><WebsitePlanningVisual page={page} /></div></div>
             </div>
           </div>
         </section>
