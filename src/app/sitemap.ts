@@ -7,6 +7,7 @@ import { quotationArticleDates } from "@/data/quotation-article-seo";
 import { websiteAudiencePages, websiteAudiencePath, websiteFocusPages, websiteFocusPath } from "@/data/website-audience-pages";
 import { threeDRenderingAudiencePath, threeDRenderingAudiences } from "@/data/3d-rendering-audience-pages";
 import { renderingServices, renderingServicePath } from "@/data/3d-rendering-services";
+import { boqRoomPages, boqRoomPath } from "@/data/boq-room-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -20,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/2d-interior-working-drawings",
     "/services/interior-boq-cost-estimation",
     ...boqDetailPages.map(({slug})=>boqDetailPath(slug)),
+    ...boqRoomPages.map(({slug})=>boqRoomPath(slug)),
     ...drawingServicePages.map(({slug})=>drawingServicePath(slug)),
     ...renderingServices.map(({slug}) => renderingServicePath(slug)),
     ...threeDRenderingAudiences.map(({ slug }) => threeDRenderingAudiencePath(slug)),
