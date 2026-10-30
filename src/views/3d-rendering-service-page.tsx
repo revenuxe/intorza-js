@@ -9,6 +9,24 @@ import { renderingServices, renderingServicePath } from "@/data/3d-rendering-ser
 
 export type RenderingService = (typeof renderingServices)[number];
 
+const guideHeadingAccents: Record<string, string> = {
+  "floor-plan-to-3d-rendering": "3D Interior Rendering",
+  "cad-drawings-sketches-to-3d": "CAD Drawings & Sketches",
+  "reference-images-for-3d-rendering": "Interior Visualization",
+  "material-finish-rendering-brief": "3D Rendering",
+  "color-furniture-visualization-brief": "Interior Rendering",
+  "site-photos-for-interior-rendering": "Interior Visualization",
+  "interior-rendering-project-brief": "3D Rendering",
+};
+
+function ServiceHeading({ service }: { service: RenderingService }) {
+  const accent = guideHeadingAccents[service.slug];
+  if (!accent) return <>{service.label}<span className="text-primary"> for interior professionals</span></>;
+  const start = service.label.indexOf(accent);
+  if (start < 0) return <>{service.label}</>;
+  return <>{service.label.slice(0, start)}<span className="text-primary">{accent}</span>{service.label.slice(start + accent.length)}</>;
+}
+
 export function renderingServiceFaqs(service: RenderingService) {
   return [
     { q: service.question, a: service.answer },
@@ -26,7 +44,7 @@ export default function RenderingServicePage({ service }: { service: RenderingSe
   return <div className="min-h-screen bg-background"><Header/><main>
     <section className="overflow-hidden border-b-2 border-foreground pb-14 pt-28 md:pb-20 md:pt-36"><div className="container-custom">
       <nav aria-label="Breadcrumb" className="mb-7 flex flex-wrap gap-2 text-xs text-muted-foreground"><Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/services/3d-interior-rendering">3D Interior Rendering</Link><span aria-hidden="true">/</span><span aria-current="page">{service.label}</span></nav>
-      <div className="grid items-center gap-9 lg:grid-cols-2"><div><h1 className="font-display text-4xl font-bold leading-tight md:text-5xl">{service.label}{!isGuide && <span className="text-primary"> for interior professionals</span>}</h1><p className="mt-5 text-base leading-relaxed text-muted-foreground">{service.intro}</p><div className="mt-7 grid w-full grid-cols-1 gap-3 xl:grid-cols-2"><Link href={contact} className="btn-hard btn-hard-hover w-full min-w-0 justify-center px-3">Discuss your project<ArrowRight className="h-4 w-4"/></Link><a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-hard-ghost btn-hard-hover w-full min-w-0 justify-center px-3"><Image src="/whatsapp-svgrepo-com.svg" alt="" width={20} height={20}/>WhatsApp Intorza</a></div></div>
+      <div className="grid items-center gap-9 lg:grid-cols-2"><div><h1 className="font-display text-4xl font-bold leading-tight md:text-5xl"><ServiceHeading service={service}/></h1><p className="mt-5 text-base leading-relaxed text-muted-foreground">{service.intro}</p><div className="mt-7 grid w-full grid-cols-1 gap-3 xl:grid-cols-2"><Link href={contact} className="btn-hard btn-hard-hover w-full min-w-0 justify-center px-3">Discuss your project<ArrowRight className="h-4 w-4"/></Link><a href={whatsapp} target="_blank" rel="noopener noreferrer" className="btn-hard-ghost btn-hard-hover w-full min-w-0 justify-center px-3"><Image src="/whatsapp-svgrepo-com.svg" alt="" width={20} height={20}/>WhatsApp Intorza</a></div></div>
       {isGuide ? <div className="border-2 border-foreground bg-card shadow-[6px_6px_0_0_var(--foreground)]"><div className="border-b-2 border-foreground bg-secondary p-5 text-secondary-foreground"><h2 className="font-display text-2xl font-bold">Build a clearer rendering brief</h2><p className="mt-2 text-sm leading-relaxed text-secondary-foreground/85">Gather these details, then discuss the views your project needs.</p></div><ol className="divide-y divide-border">{service.inputs.map((item,index)=><li key={item} className="flex items-start gap-3 p-4"><span className="font-mono text-xs text-primary">0{index+1}</span><span className="text-sm leading-relaxed">{item}</span></li>)}</ol><div className="border-t border-border p-4"><Link href={contact} className="flex items-center justify-between gap-2 text-sm font-semibold text-primary">Discuss your available project information<ArrowRight className="h-4 w-4"/></Link></div></div> : <RenderingRoomVisual service={service}/>}</div>
     </div></section>
     <section className="section-padding bg-muted/30"><div className="container-custom"><h2 className="mb-7 font-display text-3xl font-bold md:text-4xl">{isGuide ? "Prepare information that makes the design intent clear" : "Plan the details that matter to this space"}</h2><div className="grid border-l border-t border-border md:grid-cols-2">{service.considerations.map(([title,copy]) => <article key={title} className="border-b border-r border-border bg-card p-5"><h3 className="font-display text-xl font-semibold">{title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{copy}</p></article>)}</div></div></section>
