@@ -13,7 +13,7 @@ export type RenderingService = (typeof renderingServices)[number];
 
 const guideHeadingAccents: Record<string, string> = {
   "floor-plan-to-3d-rendering": "3D Interior Rendering",
-  "cad-drawings-sketches-to-3d": "CAD Drawings & Sketches",
+  "cad-drawings-sketches-to-3d": "AutoCAD Drawings & Sketches",
   "reference-images-for-3d-rendering": "Interior Visualization",
   "material-finish-rendering-brief": "3D Rendering",
   "color-furniture-visualization-brief": "Interior Rendering",

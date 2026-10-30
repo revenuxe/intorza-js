@@ -14,10 +14,10 @@ export const renderingInputGuides = [
     question: "Is a floor plan enough to create a 3D interior render?", answer: "It can establish the layout, but heights, dimensions, materials and design references may also be needed. We review what is available before confirming the work and any assumptions.",
   },
   {
-    slug: "cad-drawings-sketches-to-3d", label: "3D Rendering from CAD Drawings & Sketches",
+    slug: "cad-drawings-sketches-to-3d", label: "3D Rendering from AutoCAD Drawings & Sketches",
     cardLabel: "AutoCAD drawings or hand sketches",
-    description: "Prepare CAD drawings or hand sketches for interior visualization. Share dimensions, elevations and design notes for a project-specific rendering brief.",
-    intro: "CAD drawings and annotated hand sketches can explain the geometry and design intent behind an interior. Share your available source material with Intorza so we can discuss which details support visualization and which need clarification before the work begins.",
+    description: "Prepare AutoCAD drawings or hand sketches for interior visualization. Share dimensions, elevations and design notes for a project-specific rendering brief.",
+    intro: "AutoCAD drawings and annotated hand sketches can explain the geometry and design intent behind an interior. Share your available source material with Intorza so we can discuss which details support visualization and which need clarification before the work begins.",
     considerations: [
       ["Identify the current drawing set", "Separate the latest plan and elevations from superseded versions. Clear labels help prevent conflicting details from entering the visualization brief."],
       ["Make sketches understandable", "Annotate room sizes, heights, openings and important furniture positions. A hand sketch should communicate dimensions rather than rely on its apparent proportions."],
