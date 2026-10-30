@@ -103,6 +103,58 @@ export const renderingServices = [
     inputs: ["Initial layout, sketch or available dimensions", "Annotated inspiration references", "Known design constraints", "Open decisions and assumptions", "Purpose of the concept review"],
     question: "Can visualization start before all materials are selected?", answer: "It can be discussed as a concept-stage brief. Identify provisional selections and assumptions so the visuals are interpreted appropriately and later changes can be scoped clearly.",
   },
+  {
+    slug: "master-bedroom-rendering", label: "Master bedroom rendering",
+    description: "Master bedroom 3D rendering for interior professionals. Present bed walls, dressing zones, wardrobes and coordinated finishes for client review.",
+    intro: "Master bedroom rendering brings sleeping, dressing and storage areas into a coordinated room presentation. Intorza works from your plan and design references to help explain how the main elements relate to one another before execution.",
+    considerations: [
+      ["A composed bed wall", "Review the scale of the headboard, bedside units, wall finishes and lighting as one composition. Supplied elevations help define the intended proportions."],
+      ["Dressing and wardrobe zones", "Show the relationship between wardrobes, mirrors and dressing furniture. Specify which joinery faces and internal details need dedicated views."],
+      ["Privacy and daylight", "Include approved window positions and curtain treatments so the presentation reflects the room’s openings and intended atmosphere."],
+      ["An integrated palette", "Bring flooring, timber, textiles and wall colors together, highlighting where material changes define different functions within the room."],
+    ],
+    inputs: ["Dimensioned master bedroom plan", "Headboard and wardrobe elevations", "Dressing furniture and bed references", "Textile, wall and flooring selections", "Required camera angles and lighting direction"],
+    question: "Can the dressing area be shown with the master bedroom?", answer: "Yes. Share the complete layout and confirm whether the dressing area appears in the main views or requires separate images. The scope should include the relevant joinery and finishes.",
+  },
+  {
+    slug: "kids-bedroom-rendering", label: "Kids bedroom rendering",
+    description: "Kids bedroom 3D rendering for designers and studios. Visualize beds, study areas, storage and color palettes from your room design.",
+    intro: "Kids bedroom rendering helps designers present a room that brings together rest, study, play and storage. Share the intended age range, layout and design direction so the visuals communicate the functions and character proposed for the space.",
+    considerations: [
+      ["Zones for different activities", "Choose views that explain where sleeping, study and play functions sit within the supplied room layout."],
+      ["Storage and built-ins", "Provide dimensions and elevations for wardrobes, desks, shelves or custom beds. Identify which elements need to be represented in detail."],
+      ["Color without visual clutter", "Use reference palettes to show how accent colors, finishes and fabrics work together across furniture and walls."],
+      ["A design that can evolve", "Use the presentation to discuss adaptable furniture and neutral base finishes where these are part of your proposal. Safety and suitability need separate professional review."],
+    ],
+    inputs: ["Room plan with dimensions and openings", "Age range and functional requirements", "Bed, desk and storage drawings", "Color, fabric and furniture references", "Preferred views and unresolved design decisions"],
+    question: "Can a kids bedroom render include a study desk and play area?", answer: "Yes, where those zones form part of the supplied design and agreed views. Confirm furniture sizes and any custom joinery details before visualization begins.",
+  },
+  {
+    slug: "foyer-rendering", label: "Foyer rendering",
+    description: "Foyer 3D rendering for interior design teams. Present entry storage, partitions, mirrors, lighting and connections with adjoining spaces.",
+    intro: "Foyer rendering helps communicate the first impression of an interior. Intorza prepares views from your entry layout and references to show how storage, partitions, mirrors and finishes establish the transition into the home or business space.",
+    considerations: [
+      ["Entry and circulation", "Select a viewpoint that explains the approach, door position and transition to adjacent rooms using the dimensions provided."],
+      ["Storage and seating", "Show shoe units, consoles or benches in relation to the entry space. Include joinery elevations when finish divisions and proportions matter."],
+      ["Screens and partitions", "Visualize the relationship between privacy elements and adjoining interiors, with material references for visible screens or slats."],
+      ["Lighting and reflective surfaces", "Discuss mirror placement, decorative lighting and feature finishes within the overall design direction."],
+    ],
+    inputs: ["Entry layout and adjoining-room information", "Door positions and available dimensions", "Storage or partition elevations", "Mirror, finish and lighting references", "Required views and presentation purpose"],
+    question: "Can a foyer render show the transition into the living room?", answer: "Yes. Provide the adjoining layout and design references, and confirm whether a wider view is needed to communicate the connection between spaces.",
+  },
+  {
+    slug: "home-office-rendering", label: "Home office rendering",
+    description: "Home office 3D rendering for interior professionals. Show workstation layouts, shelving, storage and material direction in a residential setting.",
+    intro: "Home office rendering makes a residential workspace easier to review in context. Share your workstation layout, storage requirements and finish direction so the views explain how the office fits within a dedicated room or a shared living space.",
+    considerations: [
+      ["Workstation arrangement", "Show the intended desk, chair and equipment arrangement using supplied furniture sizes and room dimensions."],
+      ["Storage and shelving", "Present closed storage, open shelves and built-in worktops with clear elevation references for custom elements."],
+      ["Light and background", "Discuss daylight direction, task lighting and the visible background where these are relevant to the proposed use of the workspace."],
+      ["Integration with the home", "Coordinate finishes and visible furniture with adjoining interiors when the office occupies a bedroom corner or shared room."],
+    ],
+    inputs: ["Workspace layout and room dimensions", "Desk, chair and equipment references", "Storage and shelving elevations", "Lighting and material direction", "Adjacent-room information for shared spaces"],
+    question: "Can a home office be visualized inside another room?", answer: "Yes. Supply the full room layout and identify the workspace area. The agreed views can show how the workstation relates to the rest of the interior.",
+  },
 ];
 
 export function renderingServicePath(slug: string) {

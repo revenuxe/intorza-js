@@ -2,9 +2,9 @@ import type { RenderingService } from "@/views/3d-rendering-service-page";
 
 export default function RenderingRoomVisual({ service }: { service: RenderingService }) {
   const kitchen = service.slug === "kitchen-rendering";
-  const bedroom = service.slug === "bedroom-visualization";
+  const bedroom = ["bedroom-visualization", "master-bedroom-rendering", "kids-bedroom-rendering"].includes(service.slug);
   const dining = service.slug === "dining-area-visualization";
-  const office = service.slug === "office-commercial-interiors";
+  const office = ["office-commercial-interiors", "home-office-rendering"].includes(service.slug);
   const concept = service.slug === "design-concept-visualization";
   return <figure className="overflow-hidden border-2 border-foreground bg-[#eee8dd] shadow-[6px_6px_0_0_var(--foreground)]">
     <div className="flex justify-between gap-3 border-b border-foreground/20 px-4 py-3 text-xs font-semibold"><span>{service.label}</span><span className="text-muted-foreground">Concept study</span></div>
