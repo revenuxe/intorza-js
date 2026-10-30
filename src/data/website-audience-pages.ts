@@ -1,4 +1,4 @@
-export type WebsiteAudiencePageData = {
+export type WebsiteDevelopmentPageData = {
   slug: string;
   label: string;
   icon: "palette" | "images" | "compass" | "workflow";
@@ -19,10 +19,10 @@ export type WebsiteAudiencePageData = {
   contentIntro: string;
   contentChecklist: string[];
   faq: Array<{ q: string; a: string }>;
-  relatedLinks: Array<{ slug: string; label: string; keyword: string }>;
+  relatedLinks: Array<{ href: string; label: string; keyword: string }>;
 };
 
-export const websiteAudiencePages: WebsiteAudiencePageData[] = [
+export const websiteAudiencePages: WebsiteDevelopmentPageData[] = [
   {
     slug: "interior-designers",
     label: "Interior designers",
@@ -61,9 +61,9 @@ export const websiteAudiencePages: WebsiteAudiencePageData[] = [
       { q: "Can you help organize existing project photos and copy?", a: "We can plan how your available images and project information fit into galleries or project stories. You provide the genuine project material and approve what is published." },
     ],
     relatedLinks: [
-      { slug: "design-studios", label: "Design studios", keyword: "website development for design studios" },
-      { slug: "architects", label: "Architects and practices", keyword: "website design for architects" },
-      { slug: "interior-contractors", label: "Interior contractors", keyword: "website design for interior contractors" },
+      { href: "/services/website-development/design-studios", label: "Design studios", keyword: "website development for design studios" },
+      { href: "/services/website-development/architects", label: "Architects and practices", keyword: "website design for architects" },
+      { href: "/services/website-development/interior-contractors", label: "Interior contractors", keyword: "website design for interior contractors" },
     ],
   },
   {
@@ -104,9 +104,9 @@ export const websiteAudiencePages: WebsiteAudiencePageData[] = [
       { q: "Can team members and collaborators be included?", a: "Yes. The site can introduce team members and collaborators with roles and descriptions supplied or approved by your studio." },
     ],
     relatedLinks: [
-      { slug: "interior-designers", label: "Interior designers", keyword: "website design for interior designers" },
-      { slug: "architects", label: "Architects and practices", keyword: "website design for architects" },
-      { slug: "interior-contractors", label: "Interior contractors", keyword: "website design for interior contractors" },
+      { href: "/services/website-development/interior-designers", label: "Interior designers", keyword: "website design for interior designers" },
+      { href: "/services/website-development/architects", label: "Architects and practices", keyword: "website design for architects" },
+      { href: "/services/website-development/interior-contractors", label: "Interior contractors", keyword: "website design for interior contractors" },
     ],
   },
   {
@@ -147,9 +147,9 @@ export const websiteAudiencePages: WebsiteAudiencePageData[] = [
       { q: "Can project pages credit collaborators and explain our role?", a: "Yes. Project stories can include collaborator credits and a concise explanation of the practice’s contribution, based on information your team verifies." },
     ],
     relatedLinks: [
-      { slug: "design-studios", label: "Design studios", keyword: "website development for design studios" },
-      { slug: "interior-designers", label: "Interior designers", keyword: "website design for interior designers" },
-      { slug: "interior-contractors", label: "Interior contractors", keyword: "website design for interior contractors" },
+      { href: "/services/website-development/design-studios", label: "Design studios", keyword: "website development for design studios" },
+      { href: "/services/website-development/interior-designers", label: "Interior designers", keyword: "website design for interior designers" },
+      { href: "/services/website-development/interior-contractors", label: "Interior contractors", keyword: "website design for interior contractors" },
     ],
   },
   {
@@ -190,9 +190,9 @@ export const websiteAudiencePages: WebsiteAudiencePageData[] = [
       { q: "Can I show renovation and fit-out projects separately?", a: "Yes. Projects and services can be organized by the categories that reflect your real work and help clients find the examples most relevant to them." },
     ],
     relatedLinks: [
-      { slug: "interior-designers", label: "Interior designers", keyword: "website design for interior designers" },
-      { slug: "design-studios", label: "Design studios", keyword: "website development for design studios" },
-      { slug: "architects", label: "Architects and practices", keyword: "website design for architects" },
+      { href: "/services/website-development/interior-designers", label: "Interior designers", keyword: "website design for interior designers" },
+      { href: "/services/website-development/design-studios", label: "Design studios", keyword: "website development for design studios" },
+      { href: "/services/website-development/architects", label: "Architects and practices", keyword: "website design for architects" },
     ],
   },
 ];
@@ -203,4 +203,187 @@ export function getWebsiteAudiencePage(slug: string) {
 
 export function websiteAudiencePath(slug: string) {
   return `/services/website-development/${slug}`;
+}
+
+export const websiteFocusPages: WebsiteDevelopmentPageData[] = [
+  {
+    slug: "interior-design-portfolio",
+    label: "Interior design portfolios",
+    icon: "images",
+    focusKeyword: "interior design portfolio website",
+    title: "Interior Design Portfolio Website Planning | Intorza",
+    description: "Plan an interior design portfolio website that curates projects, guides visitors through your work and makes your services easier to understand.",
+    keywords: ["interior design portfolio website", "interior design portfolio web design", "interior design project gallery", "interior designer portfolio site"],
+    eyebrow: "Portfolio planning for interior practices",
+    intro: "An interior design portfolio website should help the right work stand out. Plan the project mix, categories and image sequence around the kind of work you want prospective clients to understand and remember.",
+    ctaTitle: "Make your portfolio a thoughtful introduction to your work.",
+    pointOfView: "A large gallery can show many rooms without helping visitors understand what your practice does best. A curated portfolio gives stronger projects room to breathe, groups work in a useful way and points visitors toward detailed project stories. Selection is part of the design: choose examples that reflect your approach and the work you want to take on.",
+    prioritiesHeading: "Select and organize work with intention",
+    priorities: [
+      { title: "Choose representative projects", copy: "Start with work that shows your design range, preferred project type and point of view. A smaller, considered selection can be easier to navigate than an exhaustive feed." },
+      { title: "Create helpful categories", copy: "Group work by project type or sector when the distinction helps visitors browse. Use categories that reflect real completed work rather than search terms alone." },
+      { title: "Plan the image sequence", copy: "Lead each project with a strong image, then use supporting views to reveal layout, materials and details. Keep image quality and consistency in mind across the portfolio." },
+      { title: "Connect projects to services", copy: "Help a visitor move from a portfolio example to the service or enquiry route that matches their own project." },
+    ],
+    structureHeading: "A portfolio architecture visitors can browse",
+    structureIntro: "Use a predictable path from selected work to individual project stories, with useful ways to explore the work without burying the strongest examples.",
+    structure: [
+      { label: "01", title: "Selected work", copy: "A first impression built from projects that represent your practice." },
+      { label: "02", title: "Portfolio categories", copy: "Clear groupings for relevant project types, sectors or spaces." },
+      { label: "03", title: "Project preview", copy: "A distinct image and concise title that invites visitors to explore." },
+      { label: "04", title: "Project story", copy: "A focused page with context, scope, decisions and supporting images." },
+      { label: "05", title: "Related service", copy: "A relevant next step for visitors considering similar work." },
+      { label: "06", title: "Enquiry", copy: "A direct way to start a conversation about a prospective project." },
+    ],
+    contentHeading: "Prepare a portfolio that tells a consistent story",
+    contentIntro: "The best project set is not necessarily the largest. Review the work you can publish and choose it for relevance, clarity and variety.",
+    contentChecklist: ["Select work that reflects the projects and clients you want more of.", "Confirm image rights and permission before publishing each project.", "Use concise project names and accurate categories or locations.", "Keep image dimensions and quality consistent across each portfolio set."],
+    faq: [
+      { q: "How many projects should an interior design portfolio website show?", a: "There is no fixed number. Start with enough representative projects to show your work clearly, then add more when each one contributes useful variety or context." },
+      { q: "Should an interior design portfolio use project categories?", a: "Categories can help when visitors have a clear reason to browse by project type or sector. Keep them limited to distinctions that reflect your actual work." },
+      { q: "What makes a project gallery different from a project story?", a: "A gallery helps visitors browse images. A project story adds details such as the brief, scope and design decisions so visitors understand the work behind the images." },
+    ],
+    relatedLinks: [
+      { href: "/services/website-development/interior-designers", label: "Websites for interior designers", keyword: "website design for interior designers" },
+      { href: "/services/website-development/guides/interior-design-project-pages", label: "Project story pages", keyword: "interior design project case study pages" },
+      { href: "/services/website-development", label: "Complete website service", keyword: "interior design website development" },
+    ],
+  },
+  {
+    slug: "interior-design-project-pages",
+    label: "Interior design project stories",
+    icon: "compass",
+    focusKeyword: "interior design project case study pages",
+    title: "Interior Design Project Pages & Case Studies | Intorza",
+    description: "Structure interior design project pages with the brief, scope, design decisions and imagery that help visitors understand the finished space.",
+    keywords: ["interior design project pages", "interior design case study website", "interior design project portfolio page", "interior project story"],
+    eyebrow: "Project storytelling for design websites",
+    intro: "Interior design project pages turn a portfolio image into a fuller account of the work. Give each selected project a clear brief, useful scope, design decisions and a carefully ordered image story.",
+    ctaTitle: "Give every featured project context worth exploring.",
+    pointOfView: "A case study should answer the questions a striking photograph cannot: what was the brief, what did your team do, and which decisions shaped the space? Keep each story concise and accurate. Use details that demonstrate your thinking without presenting confidential client information or claiming work beyond your contribution.",
+    prioritiesHeading: "Build a repeatable project story",
+    priorities: [
+      { title: "Set the scene", copy: "Introduce the project type, location where approved and brief. Give a reader enough context to understand the space before the gallery begins." },
+      { title: "Explain your contribution", copy: "Describe the scope and role your practice handled. Credit collaborators and distinguish your work from the contributions of others." },
+      { title: "Show the design decisions", copy: "Highlight a few meaningful choices in layout, material, lighting or detailing that explain how the project responded to its brief." },
+      { title: "Sequence images with purpose", copy: "Move from an overview to supporting views and details. Captions can add useful context without repeating what the image already shows." },
+    ],
+    structureHeading: "A clear framework for interior design case studies",
+    structureIntro: "A consistent framework helps readers move between projects while leaving room for each story to focus on what made it distinct.",
+    structure: [
+      { label: "01", title: "Project overview", copy: "Name, project type and approved location or completion details." },
+      { label: "02", title: "The brief", copy: "The client need or design challenge that framed the work." },
+      { label: "03", title: "Scope and role", copy: "The services and contribution your practice provided." },
+      { label: "04", title: "Key decisions", copy: "The design choices that shaped how the space works and feels." },
+      { label: "05", title: "Image story", copy: "A considered sequence of completed project photos and captions." },
+      { label: "06", title: "Related work and enquiry", copy: "A relevant next project to browse and an invitation to get in touch." },
+    ],
+    contentHeading: "Use accurate project details and approved imagery",
+    contentIntro: "Project pages can be persuasive because they are specific. Confirm the facts, credits and permissions before a case study goes live.",
+    contentChecklist: ["Check client approval and usage rights for project photographs.", "Verify dates, location, scope and any public project facts.", "Describe your role and collaborator contributions accurately.", "Avoid publishing private client details or confidential project information."],
+    faq: [
+      { q: "What should an interior design project page include?", a: "A concise brief, project type, your role and scope, a few meaningful design decisions and a well-ordered set of approved images are a useful foundation." },
+      { q: "Do project case studies need long articles?", a: "No. The story should include enough context to make the work understandable. Concise, specific details are more useful than length for its own sake." },
+      { q: "Can project pages help visitors find related services?", a: "Yes. Link a project to the service it illustrates and provide a clear enquiry route for visitors considering similar work." },
+    ],
+    relatedLinks: [
+      { href: "/services/website-development/guides/interior-design-portfolio", label: "Interior design portfolios", keyword: "interior design portfolio website" },
+      { href: "/services/website-development/interior-designers", label: "Websites for interior designers", keyword: "website design for interior designers" },
+      { href: "/services/website-development", label: "Complete website service", keyword: "interior design website development" },
+    ],
+  },
+  {
+    slug: "interior-design-service-pages",
+    label: "Interior design service pages",
+    icon: "palette",
+    focusKeyword: "interior design service pages",
+    title: "Interior Design Website Service Pages | Intorza",
+    description: "Plan clear interior design service pages that explain your offer, the projects you take on and the next step for prospective clients.",
+    keywords: ["interior design service pages", "interior design website services", "interior designer services page", "interior design website structure"],
+    eyebrow: "Service page planning for design practices",
+    intro: "Interior design service pages help prospective clients see whether your practice is suited to their project. Explain what you offer, who it is for, what is included and how the first conversation works.",
+    ctaTitle: "Make your services clear before the first enquiry.",
+    pointOfView: "A list of service names rarely answers a client’s real questions. Well-planned pages set expectations, explain the stages or scope you support and show relevant work. Keep each page tied to services your practice genuinely provides; clarity helps both visitors and your team avoid mismatched enquiries.",
+    prioritiesHeading: "Explain the offer without making visitors guess",
+    priorities: [
+      { title: "Name the right client or project", copy: "Describe who a service suits and what kind of project it addresses, using language your clients recognize." },
+      { title: "Set out what is included", copy: "Outline the work or stages covered. State what depends on project scope or a separate agreement instead of implying every engagement is identical." },
+      { title: "Connect the service to real work", copy: "Link to relevant portfolio examples that demonstrate the service. Make sure the project genuinely represents the offer being described." },
+      { title: "Answer the next question", copy: "Explain the first step, useful information to share and how a prospective client can contact your practice." },
+    ],
+    structureHeading: "A practical structure for an interior design service page",
+    structureIntro: "Give each service page a clear role in the overall site and avoid creating near-duplicate pages for slight keyword variations.",
+    structure: [
+      { label: "01", title: "Service overview", copy: "A direct explanation of the service and the projects it fits." },
+      { label: "02", title: "What is included", copy: "The stages, deliverables or boundaries relevant to the service." },
+      { label: "03", title: "How the work starts", copy: "The information or conversation that helps scope a project." },
+      { label: "04", title: "Related projects", copy: "Examples that show this service in real completed work." },
+      { label: "05", title: "Common questions", copy: "Short answers to practical questions clients often raise." },
+      { label: "06", title: "Contact", copy: "A clear invitation to discuss a project that fits the service." },
+    ],
+    contentHeading: "Keep service information specific and current",
+    contentIntro: "Good service copy is grounded in how your practice operates. Review each page whenever your offer or project criteria change.",
+    contentChecklist: ["List only services your practice currently offers.", "Describe scope and inclusions in terms your team can consistently support.", "Use examples that genuinely relate to the service.", "Check that contact prompts ask for the information needed to assess a fit."],
+    faq: [
+      { q: "Should every interior design service have its own page?", a: "Give a service its own page when it has a distinct audience, scope or useful information. Combine closely related services when separate pages would repeat the same content." },
+      { q: "What makes an interior design service page useful?", a: "It explains who the service is for, what it covers, how a project begins and where to see relevant examples or make an enquiry." },
+      { q: "Should service pages include prices?", a: "That depends on how your practice scopes work. If pricing varies, explain the factors that shape a quote rather than publishing a figure that may mislead." },
+    ],
+    relatedLinks: [
+      { href: "/services/website-development/interior-designers", label: "Websites for interior designers", keyword: "website design for interior designers" },
+      { href: "/services/website-development/guides/interior-design-portfolio", label: "Portfolio planning", keyword: "interior design portfolio website" },
+      { href: "/services/website-development/guides/interior-website-enquiry-flow", label: "Enquiry flow planning", keyword: "interior design website enquiry form" },
+    ],
+  },
+  {
+    slug: "interior-website-enquiry-flow",
+    label: "Interior website enquiry journeys",
+    icon: "workflow",
+    focusKeyword: "interior design website enquiry form",
+    title: "Interior Design Website Enquiry Forms & Contact Flow | Intorza",
+    description: "Plan an interior design website enquiry flow with clear contact options and useful project questions for a better first conversation.",
+    keywords: ["interior design website enquiry form", "interior designer website contact page", "interior design website lead form", "interior design website contact flow"],
+    eyebrow: "A clearer route from interest to conversation",
+    intro: "An interior design website enquiry form should make it straightforward for a prospective client to get in touch and help your team understand the project. Plan the contact path around the questions that make an initial conversation useful.",
+    ctaTitle: "Make the next step feel simple and considered.",
+    pointOfView: "A visitor may be ready to talk after seeing a relevant project or service. Keep contact options close to that context, ask only for useful information and explain what happens after someone submits an enquiry. The goal is a clear first conversation, not a longer form or a promise that every visitor will become a lead.",
+    prioritiesHeading: "Design a contact path that respects the visitor’s time",
+    priorities: [
+      { title: "Place calls to action in context", copy: "Link from relevant services and project stories instead of making every visitor return to the top or search for a contact page." },
+      { title: "Ask for useful project details", copy: "Consider project type, location, scope and timing. Keep questions limited to what helps your team respond appropriately." },
+      { title: "Offer a familiar way to connect", copy: "Use a contact form alongside phone, email or WhatsApp when those channels suit your process and are actively monitored." },
+      { title: "Explain what happens next", copy: "Set an honest expectation for how your team handles an enquiry. Avoid promising response times unless you can consistently meet them." },
+    ],
+    structureHeading: "A calm, clear path to an interior project enquiry",
+    structureIntro: "Visitors should understand how to reach you from the work they are viewing and what information will help move the conversation forward.",
+    structure: [
+      { label: "01", title: "Relevant project or service", copy: "Give visitors enough context to recognize that your practice fits their need." },
+      { label: "02", title: "Clear invitation", copy: "Use a direct action such as discuss a project or ask about this service." },
+      { label: "03", title: "Short enquiry form", copy: "Collect contact details and a few project facts that help qualify the request." },
+      { label: "04", title: "Other contact options", copy: "Offer phone, email or WhatsApp when they match your team's workflow." },
+      { label: "05", title: "Confirmation", copy: "A clear thank-you message confirms the enquiry was received." },
+      { label: "06", title: "Follow-up process", copy: "Explain the next step in a way the business can reliably deliver." },
+    ],
+    contentHeading: "Choose form questions that help you respond",
+    contentIntro: "A short form can gather enough context without asking visitors to prepare a full brief before making contact.",
+    contentChecklist: ["Keep essential contact fields clear and easy to complete.", "Ask for project type, location and approximate timing where relevant.", "Make optional questions visibly optional.", "Show a confirmation after submission and explain the expected next step accurately."],
+    faq: [
+      { q: "What should an interior design website enquiry form ask?", a: "Start with contact details and a short message or project summary. Project type, location and timing can help your team assess the request; only ask for details you will use." },
+      { q: "Should a website offer WhatsApp as well as a form?", a: "It can, if WhatsApp fits your communication process and your team monitors it. Keep the form available for people who prefer to share project details in writing." },
+      { q: "How can a contact page set expectations?", a: "Explain what information is useful and what your team typically does next. Avoid guarantees about response times unless your process can reliably support them." },
+    ],
+    relatedLinks: [
+      { href: "/services/website-development/guides/interior-design-service-pages", label: "Service page planning", keyword: "interior design service pages" },
+      { href: "/services/website-development/interior-designers", label: "Websites for interior designers", keyword: "website design for interior designers" },
+      { href: "/services/website-development", label: "Complete website service", keyword: "interior design website development" },
+    ],
+  },
+];
+
+export function getWebsiteFocusPage(slug: string) {
+  return websiteFocusPages.find((page) => page.slug === slug);
+}
+
+export function websiteFocusPath(slug: string) {
+  return `/services/website-development/guides/${slug}`;
 }

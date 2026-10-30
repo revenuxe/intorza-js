@@ -4,11 +4,11 @@ import { ArrowRight, ArrowUpRight, Check, Compass, Images, Palette, Workflow } f
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE_PHONE_E164 } from "@/lib/site";
-import { websiteAudiencePath, type WebsiteAudiencePageData } from "@/data/website-audience-pages";
+import type { WebsiteDevelopmentPageData } from "@/data/website-audience-pages";
 
 const audienceIcons = { palette: Palette, images: Images, compass: Compass, workflow: Workflow };
 
-export default function WebsiteAudiencePage({ page }: { page: WebsiteAudiencePageData }) {
+export default function WebsiteAudiencePage({ page }: { page: WebsiteDevelopmentPageData }) {
   const whatsappMessage = `Hi Intorza, I would like to discuss ${page.focusKeyword}.`;
   const whatsappHref = `https://wa.me/${SITE_PHONE_E164.replace("+", "")}?text=${encodeURIComponent(whatsappMessage)}`;
   const Icon = audienceIcons[page.icon];
@@ -77,7 +77,7 @@ export default function WebsiteAudiencePage({ page }: { page: WebsiteAudiencePag
         </section>
 
         <section className="section-padding scroll-reveal">
-          <div className="container-custom grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:gap-14"><div><p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">More tailored website pages</p><h2 className="font-display text-3xl font-bold leading-tight md:text-4xl">Explore other practice types</h2><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Each page has its own project priorities and content plan. Start with the one closest to your business.</p></div><nav aria-label="Related website development services" className="grid border-l border-t border-border sm:grid-cols-3">{page.relatedLinks.map((item) => <Link key={item.slug} href={websiteAudiencePath(item.slug)} className="group border-b border-r border-border bg-card p-4 transition-colors hover:bg-muted/30 sm:p-5"><span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{item.keyword}</span><span className="mt-3 flex items-center justify-between gap-2 font-display text-base font-semibold">{item.label}<ArrowUpRight className="h-4 w-4 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></span></Link>)}</nav></div>
+          <div className="container-custom grid gap-8 lg:grid-cols-[.7fr_1.3fr] lg:gap-14"><div><p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">More tailored website pages</p><h2 className="font-display text-3xl font-bold leading-tight md:text-4xl">Explore related pages</h2><p className="mt-4 text-sm leading-relaxed text-muted-foreground">Each page has its own priorities and content plan. Start with the one closest to your needs.</p></div><nav aria-label="Related website development services" className="grid border-l border-t border-border sm:grid-cols-3">{page.relatedLinks.map((item) => <Link key={item.href} href={item.href} className="group border-b border-r border-border bg-card p-4 transition-colors hover:bg-muted/30 sm:p-5"><span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">{item.keyword}</span><span className="mt-3 flex items-center justify-between gap-2 font-display text-base font-semibold">{item.label}<ArrowUpRight className="h-4 w-4 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></span></Link>)}</nav></div>
         </section>
 
         <section className="section-padding scroll-reveal border-t border-border bg-muted/30">

@@ -19,6 +19,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE_PHONE_E164 } from "@/lib/site";
+import { websiteFocusPath } from "@/data/website-audience-pages";
 
 type FAQ = { q: string; a: string };
 
@@ -55,10 +56,10 @@ const process = [
 ] as const;
 
 const designPrinciples = [
-  ["01", "Start with the right work", "Choose a small set of representative projects and lead with the spaces that show your studio’s point of view. A focused selection gives visitors a clearer sense of your work than a crowded, unstructured gallery."],
-  ["02", "Give each project context", "Pair strong images with the brief, location, scope and key design decisions. Useful context helps a visitor understand what your team contributed and why the finished space matters."],
-  ["03", "Make services easy to understand", "Describe who each service is for, what it covers and where your team can help. Clear service pages make it easier for potential clients to see whether your practice fits their project."],
-  ["04", "Design the next step in", "Keep contact options close to relevant work and service information. A clear form, phone link or WhatsApp conversation gives interested visitors a practical way to reach you."],
+  ["01", "Start with the right work", "Choose a small set of representative projects and lead with the spaces that show your studio’s point of view. A focused selection gives visitors a clearer sense of your work than a crowded, unstructured gallery.", "interior-design-portfolio"],
+  ["02", "Give each project context", "Pair strong images with the brief, location, scope and key design decisions. Useful context helps a visitor understand what your team contributed and why the finished space matters.", "interior-design-project-pages"],
+  ["03", "Make services easy to understand", "Describe who each service is for, what it covers and where your team can help. Clear service pages make it easier for potential clients to see whether your practice fits their project.", "interior-design-service-pages"],
+  ["04", "Design the next step in", "Keep contact options close to relevant work and service information. A clear form, phone link or WhatsApp conversation gives interested visitors a practical way to reach you.", "interior-website-enquiry-flow"],
 ] as const;
 
 const comparison = [
@@ -208,7 +209,7 @@ export default function WebsiteDevelopmentPage({ faqs = websiteDevelopmentFaqs }
 
         <section className="section-padding scroll-reveal border-y border-border bg-secondary text-secondary-foreground"><div className="container-custom"><div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-14">
           <div><p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Designing for interior practices</p><h2 className="mb-7 max-w-3xl font-display text-3xl font-bold leading-tight text-secondary-foreground md:text-4xl lg:text-5xl">How we design your website</h2><p className="mb-7 max-w-2xl text-sm leading-relaxed text-secondary-foreground/90 sm:text-base">The design should make the work feel considered and make the next step feel clear. These choices guide how we shape the pages, imagery and visitor journey.</p><p className="max-w-lg text-sm leading-relaxed text-secondary-foreground/90 sm:text-base">Interior work is visual, but a website needs more than beautiful photographs. We bring the portfolio, studio story and services together so a potential client can move from first impression to a useful understanding of your practice.</p><div className="mt-6"><Link href="/contact" className="group inline-flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.14em] text-secondary-foreground underline decoration-primary decoration-2 underline-offset-8 transition-colors hover:text-primary">Plan the right pages<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link></div></div>
-          <ol className="grid grid-cols-1 border-l border-t border-secondary-foreground/20 sm:grid-cols-2">{designPrinciples.map(([number, title, copy]) => <li key={number} className="group border-b border-r border-secondary-foreground/20 p-4 transition-colors hover:bg-secondary-foreground/5 sm:p-5"><div className="flex items-center justify-between"><span className="font-mono text-xs font-semibold text-primary">{number}</span><ArrowUpRight className="h-4 w-4 text-secondary-foreground/45 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/></div><h3 className="mt-5 font-display text-lg font-semibold">{title}</h3><p className="mt-2 text-xs leading-relaxed text-secondary-foreground/70 sm:text-sm">{copy}</p></li>)}</ol>
+          <ol className="grid grid-cols-1 border-l border-t border-secondary-foreground/20 sm:grid-cols-2">{designPrinciples.map(([number, title, copy, slug]) => <li key={number} className="border-b border-r border-secondary-foreground/20"><Link href={websiteFocusPath(slug)} className="group block h-full p-4 transition-colors hover:bg-secondary-foreground/5 focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-primary sm:p-5"><div className="flex items-center justify-between"><span className="font-mono text-xs font-semibold text-primary">{number}</span><ArrowUpRight className="h-4 w-4 text-secondary-foreground/45 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"/></div><h3 className="mt-5 font-display text-lg font-semibold">{title}</h3><p className="mt-2 text-xs leading-relaxed text-secondary-foreground/70 sm:text-sm">{copy}</p><span className="mt-4 inline-flex items-center gap-1 font-mono text-[9px] font-bold uppercase tracking-wider text-primary">Explore this guide<ArrowRight className="h-3 w-3" /></span></Link></li>)}</ol>
         </div></div></section>
 
         <section className="section-padding scroll-reveal"><div className="container-custom">
