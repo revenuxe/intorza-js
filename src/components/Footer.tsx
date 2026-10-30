@@ -62,13 +62,13 @@ const Footer = () => {
   ];
 
   const linkColumnClass = "min-w-0";
-  const headingClass = "mb-5 text-sm font-semibold text-foreground";
+  const headingClass = "mb-5 text-sm font-semibold text-secondary-foreground";
   const linkClass =
-    "text-sm leading-6 text-muted-foreground transition-colors hover:text-foreground";
+    "text-sm leading-6 text-secondary-foreground/75 transition-colors hover:text-secondary-foreground";
 
   return (
-    <footer id="contact" className="bg-muted/40 px-4 py-10 text-foreground sm:px-6 md:py-16">
-      <div className="mx-auto max-w-7xl rounded-3xl border border-border bg-background px-6 py-9 shadow-sm sm:px-10 sm:py-12 lg:px-12">
+    <footer id="contact" className="bg-secondary px-4 py-10 text-secondary-foreground sm:px-6 md:py-16">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-secondary-foreground/15 bg-secondary px-6 py-9 shadow-sm sm:px-10 sm:py-12 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,2fr)] lg:gap-16">
           <div className="max-w-xl">
             <Image
@@ -78,9 +78,9 @@ const Footer = () => {
               alt="Intorza"
               width={1080}
               height={219}
-              className="mb-5 h-11 w-auto brightness-0"
+              className="mb-5 h-11 w-auto brightness-0 invert"
             />
-            <p className="max-w-lg text-sm leading-7 text-muted-foreground sm:text-base">
+            <p className="max-w-lg text-sm leading-7 text-secondary-foreground/75 sm:text-base">
               Streamline your interior business operations with Intorza. From site measurements to
               invoices, manage everything in one place.
             </p>
@@ -94,24 +94,24 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={`Intorza on ${label} (opens in a new tab)`}
                   title={label}
-                  className="text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                  className="text-secondary-foreground/75 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                 >
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               ))}
             </nav>
 
-            <address className="mt-7 grid gap-3 not-italic text-sm leading-6 text-muted-foreground sm:grid-cols-2">
+            <address className="mt-7 grid gap-3 not-italic text-sm leading-6 text-secondary-foreground/75 sm:grid-cols-2">
               <a
                 href={`mailto:${SITE_EMAIL}`}
-                className="flex min-w-0 items-center gap-2.5 transition-colors hover:text-foreground"
+                className="flex min-w-0 items-center gap-2.5 transition-colors hover:text-secondary-foreground"
               >
                 <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span className="break-all">{SITE_EMAIL}</span>
               </a>
               <a
                 href={`tel:${SITE_PHONE_E164}`}
-                className="flex items-center gap-2.5 transition-colors hover:text-foreground"
+                className="flex items-center gap-2.5 transition-colors hover:text-secondary-foreground"
               >
                 <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>{SITE_PHONE}</span>
@@ -120,7 +120,7 @@ const Footer = () => {
                 href={SITE_MAP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-2.5 transition-colors hover:text-foreground sm:col-span-2"
+                className="flex items-start gap-2.5 transition-colors hover:text-white sm:col-span-2"
               >
                 <MapPin className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>{SITE_ADDRESS_TEXT}</span>
@@ -196,7 +196,7 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-4 border-t border-secondary-foreground/15 pt-6 text-sm text-secondary-foreground/75 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} Intorza. All rights reserved.</p>
           <nav aria-label="Legal links" className="flex flex-wrap gap-x-6 gap-y-2">
             {legal.slice(0, 2).map((link) => (
