@@ -61,10 +61,10 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="contact" className="bg-secondary text-secondary-foreground pt-20 pb-8">
+    <footer id="contact" className="bg-secondary text-secondary-foreground pt-16 pb-8 md:pt-20">
       <div className="container-custom">
-        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-12 mb-16">
-          <div className="lg:col-span-2">
+        <div className="grid gap-x-10 gap-y-12 mb-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-8 xl:gap-x-12">
+          <div className="sm:col-span-2 lg:col-span-4">
             <Image
               src={intorzaLogo}
               sizes="240px"
@@ -74,7 +74,7 @@ const Footer = () => {
               height={219}
               className="h-12 w-auto mb-6 brightness-0 invert"
             />
-            <p className="text-secondary-foreground/70 mb-6 max-w-sm">
+            <p className="text-secondary-foreground/70 mb-6 max-w-md leading-relaxed">
               Streamline your interior business operations with Intorza. From site measurements to
               invoices, manage everything in one place.
             </p>
@@ -93,7 +93,7 @@ const Footer = () => {
                 </a>
               ))}
             </nav>
-            <div className="space-y-3">
+            <div className="grid gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
               <a
                 href={`mailto:${SITE_EMAIL}`}
                 className="flex items-center gap-3 text-secondary-foreground/70 hover:text-primary transition-colors"
@@ -138,7 +138,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h2 className="font-display font-semibold text-lg mb-4">Manage Your Business</h2>
+            <h2 className="font-display font-semibold text-lg mb-4">Business Tools</h2>
             <ul className="space-y-3">
               {workflow.map((link) => (
                 <li key={link.href}>
