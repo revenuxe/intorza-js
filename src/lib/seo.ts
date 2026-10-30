@@ -21,6 +21,12 @@ export function organizationSchema() {
     description: SITE_DESCRIPTION,
     email: SITE_EMAIL,
     telephone: SITE_PHONE_E164,
+    sameAs: [
+      "https://www.linkedin.com/company/intorza/",
+      "https://www.facebook.com/people/Intorza/61595329928865/",
+      "https://www.instagram.com/intorza/",
+      "https://www.youtube.com/@Intorza",
+    ],
     parentOrganization: {
       "@type": "Organization",
       name: "Revenuxe",
