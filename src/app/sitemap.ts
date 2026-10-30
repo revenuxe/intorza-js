@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/services/3d-interior-rendering",
     "/services/2d-interior-working-drawings",
+    "/services/interior-boq-cost-estimation",
     ...drawingServicePages.map(({slug})=>drawingServicePath(slug)),
     ...renderingServices.map(({slug}) => renderingServicePath(slug)),
     ...threeDRenderingAudiences.map(({ slug }) => threeDRenderingAudiencePath(slug)),
