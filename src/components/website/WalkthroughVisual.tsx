@@ -63,3 +63,31 @@ export function WalkthroughServiceVisual({ slug, name, title }: { slug: string; 
     <div className="border-t border-border p-4"><h2 className="font-display text-base font-semibold">{title}</h2><p className="mt-1 text-xs leading-relaxed text-muted-foreground">Illustrative planning graphic only; deliverables depend on the agreed scope.</p></div>
   </figure>;
 }
+
+const spacePlans: Record<string, { zone: string; blocks: [number, number, number, number, string][] }> = {
+  living: { zone: "SEATING / FEATURE WALL / CIRCULATION", blocks: [[55, 65, 155, 58, "Feature wall"], [95, 165, 185, 65, "Seating"], [360, 62, 155, 92, "Window"]] },
+  bedroom: { zone: "WARDROBE / BED / DRESSING", blocks: [[55, 65, 115, 200, "Wardrobe"], [210, 145, 205, 105, "Bed"], [425, 65, 105, 65, "Dressing"]] },
+  kitchen: { zone: "CABINET RUNS / COUNTER / WORK ZONE", blocks: [[55, 65, 475, 65, "Wall cabinets"], [55, 205, 475, 65, "Base cabinets"], [245, 145, 120, 42, "Island"]] },
+  dining: { zone: "TABLE / STORAGE / ADJACENT SPACE", blocks: [[60, 65, 110, 190, "Crockery"], [205, 145, 205, 90, "Dining"], [430, 65, 90, 190, "Opening"]] },
+  foyer: { zone: "ENTRY / STORAGE / ROOM TRANSITION", blocks: [[65, 70, 150, 75, "Shoe storage"], [65, 175, 150, 70, "Entry bench"], [360, 70, 65, 175, "Screen"]] },
+  office: { zone: "WORKSTATION / STORAGE / CLEARANCE", blocks: [[75, 75, 175, 60, "Desk"], [335, 70, 155, 65, "Shelving"], [180, 180, 225, 70, "Work zone"]] },
+  home: { zone: "ROOMS / SHARED AREAS / SEQUENCE", blocks: [[55, 60, 210, 100, "Living"], [300, 60, 220, 100, "Kitchen"], [55, 185, 210, 95, "Bedroom"], [300, 185, 220, 95, "Dining"]] },
+  commercial: { zone: "RECEPTION / WORK ZONES / CIRCULATION", blocks: [[50, 70, 130, 75, "Reception"], [215, 70, 280, 75, "Work area"], [95, 190, 145, 65, "Meeting"], [300, 190, 195, 65, "Shared zone"]] },
+};
+
+export function WalkthroughSpaceVisual({ name, focus, variant }: { name: string; focus: string; variant: string }) {
+  const plan = spacePlans[variant] ?? spacePlans.living;
+  return <figure className="relative overflow-hidden border-2 border-foreground bg-card shadow-[5px_5px_0_0_var(--foreground)]">
+    <div className="flex items-center justify-between gap-3 border-b-2 border-foreground bg-muted px-4 py-3"><span className="font-display text-xs font-bold">{name.toUpperCase()} / SEQUENCE STUDY</span><span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">Illustrative</span></div>
+    <div className="bg-[#eee8dc] p-3 sm:p-5" role="img" aria-label={`Illustrative ${name.toLowerCase()} walkthrough plan showing ${focus.toLowerCase()}`}>
+      <svg viewBox="0 0 600 350" className="block h-auto w-full border border-[#263c58]/20 bg-[#faf8f3]" aria-hidden="true">
+        <path d="M30 35h540v275H30z" fill="none" stroke="#263c58" strokeWidth="4"/><path d="M300 35v75m-270 95h90m210 105v-90m270-65h-85" fill="none" stroke="#263c58" strokeWidth="2"/>
+        <path d="M30 22h540M30 16v12m540-12v12M16 35v275m-6-275h12m-12 275h12" fill="none" stroke="#758397" strokeWidth="1"/>
+        {plan.blocks.map(([x,y,w,h,label],index)=><g key={label}><rect x={x} y={y} width={w} height={h} fill={["#d9c7ad","#bdc7ba","#d1cfc2","#c7b9a3"][index%4]} stroke="#263c58" strokeWidth="2"/><text x={x+8} y={y+18} fill="#263c58" fontSize="11" fontFamily="sans-serif">{label}</text></g>)}
+        <path d="M58 292c112-95 198 31 302-69 61-59 97-37 169-111" fill="none" stroke="#b84d2a" strokeWidth="3" strokeDasharray="7 7"/><circle cx="58" cy="292" r="9" fill="#b84d2a" stroke="#faf8f3" strokeWidth="4"/><circle cx="529" cy="112" r="9" fill="#b84d2a" stroke="#faf8f3" strokeWidth="4"/><text x="42" y="337" fill="#263c58" fontSize="8" fontFamily="monospace">{plan.zone}</text>
+      </svg>
+      <div className="mt-3 flex items-center gap-3 border border-[#263c58]/15 bg-background/90 p-3"><Camera className="h-4 w-4 shrink-0 text-primary" aria-hidden="true"/><span className="text-xs font-semibold text-[#263c58]">{focus}</span><span className="ml-auto font-mono text-[9px] text-muted-foreground">PATH / CONCEPT</span></div>
+    </div>
+    <figcaption className="border-t border-border px-4 py-3 text-[10px] leading-relaxed text-muted-foreground">Illustrative room plan and camera route, not measured or to scale. The visualization follows the agreed project scope.</figcaption>
+  </figure>;
+}

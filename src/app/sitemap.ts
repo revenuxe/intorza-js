@@ -9,6 +9,7 @@ import { threeDRenderingAudiencePath, threeDRenderingAudiences } from "@/data/3d
 import { renderingServices, renderingServicePath } from "@/data/3d-rendering-services";
 import { boqRoomPages, boqRoomPath } from "@/data/boq-room-pages";
 import { walkthroughServicePages, walkthroughServicePath } from "@/data/walkthrough-service-pages";
+import { walkthroughSpacePages, walkthroughSpacePath } from "@/data/walkthrough-space-pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -23,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/interior-boq-cost-estimation",
     "/services/3d-walkthrough-360-visualization",
     ...walkthroughServicePages.map(({ slug }) => walkthroughServicePath(slug)),
+    ...walkthroughSpacePages.map(({ slug }) => walkthroughSpacePath(slug)),
     ...boqDetailPages.map(({slug})=>boqDetailPath(slug)),
     ...boqRoomPages.map(({slug})=>boqRoomPath(slug)),
     ...drawingServicePages.map(({slug})=>drawingServicePath(slug)),
