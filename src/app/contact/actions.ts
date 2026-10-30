@@ -2,7 +2,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/lib/supabase/database.types";
 import { supabaseConfig } from "@/lib/supabase/config";
-import { validateContact } from "@/lib/contact-validation";
+import { normalizePhone, validateContact } from "@/lib/contact-validation";
 
 export type ContactState = { success: boolean; message: string };
 export async function submitContact(
@@ -13,11 +13,10 @@ export async function submitContact(
     return { success: true, message: "Thank you. Your message has been received." };
   const input = {
     name: String(form.get("name") ?? "").trim(),
-    email: String(form.get("email") ?? "")
-      .trim()
-      .toLowerCase(),
+    email: String(form.get("email") ?? "").trim().toLowerCase() || null,
+    phone: normalizePhone(String(form.get("phone") ?? "")) ?? "",
     subject: String(form.get("subject") ?? "").trim(),
-    message: String(form.get("message") ?? "").trim(),
+    message: String(form.get("message") ?? "").trim() || null,
   };
   const validation = validateContact(input);
   if (validation) return { success: false, message: validation };

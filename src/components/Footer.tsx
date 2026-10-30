@@ -40,6 +40,7 @@ const Footer = () => {
     { label: "Client Management", href: "/interior-design-crm" },
     { label: "Team Management", href: "/interior-team-management" },
   ];
+  const services = [{ label: "Website Development", href: "/services/website-development" }];
   const company = [
     { label: "About Us", to: "/about" as const },
     { label: "Demo Videos", to: "/demo-videos" as const },
@@ -56,7 +57,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-secondary text-secondary-foreground pt-20 pb-8">
       <div className="container-custom">
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-12 mb-16">
           <div className="lg:col-span-2">
             <Image
               src={intorzaLogo}
@@ -140,6 +141,18 @@ const Footer = () => {
                     prefetch={false}
                     className="text-secondary-foreground/70 hover:text-primary transition-colors"
                   >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="font-display font-semibold text-lg mb-4">Services</h2>
+            <ul className="space-y-3">
+              {services.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-secondary-foreground/70 hover:text-primary transition-colors">
                     {link.label}
                   </Link>
                 </li>

@@ -362,3 +362,53 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation: fadeUp 650ms ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 24%;
+  }
+}
+
+.journey-art {
+  background:
+    linear-gradient(90deg, transparent 0 74%, rgb(48 57 49 / 14%) 74%),
+    linear-gradient(180deg, transparent 0 72%, #786f60 72%),
+    linear-gradient(135deg, #cbb99b 0 34%, #e8e1d5 34% 70%, #a9a28f 70%);
+}
+.journey-art-window {
+  position: absolute;
+  top: 13%;
+  left: 14%;
+  width: 32%;
+  height: 56%;
+  border: 4px solid #eee9de;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(90deg, #778477 0 48%, #eee9de 48% 53%, #839083 53%);
+  box-shadow: 0 4px 12px rgb(39 43 40 / 15%);
+}
+.journey-art-table {
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+  width: 34%;
+  height: 18%;
+  border-top: 3px solid #eee4d5;
+  background: #6a6355;
+}
+.journey-connector svg {
+  animation: journey-pulse 1.8s ease-in-out infinite;
+}
+@keyframes journey-pulse {
+  50% { opacity: 0.55; transform: translateX(3px); }
+}
+@media (max-width: 639px) {
+  .journey-connector svg { animation-name: journey-pulse-down; }
+}
+@keyframes journey-pulse-down {
+  50% { opacity: 0.55; transform: translateY(3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-connector svg { animation: none; }
+}

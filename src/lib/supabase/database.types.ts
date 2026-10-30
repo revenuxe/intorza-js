@@ -110,28 +110,31 @@ export type Database = {
       inquiries: {
         Row: {
           created_at: string;
-          email: string;
+          email: string | null;
           id: string;
-          message: string;
+          message: string | null;
           name: string;
+          phone: string | null;
           read: boolean;
           subject: string | null;
         };
         Insert: {
           created_at?: string;
-          email: string;
+          email?: string | null;
           id?: string;
-          message: string;
+          message?: string | null;
           name: string;
+          phone?: string | null;
           read?: boolean;
           subject?: string | null;
         };
         Update: {
           created_at?: string;
-          email?: string;
+          email?: string | null;
           id?: string;
-          message?: string;
+          message?: string | null;
           name?: string;
+          phone?: string | null;
           read?: boolean;
           subject?: string | null;
         };

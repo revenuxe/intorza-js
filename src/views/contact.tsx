@@ -12,7 +12,7 @@ import {
   SITE_PHONE_E164,
 } from "@/lib/site";
 
-export default function Contact() {
+export default function Contact({ initialSubject = "" }: { initialSubject?: string }) {
   const info = [
     {
       icon: Mail,
@@ -29,42 +29,33 @@ export default function Contact() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-24">
-        <section className="section-padding bg-gradient-hero">
-          <div className="container-custom max-w-3xl text-center">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Contact Intorza for <span className="text-primary">Support and Sales</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Have questions about Intorza? Our team is here to help you streamline your interior
-              design business.
-            </p>
+        <section className="container-custom grid max-w-6xl gap-10 py-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
+          <div className="border-2 border-foreground bg-card p-5 shadow-[5px_5px_0_0_var(--foreground)] sm:p-8">
+            <ContactForm initialSubject={initialSubject} />
+          </div>
+          <div>
+            <h2 className="mb-5 font-display text-2xl font-bold">Other ways to reach us</h2>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              {info.map((item) => (
+                <div key={item.title} className="flex gap-4 border border-border bg-background p-4">
+                  <div className="grid h-9 w-9 shrink-0 place-items-center bg-primary/10">
+                    <item.icon className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-display font-semibold">{item.title}</h3>
+                    {item.href ? (
+                      <a href={item.href} className="mt-1 block break-words text-sm text-primary hover:underline">{item.detail}</a>
+                    ) : (
+                      <p className="mt-1 text-sm text-muted-foreground">{item.detail}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
-
         <section className="section-padding">
-          <div className="container-custom grid md:grid-cols-2 gap-6 max-w-5xl">
-            {info.map((item) => (
-              <div
-                key={item.title}
-                className="bg-card border-2 border-foreground shadow-[5px_5px_0_0_var(--foreground)] p-6 text-center"
-              >
-                <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h2 className="font-display font-semibold text-lg mb-2">{item.title}</h2>
-                {item.href ? (
-                  <a href={item.href} className="text-primary font-medium hover:underline">
-                    {item.detail}
-                  </a>
-                ) : (
-                  <p className="text-foreground font-medium">{item.detail}</p>
-                )}
-              </div>
-            ))}
-          </div>
-
           <ContactGuide />
-          <ContactForm />
           <div className="container-custom max-w-2xl text-center mt-16">
             <Button size="lg" asChild>
               <a href={`tel:${SITE_PHONE_E164}`}>Call {SITE_PHONE}</a>

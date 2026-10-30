@@ -5,6 +5,7 @@ import { validateContact } from "./contact-validation.ts";
 const valid = {
   name: "Interior Studio",
   email: "studio@example.com",
+  phone: "+14155550123",
   subject: "Quotation support",
   message: "Please help us set up our first quotation.",
 };
@@ -20,7 +21,7 @@ describe("contact submission boundaries", () => {
       assert.ok(validateContact({ ...valid, email }));
   });
   it("rejects missing and oversized fields", () => {
-    for (const field of ["name", "subject", "message"] as const)
+    for (const field of ["name", "subject"] as const)
       assert.ok(validateContact({ ...valid, [field]: "" }));
     for (const [field, length] of [
       ["name", 121],

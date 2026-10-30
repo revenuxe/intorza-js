@@ -18,7 +18,7 @@ export default async function Inquiries({
     unread = params.filter === "unread";
   let query = supabase
     .from("inquiries")
-    .select("id, name, email, subject, message, read, created_at", { count: "exact" })
+    .select("id, name, email, phone, subject, message, read, created_at", { count: "exact" })
     .order("created_at", { ascending: false })
     .order("id")
     .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
@@ -66,10 +66,9 @@ export default async function Inquiries({
                   <h2 className="text-xl font-semibold mt-2">{item.subject}</h2>
                   <p className="text-sm text-muted-foreground mt-2">
                     {item.name} ·{" "}
-                    <a href={`mailto:${item.email}`} className="underline">
-                      {item.email}
-                    </a>{" "}
-                    · {adminDate(item.created_at)} IST
+                    {item.email ? <a href={`mailto:${item.email}`} className="underline">{item.email}</a> : "No email provided"}
+                    {item.phone && <> · <a href={`tel:${item.phone}`} className="underline">{item.phone}</a></>}
+                    {" "}· {adminDate(item.created_at)} IST
                   </p>
                 </div>
                 <form action={updateInquiry}>
@@ -80,14 +79,12 @@ export default async function Inquiries({
                   </SubmitButton>
                 </form>
               </div>
-              <p className="whitespace-pre-wrap break-words mt-5 mb-5">{item.message}</p>
+              {item.message ? <p className="whitespace-pre-wrap break-words mt-5 mb-5">{item.message}</p> : <p className="my-5 text-sm italic text-muted-foreground">No message provided.</p>}
               <div className="flex flex-wrap gap-6 items-start">
-                <a
-                  href={`mailto:${item.email}?subject=${encodeURIComponent(`Re: ${item.subject}`)}`}
+                {item.email && <a
+                  href={`mailto:${item.email}?subject=${encodeURIComponent(`Re: ${item.subject ?? "Your enquiry"}`)}`}
                   className="text-sm underline"
-                >
-                  Reply by email
-                </a>
+                >Reply by email</a>}
                 <DeleteRecord id={item.id} table="inquiries" />
               </div>
             </article>

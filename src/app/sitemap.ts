@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/demo-videos",
     "/contact",
+    "/services/website-development",
     "/interior-design-dashboard",
     "/interior-site-measurement",
     "/interior-quotation-management",
@@ -36,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       path === ""
         ? 1
-        : path.startsWith("/interior-") || path === "/ai-quotation-builder"
+        : path.startsWith("/interior-") || path === "/ai-quotation-builder" || path === "/services/website-development"
           ? 0.8
           : 0.5,
   }));
