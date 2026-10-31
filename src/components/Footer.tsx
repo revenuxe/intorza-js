@@ -67,8 +67,8 @@ const Footer = () => {
     "text-sm leading-6 text-secondary-foreground/75 transition-colors hover:text-secondary-foreground";
 
   return (
-    <footer id="contact" className="bg-secondary px-4 py-10 text-secondary-foreground sm:px-6 md:py-16">
-      <div className="mx-auto max-w-7xl rounded-3xl border border-secondary-foreground/15 bg-secondary px-6 py-9 shadow-sm sm:px-10 sm:py-12 lg:px-12">
+    <footer id="contact" className="bg-background px-4 py-10 text-foreground sm:px-6 md:py-16">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-secondary-foreground/15 bg-secondary px-6 py-9 text-secondary-foreground shadow-sm sm:px-10 sm:py-12 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,2fr)] lg:gap-16">
           <div className="max-w-xl">
             <Image
@@ -94,7 +94,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={`Intorza on ${label} (opens in a new tab)`}
                   title={label}
-                  className="text-secondary-foreground/75 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                  className="text-secondary-foreground/75 transition-colors hover:text-secondary-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                 >
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </a>
@@ -120,7 +120,7 @@ const Footer = () => {
                 href={SITE_MAP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-2.5 transition-colors hover:text-white sm:col-span-2"
+                className="flex items-start gap-2.5 transition-colors hover:text-secondary-foreground sm:col-span-2"
               >
                 <MapPin className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
                 <span>{SITE_ADDRESS_TEXT}</span>
