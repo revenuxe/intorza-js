@@ -1,8 +1,7 @@
-import AdminShell from "@/components/admin/AdminShell";
 import { SubmitButton } from "@/components/admin/SubmitButton";
 import { requireAdmin } from "@/lib/admin/auth";
 import { adminDate } from "@/lib/admin/pagination";
-import { setAdminAccess } from "../actions";
+import { setAdminAccess } from "../../actions";
 
 export default async function Users({
   searchParams,
@@ -14,7 +13,7 @@ export default async function Users({
   if (error) throw new Error("Unable to load account access.");
   const params = await searchParams;
   return (
-    <AdminShell active="/admin/users">
+    <>
       <h1 className="text-4xl font-display font-bold mb-3">Account access</h1>
       <p className="text-muted-foreground mb-7">
         Grant or revoke website administrator privileges for confirmed accounts. The owner and your
@@ -77,6 +76,6 @@ export default async function Users({
         Up to 1,000 registered accounts. Passwords and authentication secrets are never exposed
         here.
       </p>
-    </AdminShell>
+    </>
   );
 }

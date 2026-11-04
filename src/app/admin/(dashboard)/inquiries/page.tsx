@@ -1,11 +1,10 @@
 import Link from "next/link";
-import AdminShell from "@/components/admin/AdminShell";
 import { DeleteRecord } from "@/components/admin/DeleteRecord";
 import { SubmitButton } from "@/components/admin/SubmitButton";
 import { Pagination } from "@/components/admin/Pagination";
 import { requireAdmin } from "@/lib/admin/auth";
 import { adminDate, pageNumber, PAGE_SIZE } from "@/lib/admin/pagination";
-import { updateInquiry } from "../actions";
+import { updateInquiry } from "../../actions";
 
 export default async function Inquiries({
   searchParams,
@@ -26,7 +25,7 @@ export default async function Inquiries({
   const { data, error, count } = await query;
   if (error) throw new Error("Unable to load inquiries.");
   return (
-    <AdminShell active="/admin/inquiries">
+    <>
       <h1 className="text-4xl font-display font-bold mb-3">Inquiries</h1>
       <p className="text-muted-foreground mb-7">
         Read and respond to messages from the contact form.
@@ -101,6 +100,6 @@ export default async function Inquiries({
         count={count ?? 0}
         filter={unread ? "unread" : undefined}
       />
-    </AdminShell>
+    </>
   );
 }

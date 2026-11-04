@@ -1,4 +1,3 @@
-import AdminShell from "@/components/admin/AdminShell";
 import { Pagination } from "@/components/admin/Pagination";
 import { requireAdmin } from "@/lib/admin/auth";
 import { adminDate, pageNumber, PAGE_SIZE } from "@/lib/admin/pagination";
@@ -18,7 +17,7 @@ export default async function Activity({
     .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
   if (error) throw new Error("Unable to load activity.");
   return (
-    <AdminShell active="/admin/activity">
+    <>
       <h1 className="text-4xl font-display font-bold mb-3">Admin activity</h1>
       <p className="text-muted-foreground mb-8">
         Database-recorded changes to inquiries, feedback, and administrator roles.
@@ -54,6 +53,6 @@ export default async function Activity({
         </table>
       </div>
       <Pagination path="/admin/activity" page={page} count={count ?? 0} />
-    </AdminShell>
+    </>
   );
 }

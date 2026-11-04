@@ -3,22 +3,14 @@ import Image from "next/image";
 import { requireAdmin } from "@/lib/admin/auth";
 import { signOut } from "@/app/admin/actions";
 import { SubmitButton } from "./SubmitButton";
+import { AdminNavigation } from "./AdminNavigation";
 
 export default async function AdminShell({
   children,
-  active,
 }: {
   children: React.ReactNode;
-  active: string;
 }) {
   const { user } = await requireAdmin();
-  const links = [
-    ["/admin", "Overview"],
-    ["/admin/inquiries", "Inquiries"],
-    ["/admin/feedback", "Feedback"],
-    ["/admin/users", "Access"],
-    ["/admin/activity", "Activity"],
-  ];
   return (
     <div className="min-h-screen bg-muted/30">
       <header className="border-b-2 border-foreground bg-background">
@@ -47,21 +39,7 @@ export default async function AdminShell({
             </form>
           </div>
         </div>
-        <nav
-          aria-label="Admin navigation"
-          className="max-w-7xl mx-auto px-5 flex gap-1 overflow-x-auto"
-        >
-          {links.map(([href, label]) => (
-            <Link
-              key={href}
-              href={href}
-              aria-current={active === href ? "page" : undefined}
-              className={`px-5 py-3 whitespace-nowrap font-medium border-b-4 ${active === href ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+        <AdminNavigation />
       </header>
       <main className="max-w-7xl mx-auto px-5 py-10">{children}</main>
     </div>

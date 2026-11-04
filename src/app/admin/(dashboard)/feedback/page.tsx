@@ -1,4 +1,3 @@
-import AdminShell from "@/components/admin/AdminShell";
 import { DeleteRecord } from "@/components/admin/DeleteRecord";
 import { Pagination } from "@/components/admin/Pagination";
 import { requireAdmin } from "@/lib/admin/auth";
@@ -20,7 +19,7 @@ export default async function Feedback({
     .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
   if (error) throw new Error("Unable to load feedback.");
   return (
-    <AdminShell active="/admin/feedback">
+    <>
       <h1 className="text-4xl font-display font-bold mb-3">Feedback</h1>
       <p className="text-muted-foreground mb-8">
         Review feedback already collected by your website.
@@ -62,6 +61,6 @@ export default async function Feedback({
         )}
       </div>
       <Pagination path="/admin/feedback" page={page} count={count ?? 0} />
-    </AdminShell>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { requireAdmin } from "@/lib/admin/auth";
-import AdminShell from "@/components/admin/AdminShell";
 
 export default async function Dashboard() {
   const { supabase } = await requireAdmin();
@@ -24,7 +23,7 @@ export default async function Dashboard() {
   ] as const;
   const recentInquiries = results[4].data ?? [];
   return (
-    <AdminShell active="/admin">
+    <>
       <h1 className="text-4xl font-display font-bold mb-3">Overview</h1>
       <p className="text-muted-foreground mb-9">
         Manage customer conversations and website access.
@@ -86,6 +85,6 @@ export default async function Dashboard() {
           </div>
         </dl>
       </section>
-    </AdminShell>
+    </>
   );
 }
