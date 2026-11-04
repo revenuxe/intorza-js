@@ -29,6 +29,14 @@ export default function Contact({ initialSubject = "" }: { initialSubject?: stri
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-24">
+        <div className="container-custom max-w-6xl pt-12">
+          <h1 className="font-display text-4xl font-bold md:text-5xl">Contact Intorza</h1>
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            Ask about the quotation software, get product support, or discuss drawing,
+            visualization and estimation services for your interior project.
+          </p>
+        </div>
+
         <section className="container-custom grid max-w-6xl gap-10 py-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
           <div className="border-2 border-foreground bg-card p-5 shadow-[5px_5px_0_0_var(--foreground)] sm:p-8">
             <ContactForm initialSubject={initialSubject} />

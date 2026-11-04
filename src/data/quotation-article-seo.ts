@@ -5,6 +5,14 @@ export const quotationArticleDates = {
   label: "25 October 2026",
 };
 
+export function articleModifiedDate(slug: string) {
+  return slug === "interior-quotation-format"
+    ? "2026-11-04T00:00:00+05:30"
+    : quotationArticleDates.modified;
+}
+
+
+
 export const articleLibrarySEO = {
   title: "Interior Quotation Guides & Templates | Intorza Articles",
   description:
@@ -13,7 +21,7 @@ export const articleLibrarySEO = {
 
 export const quotationArticleSEO: Record<string, { title: string; description: string }> = {
   "interior-quotation-format": {
-    title: "Interior Quotation Format: Room-wise Guide | Intorza",
+    title: "How to Prepare an Interior Quotation | Intorza",
     description:
       "Learn how to structure an interior quotation with room-wise items, quantities, material specifications, exclusions and approval terms. Includes a worked example.",
   },

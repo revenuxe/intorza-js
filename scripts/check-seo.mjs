@@ -3,6 +3,7 @@ import { articlePath, quotationArticles } from "../src/data/quotation-articles.t
 import {
   quotationArticleSEO,
   quotationArticleDates,
+  articleModifiedDate,
   articleLibrarySEO,
 } from "../src/data/quotation-article-seo.ts";
 import { spawn } from "node:child_process";
@@ -244,7 +245,7 @@ try {
         );
         assert.equal(
           article?.dateModified,
-          quotationArticleDates.modified,
+          articleModifiedDate(path.split("/").at(-1)),
           path + ": fixed modification date",
         );
         assert.ok(
@@ -387,11 +388,20 @@ try {
       page.path + ": existing article stays out of footer",
     );
   }
+  const linkedDestinations = new Map();
   for (const page of pages)
     for (const link of page.links.filter((link) => link.startsWith("/") || link.startsWith("#"))) {
       const parsed = new URL(link, origin + page.path);
-      const destination = pages.find((item) => item.path === parsed.pathname);
-      assert.ok(destination, `${page.path}: valid internal link ${link}`);
+      let destination = pages.find((item) => item.path === parsed.pathname) ?? linkedDestinations.get(parsed.pathname);
+      // Service routes are outside the product/editorial metadata checks above,
+      // but links to them still need a real response and a valid anchor.
+      if (!destination) {
+        const response = await fetch(origin + parsed.pathname, { redirect: "manual" });
+        assert.equal(response.status, 200, `${page.path}: valid internal link ${link}`);
+        const linkedHtml = await response.text();
+        destination = { ids: [...linkedHtml.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]) };
+        linkedDestinations.set(parsed.pathname, destination);
+      }
       if (parsed.hash)
         assert.ok(
           destination.ids.includes(decodeURIComponent(parsed.hash.slice(1))),
@@ -416,13 +426,15 @@ try {
     const lastModified = entry?.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
     assert.equal(
       new Date(lastModified).getTime(),
-      new Date(quotationArticleDates.modified).getTime(),
+      new Date(articleModifiedDate(path === "/articles" ? "interior-quotation-format" : path.split("/").at(-1))).getTime(),
       path + ": sitemap uses editorial modification date",
     );
   }
+  const prerenderedServices = Object.keys(JSON.parse(fs.readFileSync(".next/prerender-manifest.json", "utf8")).routes).filter((path) => path.startsWith("/services/"));
+  const expectedSitemapPaths = [...new Set([...paths, ...prerenderedServices])];
   assert.deepEqual(
     sitemapUrls.sort(),
-    paths.map((path) => canonicalOrigin + (path === "/" ? "" : path)).sort(),
+    expectedSitemapPaths.map((path) => canonicalOrigin + (path === "/" ? "" : path)).sort(),
     "Sitemap matches public pages",
   );
   const missing = await fetch(origin + "/not-an-existing-seo-page");

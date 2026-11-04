@@ -1,3 +1,5 @@
+import { drawingExamples } from "./service-examples";
+
 export const drawingServicePages = [
   { slug: "furniture-layout-plans", name: "Furniture Layout Plans", visual: 0, intro: "Furniture layout plans communicate where key pieces sit within the proposed interior. Intorza supports designers and project teams with plans based on supplied room dimensions, furniture requirements and approved design decisions.", details: [
     ["Placement and relationships", "Show beds, seating, tables, storage and other selected pieces in relation to openings and adjoining spaces."], ["Furniture sizes", "Use known dimensions or flag provisional selections so the plan does not imply a product has been finalized."], ["Circulation discussion", "Make the intended movement between furniture groups easier to review with the project team."], ["Linked documentation", "Coordinate references to relevant wall elevations and joinery details when those drawings form part of the scope."]], inputs: ["Measured room plan and openings", "Furniture list and dimensions", "Approved arrangement or design notes", "Areas requiring storage or custom furniture"], question: "Can a furniture layout include custom joinery?", answer: "The plan can show the placement and footprint of custom elements. Elevations, sections and fabrication details should be identified separately when defining the drawing scope." },
@@ -31,6 +33,7 @@ export const drawingServicePages = [
 
 export function drawingServicePath(slug: string) { return `/services/2d-interior-working-drawings/${slug}`; }
 export function drawingDetailFaqs(page: (typeof drawingServicePages)[number]) { return [
+  drawingExamples[page.slug].faq,
   { q: page.question, a: page.answer },
   { q: "What project information should I share?", a: `Useful starting inputs include ${page.inputs.join(", ").toLowerCase()}. The available information is reviewed before the required scope is confirmed.` },
   { q: "How are pricing, timing and deliverables confirmed?", a: "These depend on the drawing types, detail level, source information and review needs. Scope, output formats, revision arrangements and timing are agreed for each project." },

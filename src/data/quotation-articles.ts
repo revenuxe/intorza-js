@@ -14,7 +14,7 @@ export type QuotationArticle = {
 export const quotationArticles: QuotationArticle[] = [
   {
     slug: "interior-quotation-format",
-    title: "Interior quotation format: a complete room-by-room guide",
+    title: "How to prepare an interior quotation: from measurements to approval",
     category: "Start here",
     description:
       "Build a clear interior quotation with item descriptions, measurement units, material specifications, scope boundaries, payment milestones and revision control.",

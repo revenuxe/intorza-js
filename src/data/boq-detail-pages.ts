@@ -1,3 +1,5 @@
+import { boqExamples } from "./service-examples";
+
 export const boqDetailPages = [
   {
     slug: "boq-preparation", name: "Interior BOQ Preparation", title: "Interior BOQ Preparation Services | Intorza",
@@ -85,6 +87,7 @@ export const boqDetailPages = [
 
 export function boqDetailPath(slug: string) { return `/services/interior-boq-cost-estimation/${slug}`; }
 export function boqDetailFaqs(page: (typeof boqDetailPages)[number]) { return [
+  boqExamples[page.slug].faq,
   {q:page.question,a:page.answer},
   {q:"What information should I share to get started?",a:`Useful inputs include ${page.inputs.join(", ").toLowerCase()}. We review available documents before confirming the suitable scope and any additional information required.`},
   {q:"How are fees, timing and deliverables agreed?",a:"These depend on the rooms, item categories, documentation quality, detail level and review needs. Project scope, output and timing are confirmed after the brief is reviewed."},

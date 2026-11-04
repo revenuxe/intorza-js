@@ -2,7 +2,7 @@
 export const SITE_URL = "https://www.intorza.com";
 export const SITE_NAME = "Intorza";
 export const SITE_DESCRIPTION =
-  "All-in-one interior design project management software. Create quotations, generate invoices, manage clients, projects and team collaboration. Trusted by 500+ interior designers and contractors worldwide.";
+  "Interior design project management software for designers and contractors. Create quotations, generate invoices and manage clients, projects and team collaboration.";
 export const SITE_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const SITE_LOGO = `${SITE_URL}/intorza-logo.webp`;
 export const SITE_EMAIL = "intorza.com@gmail.com";

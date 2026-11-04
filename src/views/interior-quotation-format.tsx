@@ -79,6 +79,13 @@ export default function QuotationFormatPage() {
             your measured quantities and current local prices.
           </p>
 
+          <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Need to build your own scope before filling in the sample? Follow our{' '}
+            <Link href="/articles/interior-quotation-format" className="font-semibold text-foreground underline underline-offset-4">
+              step-by-step guide to preparing an interior quotation
+            </Link>{' '}
+            for measurement checks, item descriptions and approval records.
+          </p>
           <p className="max-w-3xl border-l-4 border-primary pl-4 text-muted-foreground mb-10">
             A useful interior work quotation identifies the client and project, explains each item
             and material, shows how every amount is calculated, and separates the subtotal,

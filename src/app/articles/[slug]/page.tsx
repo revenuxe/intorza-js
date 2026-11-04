@@ -15,7 +15,7 @@ import ArticleChecklist from "@/components/content/ArticleChecklist";
 import QuotationArticleCTA from "@/components/content/QuotationArticleCTA";
 import { createMetadata, JsonLd } from "@/lib/next-seo";
 import { SITE_URL } from "@/lib/site";
-import { quotationArticleSEO, quotationArticleDates } from "@/data/quotation-article-seo";
+import { articleModifiedDate, quotationArticleSEO, quotationArticleDates } from "@/data/quotation-article-seo";
 
 export function generateStaticParams() {
   return quotationArticles.map(({ slug }) => ({ slug }));
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       ...meta.openGraph,
       type: "article",
       publishedTime: quotationArticleDates.published,
-      modifiedTime: quotationArticleDates.modified,
+      modifiedTime: articleModifiedDate(slug),
       authors: [`${SITE_URL}/about`],
       section: "Interior quotation guides",
     },
@@ -107,7 +107,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             publisher: { "@id": `${SITE_URL}/#organization` },
             isPartOf: { "@id": `${SITE_URL}/articles#webpage` },
             datePublished: quotationArticleDates.published,
-            dateModified: quotationArticleDates.modified,
+            dateModified: articleModifiedDate(slug),
             image: `${SITE_URL}/og-image.jpg`,
             articleSection: "Quotation",
             wordCount: words,
@@ -200,6 +200,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </a>
           </div>
         </header>
+        {slug === "interior-quotation-format" && (
+          <p className="mb-6 rounded-xl border border-border bg-muted p-5 text-sm leading-relaxed">
+            Want to see the finished document first? Open the{' '}
+            <Link href="/interior-quotation-format" className="font-semibold text-primary underline underline-offset-4">
+              room-wise quotation sample with illustrative quantities and amounts
+            </Link>.
+            {' '}This guide explains how to prepare the measurements, specifications and approval record behind that document.
+          </p>
+        )}
         <div className="grid items-start gap-8 border-t border-border py-8 lg:grid-cols-[230px_minmax(0,1fr)] lg:gap-14">
           <aside className="lg:sticky lg:top-28">
             <details className="rounded-xl border border-border bg-background lg:hidden">

@@ -3,7 +3,7 @@ import { boqDetailPages, boqDetailPath } from "@/data/boq-detail-pages";
 import { drawingServicePages, drawingServicePath } from "@/data/drawing-service-pages";
 import { articlePath, quotationArticles } from "@/data/quotation-articles";
 import type { MetadataRoute } from "next";
-import { quotationArticleDates } from "@/data/quotation-article-seo";
+import { articleModifiedDate } from "@/data/quotation-article-seo";
 import { websiteAudiencePages, websiteAudiencePath, websiteFocusPages, websiteFocusPath } from "@/data/website-audience-pages";
 import { threeDRenderingAudiencePath, threeDRenderingAudiences } from "@/data/3d-rendering-audience-pages";
 import { renderingServices, renderingServicePath } from "@/data/3d-rendering-services";
@@ -52,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ].map((path) => ({
     url: `${SITE_URL}${path}`,
     ...(path === "/articles" || path.startsWith("/articles/")
-      ? { lastModified: quotationArticleDates.modified }
+      ? { lastModified: articleModifiedDate(path === "/articles" ? "interior-quotation-format" : path.split("/").at(-1)!) }
       : {}),
     changeFrequency: path === "" ? "weekly" : "monthly",
     priority:
